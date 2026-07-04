@@ -1,0 +1,232 @@
+/* Compact-scale overrides — loaded after style.css to reduce section spacing,
+   font sizes and component sizing site-wide without touching the base template. */
+
+:root {
+  --section-space: 64px;
+  --section-space-mobile: 36px;
+  --main-container: 1260px;
+}
+
+body {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Section titles / text */
+.sec-title {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.sec-subtitle,
+.sec-subtitle2 {
+  font-size: 11px;
+  padding: 5px 14px;
+}
+
+.sec-text {
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.title-area,
+.sec-btns {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1500px) {
+  .sec-title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 991px) {
+  .sec-title {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sec-title {
+    font-size: 20px;
+  }
+}
+
+/* Buttons — the real site uses green for CTAs (literal background-color:green on
+   the "Learn More" / "Buy Our Products" links, #0D861D on the search submit button)
+   while red stays reserved for the logo mark and nav active/hover accents. */
+.vs-btn {
+  padding: 11px 24px;
+  font-size: 12px;
+  background-color: #0d861d;
+}
+
+.vs-btn.style3 {
+  background-color: var(--title-color);
+}
+
+.ls-hero-btn .vs-btn {
+  height: 44px;
+  line-height: 44px;
+}
+
+/* Breadcrumb / page hero */
+.breadcumb-wrapper {
+  padding: 55px 0;
+}
+
+.breadcumb-title {
+  font-size: 32px;
+}
+
+.breadcumb-menu {
+  margin-top: 14px;
+}
+
+@media (max-width: 1500px) {
+  .breadcumb-wrapper {
+    padding: 45px 0;
+  }
+  .breadcumb-title {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 991px) {
+  .breadcumb-wrapper {
+    padding: 38px 0;
+  }
+  .breadcumb-title {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 767px) {
+  .breadcumb-wrapper {
+    padding: 30px 0;
+  }
+  .breadcumb-title {
+    font-size: 20px;
+  }
+}
+
+/* Cards */
+.service-style1 .service-body {
+  padding: 0.1px 14px 14px 14px;
+  margin-top: -30px;
+}
+
+.service-title {
+  font-size: 16px;
+}
+
+.service-text {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.process-style1 {
+  padding: 18px 18px 14px 18px;
+  margin: 12px 0 24px 12px;
+}
+
+.process-name {
+  font-size: 16px;
+}
+
+.process-text {
+  font-size: 13px;
+}
+
+.team-style1 .team-content {
+  padding-top: 14px;
+}
+
+.team-name {
+  font-size: 16px;
+}
+
+/* Footer */
+.footer-top {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.widget-area {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.widget_title {
+  font-size: 16px;
+  margin: -0.2em 0 16px 0;
+  padding-bottom: 10px;
+}
+
+.footer-widget {
+  margin-bottom: 10px;
+}
+
+.copyright-wrap {
+  padding: 14px 0;
+}
+
+.copyright-text,
+.copyright-menu a {
+  font-size: 12px;
+}
+
+/* Media widgets */
+.media-style1 .media-label,
+.media-style4 .media-label {
+  font-size: 12px;
+}
+
+.media-style1 .media-text,
+.media-style4 .media-text {
+  font-size: 15px;
+}
+
+/* Forms */
+.form-style1 {
+  background-color: var(--white-color);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  padding: 26px;
+  margin-bottom: 0;
+  border-radius: 6px;
+}
+
+.form-style1 .form_title {
+  color: var(--title-color);
+}
+
+.form-style1 .vs-btn {
+  color: var(--white-color);
+}
+
+.form-style1 .vs-btn:hover {
+  color: var(--white-color);
+}
+
+.form-style1 .form-group input,
+.form-style4 .form-group input,
+.form-style4 .form-group select,
+.form-style4 .form-group textarea {
+  height: 42px;
+  font-size: 13px;
+}
+
+.form-style1 .form-group {
+  margin-bottom: 12px;
+}
+
+.form-style1 .form_title,
+.form-style4 .form-title {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.form-style1 .vs-btn,
+.form-style4 .vs-btn {
+  padding: 11px 24px;
+}

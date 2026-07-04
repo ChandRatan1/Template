@@ -1,0 +1,16 @@
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 110px;
+}
+
+.form-message {
+  margin-top: 16px;
+  padding: 12px 18px;
+  border-radius: 4px;
+  font-weight: 600;
+  background-color: var(--secondary-color);
+  color: var(--title-color);
+}

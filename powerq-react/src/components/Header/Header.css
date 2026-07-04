@@ -1,0 +1,124 @@
+.header-compact {
+  position: relative;
+  z-index: 41;
+}
+
+.header-top-bar {
+  background-color: var(--white-color);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-top-bar .header-logo {
+  max-width: 150px;
+  padding: 0;
+}
+
+.header-top-icons {
+  gap: 16px;
+}
+
+.header-top-icons a,
+.header-top-icons button {
+  color: var(--title-color);
+  font-size: 15px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  line-height: 1;
+}
+
+.header-top-icons a:hover {
+  color: var(--theme-color);
+}
+
+.header-nav-bar {
+  background-color: var(--title-color);
+}
+
+.header-nav-bar .main-menu > ul > li {
+  margin: 0 12px;
+}
+
+.header-nav-bar .main-menu a {
+  color: var(--white-color);
+  padding: 13px 0;
+  font-size: 14px;
+}
+
+.header-nav-bar .main-menu a:hover,
+.header-nav-bar .main-menu .active > a {
+  color: var(--theme-color);
+}
+
+/* Force the dropdown closed right after a submenu link is clicked, even
+   though the mouse may still be hovering — only the destination page
+   should be visible, not the menu options. Resets on mouseleave. */
+.main-menu li.force-close-submenu > ul.sub-menu {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  z-index: -1 !important;
+}
+
+.header-search-form {
+  display: flex;
+  align-items: center;
+  height: 34px;
+}
+
+.header-search-form input {
+  height: 34px;
+  width: 170px;
+  border: none;
+  padding: 0 12px;
+  font-size: 12px;
+  background-color: var(--white-color);
+  color: var(--title-color);
+}
+
+.header-search-form input:focus {
+  outline: none;
+}
+
+.header-search-form button {
+  height: 34px;
+  width: 40px;
+  border: none;
+  background-color: #0d861d;
+  color: var(--white-color);
+  font-size: 13px;
+}
+
+.header-search-form button:hover {
+  background-color: var(--title-color);
+  color: #0d861d;
+}
+
+.mobile-search-form {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  max-width: 260px;
+  margin: 0 auto 15px;
+}
+
+.mobile-search-form input {
+  height: 38px;
+  flex: 1;
+  border: 1px solid var(--border-color);
+  border-right: none;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.mobile-search-form input:focus {
+  outline: none;
+}
+
+.mobile-search-form button {
+  height: 38px;
+  width: 42px;
+  border: none;
+  background-color: #0d861d;
+  color: var(--white-color);
+}
