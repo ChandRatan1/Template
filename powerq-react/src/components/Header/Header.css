@@ -3,6 +3,18 @@
   z-index: 41;
 }
 
+.header-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media (max-width: 991px) {
+  .header-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 .header-top-bar {
   background-color: var(--white-color);
   padding: 10px 0;
@@ -10,7 +22,7 @@
 }
 
 .header-top-bar .header-logo {
-  max-width: 150px;
+  max-width: 260px;
   padding: 0;
 }
 
@@ -37,18 +49,69 @@
 }
 
 .header-nav-bar .main-menu > ul > li {
-  margin: 0 12px;
+  margin: 0 16px;
 }
 
 .header-nav-bar .main-menu a {
   color: var(--white-color);
-  padding: 13px 0;
-  font-size: 14px;
+  padding: 17px 0;
+  font-size: 16px;
 }
 
 .header-nav-bar .main-menu a:hover,
-.header-nav-bar .main-menu .active > a {
+.header-nav-bar .main-menu .active > a,
+.header-nav-bar .main-menu a.active {
   color: var(--theme-color);
+}
+
+.main-menu a.active {
+  color: var(--theme-color);
+}
+
+/* The dropdown panel has a white background — its links must stay dark,
+   otherwise they inherit the white nav-bar text color and become invisible. */
+.header-nav-bar .main-menu .sub-menu a {
+  color: var(--title-color);
+}
+
+.header-nav-bar .main-menu .sub-menu a:hover {
+  color: var(--theme-color);
+}
+
+/* Plain list style for the Service dropdown: no bullets, no vertical
+   guide-line — just stacked rows separated by a thin divider. */
+.main-menu ul li.menu-item-has-children > a:after {
+  content: '\f107';
+}
+
+.header-nav-bar .main-menu .sub-menu {
+  min-width: 230px;
+  padding: 0;
+}
+
+.header-nav-bar .main-menu .sub-menu:before {
+  display: none;
+}
+
+.header-nav-bar .main-menu .sub-menu li {
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-nav-bar .main-menu .sub-menu li:last-child {
+  border-bottom: none;
+}
+
+.header-nav-bar .main-menu .sub-menu li a {
+  display: block;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.header-nav-bar .main-menu .sub-menu li a:before {
+  display: none;
 }
 
 /* Force the dropdown closed right after a submenu link is clicked, even

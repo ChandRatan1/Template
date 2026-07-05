@@ -5,8 +5,8 @@ export const company = {
   phoneDisplay: '0433SAFETY / 0433723389',
   phoneHref: 'tel:0433723389',
   email: 'info@powerq.com.au',
-  address: '43 Wonnangatta Crescent, Weir Views VIC 3338',
-  mapHref: 'https://www.google.com/maps/search/?q=43+Wonnangatta+Crescent,+Weir+Views+VIC+3338',
+  address: '43 Wonnangatta Cres, Melton South VIC 3338, Australia',
+  mapHref: 'https://www.google.com/maps/search/?q=43+Wonnangatta+Cres,+Melton+South+VIC+3338',
   footerTagline:
     'At PowerQ, we specialize in providing top-quality fire extinguishers and comprehensive fire safety services. Whether you’re looking to purchase reliable fire protection equipment or need expert installation and maintenance, we’ve got you covered.',
 }

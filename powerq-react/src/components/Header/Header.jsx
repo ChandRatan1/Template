@@ -110,7 +110,7 @@ function SearchForm({ className, inputId }) {
       <input
         id={inputId}
         type="text"
-        placeholder="Search..."
+        placeholder="Search"
         value={term}
         onChange={(e) => setTerm(e.target.value)}
       />
@@ -188,7 +188,7 @@ export default function Header() {
       <header className="vs-header header-compact">
         {/* Top bar: logo + account icons */}
         <div className="header-top-bar">
-          <div className="container">
+          <div className="container-fluid header-container">
             <div className="row align-items-center">
               <div className="col-auto">
                 <div className="header-logo">
@@ -198,9 +198,6 @@ export default function Header() {
                 </div>
               </div>
               <div className="col d-flex justify-content-end align-items-center header-top-icons">
-                <a href={company.phoneHref} aria-label="Call us">
-                  <i className="fas fa-phone-alt" />
-                </a>
                 <Link to="/my-account" aria-label="My Account">
                   <i className="far fa-user" />
                 </Link>
@@ -217,7 +214,7 @@ export default function Header() {
 
         {/* Nav bar: dark, nav links + inline search */}
         <div className="header-nav-bar d-none d-lg-block">
-          <div className="container">
+          <div className="container-fluid header-container">
             <div className="row align-items-center justify-content-between">
               <div className="col-auto">
                 <DesktopNav className="main-menu menu-style1 d-none d-lg-block" />

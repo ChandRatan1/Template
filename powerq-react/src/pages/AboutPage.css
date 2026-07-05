@@ -1,0 +1,28 @@
+.about-hover-card {
+  transition: transform 0.3s ease;
+}
+
+.about-hover-card:hover {
+  transform: translateY(-10px);
+}
+
+.about-why-banner {
+  position: relative;
+  isolation: isolate;
+  padding: 70px 0;
+}
+
+.about-why-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 15, 12, 0.72);
+  z-index: -1;
+}
+
+.about-why-icon {
+  font-size: 40px;
+  color: var(--theme-color);
+  margin-bottom: 14px;
+}
+

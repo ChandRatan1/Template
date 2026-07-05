@@ -61,8 +61,14 @@ body {
   background-color: #0d861d;
 }
 
+/* Send button on the quote form — blue, matching the reference design
+   (kept separate from the green .vs-btn CTAs used elsewhere on the site). */
 .vs-btn.style3 {
-  background-color: var(--title-color);
+  background-color: #4a6cf7;
+}
+
+.vs-btn.style3:hover {
+  background-color: #3a5bd9;
 }
 
 .ls-hero-btn .vs-btn {
@@ -191,7 +197,7 @@ body {
 .form-style1 {
   background-color: var(--white-color);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  padding: 26px;
+  padding: 36px;
   margin-bottom: 0;
   border-radius: 6px;
 }
@@ -212,21 +218,21 @@ body {
 .form-style4 .form-group input,
 .form-style4 .form-group select,
 .form-style4 .form-group textarea {
-  height: 42px;
-  font-size: 13px;
+  height: 48px;
+  font-size: 14px;
 }
 
 .form-style1 .form-group {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .form-style1 .form_title,
 .form-style4 .form-title {
-  font-size: 18px;
-  margin-bottom: 16px;
+  font-size: 22px;
+  margin-bottom: 20px;
 }
 
 .form-style1 .vs-btn,
 .form-style4 .vs-btn {
-  padding: 11px 24px;
+  padding: 13px 24px;
 }

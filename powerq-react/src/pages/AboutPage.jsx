@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero/PageHero'
-import { whyChoosePoints, relationsSection, whoWeAre, aboutIntro, beatQuote, team } from '../data/about'
+import { bgStyle } from '../utils/bg'
+import { whyChoosePoints, whyChooseBanner, relationsSection, whoWeAre, aboutIntro, beatQuote, team } from '../data/about'
+import './AboutPage.css'
 
 export default function AboutPage() {
   return (
@@ -8,22 +10,36 @@ export default function AboutPage() {
       <PageHero title="About Us" current="About Us" />
 
       {/* Why choose PowerQ */}
-      <section className="space-top space-extra-bottom">
+      <section
+        className="about-why-banner"
+        data-bg-src={whyChooseBanner.image}
+        style={bgStyle(whyChooseBanner.image)}
+      >
         <div className="container">
-          <div className="title-area text-center">
-            <span className="sec-subtitle">Why Choose Us</span>
-            <h2 className="sec-title">Why choose PowerQ for Test &amp; Tag in Melbourne</h2>
-            <p className="sec-text col-lg-8 mx-auto">
+          <div className="title-area text-center mb-0">
+            <h2 className="sec-title text-white">Why choose PowerQ for Test &amp; Tag in Melbourne</h2>
+            <p className="sec-text col-lg-8 mx-auto text-white">
               PowerQ is the leading provider of testing and tagging services in Melbourne. Our conveniently
               scheduled after-hours services ensure safety for businesses, restaurants, workshops, offices, schools,
               shops and more. We conduct detailed electrical testing and tagging inspections for our clients so that
               their properties are up to code and fully compliant with occupational health and safety regulations.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Why choose PowerQ - cards */}
+      <section className="space-top space-extra-bottom">
+        <div className="container">
           <div className="row gy-4">
             {whyChoosePoints.map((point) => (
               <div className="col-md-6 col-lg-3" key={point.title}>
-                <div className="process-style1">
+                <div className="process-style1 about-hover-card text-center">
+                  {point.icon && (
+                    <div className="about-why-icon">
+                      <i className={point.icon} />
+                    </div>
+                  )}
                   <h3 className="process-name">{point.title}</h3>
                   <p className="process-text">{point.text}</p>
                 </div>
