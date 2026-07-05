@@ -2,6 +2,7 @@ import PageHero from '../components/PageHero/PageHero'
 import QuoteForm from '../components/QuoteForm/QuoteForm'
 import { contactCards } from '../data/contact'
 import { company } from '../data/siteData'
+import './ContactPage.css'
 
 export default function ContactPage() {
   return (
@@ -12,7 +13,7 @@ export default function ContactPage() {
           <div className="row gy-4 justify-content-center">
             {contactCards.map((card) => (
               <div className="col-md-6 col-lg-3" key={card.title}>
-                <div className="media-style5 flex-column text-center">
+                <div className="media-style5 contact-info-card flex-column text-center">
                   <div className="media-icon mx-auto">
                     <i className={card.icon} />
                   </div>

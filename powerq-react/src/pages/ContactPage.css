@@ -1,0 +1,25 @@
+.contact-info-card {
+  box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.05);
+}
+
+.contact-info-card .media-icon,
+.contact-info-card:hover .media-icon {
+  width: auto;
+  height: auto;
+  line-height: 1;
+  font-size: 42px;
+  border-radius: 0;
+  background: transparent;
+  color: #0d861d;
+  margin-right: 0;
+  margin-bottom: 14px;
+}
+
+.contact-info-card .media-title {
+  color: #020202;
+}
+
+.contact-info-card .media-info {
+  font-size: 16px;
+  color: #323232;
+}

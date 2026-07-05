@@ -4,8 +4,8 @@
 }
 
 .header-container {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 @media (max-width: 991px) {
@@ -22,7 +22,7 @@
 }
 
 .header-top-bar .header-logo {
-  max-width: 260px;
+  max-width: 300px;
   padding: 0;
 }
 
@@ -46,6 +46,29 @@
 
 .header-nav-bar {
   background-color: var(--title-color);
+}
+
+.header-nav-bar.is-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  animation: header-slide-down 0.35s ease;
+}
+
+.header-nav-bar-spacer {
+  height: 61px;
+}
+
+@keyframes header-slide-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .header-nav-bar .main-menu > ul > li {

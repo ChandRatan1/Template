@@ -145,29 +145,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Sticky Header (slim, appears on scroll) */}
-      <div className="sticky-header-wrap sticky-wrap sticky-header will-sticky">
-        <div className={`sticky-active${isSticky ? ' active' : ''}`}>
-          <div className="container position-relative">
-            <div className="row align-items-center">
-              <div className="col-5 col-md-3">
-                <div className="logo">
-                  <Link to="/">
-                    <img src={company.logo} alt={company.name} />
-                  </Link>
-                </div>
-              </div>
-              <div className="col-7 col-md-9 text-end position-static">
-                <DesktopNav className="main-menu menu-sticky1 d-none d-lg-block" />
-                <button className="vs-menu-toggle d-inline-block d-lg-none" onClick={toggleMenu}>
-                  <i className="far fa-bars" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Mobile Menu Drawer */}
       <div className={`vs-menu-wrapper${isMenuOpen ? ' vs-body-visible' : ''}`} onClick={closeMenu}>
         <div className="vs-menu-area text-center" onClick={(e) => e.stopPropagation()}>
@@ -212,8 +189,11 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Nav bar: dark, nav links + inline search */}
-        <div className="header-nav-bar d-none d-lg-block">
+        {/* Nav bar: dark, nav links + inline search. Sticks to the top of the
+            viewport once the page is scrolled, so it stays reachable without
+            the white logo bar above it. */}
+        {isSticky && <div className="header-nav-bar-spacer d-none d-lg-block" />}
+        <div className={`header-nav-bar d-none d-lg-block${isSticky ? ' is-sticky' : ''}`}>
           <div className="container-fluid header-container">
             <div className="row align-items-center justify-content-between">
               <div className="col-auto">
