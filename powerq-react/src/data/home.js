@@ -180,26 +180,44 @@ export const timeline = [
 export const testimonials = [
   {
     name: 'Dayana Hernandez',
+    initial: 'D',
+    avatarColor: '#b1462f',
+    timeAgo: '4 years ago',
     text: 'We use PowerQ Test and Tag Services. They are very professional, reliable, always on time, and send the reports usually the next day. Very Happy with their Service',
   },
   {
     name: 'Lucinda Gulliver',
+    initial: 'L',
+    avatarColor: '#5a7247',
+    timeAgo: '5 years ago',
     text: 'Professional, quick and very easy to deal with. Lovely communication',
   },
   {
     name: 'Max “The Big Fundamental” Powers',
+    initial: 'M',
+    avatarColor: '#6d6259',
+    timeAgo: '6 years ago',
     text: 'Very prompt and Professional service. Urgently needed a job done first thing the following day. The Boys at PowerQ moved some jobs around to help me out. Will definitely be a return customer and recommend to all my trade colleagues.',
   },
   {
     name: 'Bon C',
+    initial: 'B',
+    avatarColor: '#3d6a91',
+    timeAgo: '3 years ago',
     text: 'Arrived on time even on a short notice. Excellent workmanship, timing and clear communication. Very professional, polite and respectful. They kept their work area clean. Pleased with price. Couldn’t recommend them more highly.',
   },
   {
     name: 'Jason Tan',
+    initial: 'J',
+    avatarColor: '#8a5d3b',
+    timeAgo: '2 years ago',
     text: 'Great service, very flexible times and efficient. Thanks! Good price too.',
   },
   {
     name: 'Punardeep Singh',
+    initial: 'P',
+    avatarColor: '#4f4f78',
+    timeAgo: '2 years ago',
     text: 'Good chaps with a “take your time” and “do it properly” approach. Recommendable experience.',
   },
 ]

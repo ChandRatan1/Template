@@ -11,7 +11,7 @@ export default function PageHero({ title, current, image = DEFAULT_IMAGE, descri
       data-bg-src={image || undefined}
       style={image ? bgStyle(image) : undefined}
     >
-      <div className="container z-index-common text-center">
+      <div className="container-fluid hero-container z-index-common text-center">
         <div className="breadcumb-content">
           <h1 className="breadcumb-title">{title}</h1>
           {description && <p className="breadcumb-description">{description}</p>}
