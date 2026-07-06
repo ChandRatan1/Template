@@ -15,7 +15,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.62);
   z-index: 1;
 }
 
@@ -26,8 +26,35 @@
   margin: 0 auto;
 }
 
+.breadcumb-wrapper {
+  padding: 165px 0;
+}
+
+@media (max-width: 1500px) {
+  .breadcumb-wrapper {
+    padding: 115px 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .breadcumb-wrapper {
+    padding: 92px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .breadcumb-wrapper {
+    padding: 70px 0;
+  }
+}
+
 .breadcumb-title {
   font-size: 72px;
+  margin-bottom: 0;
+}
+
+.breadcumb-menu-wrap {
+  margin-top: 24px;
 }
 
 @media (max-width: 1700px) {
