@@ -8,6 +8,7 @@ import FaqPage from './pages/FaqPage'
 import RequestQuotePage from './pages/RequestQuotePage'
 import BlogPage from './pages/BlogPage'
 import ServicePage from './pages/ServicePage'
+import SmokeAlarmPage from './pages/SmokeAlarmPage'
 import SearchPage from './pages/SearchPage'
 import PlaceholderPage from './pages/PlaceholderPage'
 import NotFoundPage from './pages/NotFoundPage'
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="request-a-quote" element={<RequestQuotePage />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="search" element={<SearchPage />} />
+          <Route path="smoke-alarm-service-melbourne" element={<SmokeAlarmPage />} />
           <Route path=":slug" element={<ServicePage />} />
           <Route
             path="my-account"

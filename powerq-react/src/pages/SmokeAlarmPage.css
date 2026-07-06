@@ -1,0 +1,143 @@
+.smoke-theme-dark,
+.smoke-theme-light {
+  border-radius: 8px;
+  padding: 40px;
+  margin-bottom: 50px;
+}
+
+.smoke-theme-dark {
+  background-color: #141414;
+}
+
+.smoke-theme-dark .sec-text a {
+  color: var(--theme-color);
+  font-weight: 600;
+}
+
+.smoke-theme-light {
+  background-color: #f4f4f4;
+}
+
+.smoke-fact-card {
+  background-color: #eef8ef;
+  border: 1px solid #cfe8d2;
+  border-radius: 8px;
+  padding: 30px 24px;
+  text-align: center;
+  height: 100%;
+}
+
+.smoke-fact-card i {
+  font-size: 32px;
+  color: var(--theme-color);
+  margin-bottom: 14px;
+}
+
+.smoke-fact-card p {
+  margin: 0;
+  color: #333;
+}
+
+.smoke-icon-fact {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.smoke-icon-fact-circle {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--theme-color);
+  color: var(--theme-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.smoke-image-overlay-wrap {
+  position: relative;
+}
+
+.smoke-image-overlay-card {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--theme-color);
+  color: var(--white-color);
+  padding: 16px 20px;
+  border-radius: 6px;
+}
+
+.smoke-image-overlay-card p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.smoke-image-overlay-card p:last-child {
+  margin-bottom: 0;
+}
+
+.smoke-install-card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 40px 24px;
+  text-align: center;
+  height: 100%;
+}
+
+.smoke-install-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--theme-color);
+  color: var(--white-color);
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.smoke-footnote {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.plain-accordion-box .plain-accordion-item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.plain-accordion-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: transparent;
+  border: none;
+  padding: 18px 4px;
+  text-align: left;
+  font-weight: 700;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+.plain-accordion-item.active .plain-accordion-button {
+  color: var(--theme-color);
+}
+
+.plain-accordion-body {
+  padding: 0 4px 18px;
+  color: #555;
+}
+
+.plain-accordion-body ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}

@@ -30,6 +30,7 @@ export default function ServiceSection({
   headingLevel = 2,
   boldLead,
   paragraphs = [],
+  numberedList,
   boldNote,
   cta,
   centerCta,
@@ -39,6 +40,7 @@ export default function ServiceSection({
   statCard,
   accentBar,
   grayBandBefore,
+  bannerText,
 }) {
   const HeadingTag = `h${headingLevel}`
 
@@ -51,6 +53,16 @@ export default function ServiceSection({
           {renderInline(p)}
         </p>
       ))}
+      {numberedList &&
+        numberedList.map((item, i) => (
+          <p className="sec-text" key={i}>
+            <strong>
+              {i + 1}. {item.label}
+              {item.label.endsWith(':') ? '' : ':'}
+            </strong>{' '}
+            {renderInline(item.text)}
+          </p>
+        ))}
       {boldNote && <p className="sec-text fw-bold">{boldNote}</p>}
       {cta && <div className={centerCta ? 'text-center' : ''}>{<CtaButton cta={cta} />}</div>}
     </div>
@@ -77,6 +89,11 @@ export default function ServiceSection({
   return (
     <>
       {grayBandBefore && <div className="service-gray-band" />}
+      {bannerText && (
+        <div className="service-gray-band service-gray-band-text">
+          <p>{bannerText}</p>
+        </div>
+      )}
       <div className="row align-items-center gy-4 service-section">
         {imageSide === 'left' ? [imageCol, textCol] : [textCol, imageCol]}
       </div>

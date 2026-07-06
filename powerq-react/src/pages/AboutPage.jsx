@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import PageHero from '../components/PageHero/PageHero'
 import { bgStyle } from '../utils/bg'
 import { whyChoosePoints, whyChooseBanner, relationsSection, whoWeAre, aboutIntro, beatQuote, team } from '../data/about'
 import './AboutPage.css'
@@ -7,15 +6,21 @@ import './AboutPage.css'
 export default function AboutPage() {
   return (
     <>
-      <PageHero title="About Us" current="About Us" />
-
-      {/* Why choose PowerQ */}
+      {/* Why choose PowerQ (doubles as this page's hero — single background image, no separate title banner) */}
       <section
         className="about-why-banner"
         data-bg-src={whyChooseBanner.image}
         style={bgStyle(whyChooseBanner.image)}
       >
         <div className="container">
+          <div className="breadcumb-menu-wrap about-why-breadcrumb">
+            <ul className="breadcumb-menu">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>About Us</li>
+            </ul>
+          </div>
           <div className="title-area text-center mb-0">
             <h2 className="sec-title text-white">Why choose PowerQ for Test &amp; Tag in Melbourne</h2>
             <p className="sec-text col-lg-8 mx-auto text-white">
@@ -29,14 +34,14 @@ export default function AboutPage() {
       </section>
 
       {/* Why choose PowerQ - cards */}
-      <section className="space-top space-extra-bottom">
+      <section className="space-extra-bottom about-why-cards-section">
         <div className="container">
-          <div className="row gy-4">
+          <div className="row gy-4 about-why-cards-row">
             {whyChoosePoints.map((point) => (
               <div className="col-md-6 col-lg-3" key={point.title}>
                 <div className="process-style1 about-hover-card text-center">
                   {point.icon && (
-                    <div className="about-why-icon">
+                    <div className="about-why-icon" style={point.iconColor ? { color: point.iconColor } : undefined}>
                       <i className={point.icon} />
                     </div>
                   )}

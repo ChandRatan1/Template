@@ -9,14 +9,18 @@
 .about-why-banner {
   position: relative;
   isolation: isolate;
-  padding: 70px 0;
+  padding: 70px 0 200px;
+}
+
+.about-why-breadcrumb {
+  margin-bottom: 20px;
 }
 
 .about-why-banner::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(20, 15, 12, 0.72);
+  background: rgba(10, 8, 6, 0.6);
   z-index: -1;
 }
 
@@ -24,5 +28,35 @@
   font-size: 40px;
   color: var(--theme-color);
   margin-bottom: 14px;
+}
+
+.about-why-cards-section {
+  position: relative;
+}
+
+.about-why-cards-row {
+  position: relative;
+  margin-top: -140px;
+}
+
+.about-why-cards-row .process-style1 {
+  background-color: var(--white-color);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 40px 24px;
+  height: 100%;
+  margin: 0;
+}
+
+.about-why-cards-row .process-style1::before,
+.about-why-cards-row .process-style1:hover::before {
+  content: none;
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .about-why-cards-row {
+    margin-top: 0;
+  }
 }
 

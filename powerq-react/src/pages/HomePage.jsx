@@ -40,7 +40,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="col-lg-6">
-              <QuoteForm title="Request a free Quote" />
+              <QuoteForm title="Request a free Quote" className="form-style1 home-quote-form" showLabels />
             </div>
           </div>
         </div>

@@ -138,24 +138,30 @@ export const services = [
         image: '/content-img/Three-Phase-Testing-Melbourne_-1.jpg',
         imageSide: 'right',
       },
+      {
+        bannerText:
+          'The Australian Standards AS/NZS 3760:2010 recognizes three important tests for compliance of equipment using three phase switch or socket',
+        image: '/content-img/c1aad3ee-82a1-43d4-a720-304935d55bd5-688x1024.jpeg',
+        imageSide: 'left',
+        heading: 'Three Phase Testing Melbourne',
+        paragraphs: ['These tests are required to successfully complete a three phase testing inspection:'],
+        numberedList: [
+          {
+            label: 'Earth Continuity',
+            text: 'The Earth Continuity test measures the resistance supplied by the equipment or machine’s earth wire. For current to pass to earth from the equipment as quickly as feasible, the resistance needs to be very low. The maximum resistance allowed for this test is below 1Ω.',
+          },
+          {
+            label: 'Insulation resistance',
+            text: 'The Insulation Resistance test measures the resistance provided by the machine/equipment’s insulation. This resistance is measured in Ohms (Ω) and the minimum ohms required for a successful test is 1MΩ (megaohm) which equates to 1,000,000 ohms.',
+          },
+          {
+            label: 'Earth Leakage',
+            text: 'An Earth Leakage test is used to ensure that the leakage between the main conductors and the earth pin stays below the limit. This is critical in order to ensure the leakage doesn’t cause electrocution. The earth leakage testing measures the extent of current flow which is measured in amperes (amps), which are required to be very low in order to be successful in the testing. The test results should not exceed 5mA (milliamps), or 0.005 amps for it to pass the test.',
+          },
+        ],
+      },
     ],
     blocks: [
-      { type: 'heading', text: 'The Australian Standards AS/NZS 3760:2010 recognizes three important tests for compliance of equipment using three phase switch or socket' },
-      { type: 'image', src: '/content-img/c1aad3ee-82a1-43d4-a720-304935d55bd5-688x1024.jpeg' },
-      { type: 'heading', text: 'Three Phase Testing Melbourne' },
-      { type: 'paragraph', text: 'These tests are required to successfully complete a three phase testing inspection:' },
-      {
-        type: 'paragraph',
-        text: 'The Earth Continuity test measures the resistance supplied by the equipment or machine’s earth wire. For current to pass to earth from the equipment as quickly as feasible, the resistance needs to be very low. The maximum resistance allowed for this test is below 1Ω.',
-      },
-      {
-        type: 'paragraph',
-        text: 'The Insulation Resistance test measures the resistance provided by the machine/equipment’s insulation. This resistance is measured in Ohms (Ω) and the minimum ohms required for a successful test is 1MΩ (megaohm) which equates to 1,000,000 ohms.',
-      },
-      {
-        type: 'paragraph',
-        text: 'An Earth Leakage test is used to ensure that the leakage between the main conductors and the earth pin stays below the limit. This is critical in order to ensure the leakage doesn’t cause electrocution. The earth leakage testing measures the extent of current flow which is measured in amperes (amps), which are required to be very low in order to be successful in the testing. The test results should not exceed 5mA (milliamps), or 0.005 amps for it to pass the test.',
-      },
       {
         type: 'paragraph',
         text: 'Another test that can be carried out on 3-Phase equipment is the RCD trip time test while testing RCD safety switches. The maximum trip time for 3-Phase RCDs must not exceed 300 milliseconds (ms).',

@@ -8,21 +8,24 @@ export const whyChoosePoints = [
     title: 'Experience',
     text: 'Experience You Can Trust — with years of industry expertise, PowerQ delivers reliable Test & Tag services backed by a proven track record.',
     icon: 'far fa-calendar-alt',
+    iconColor: '#de140c',
   },
   {
     title: 'Comprehensive Reporting',
     text: 'PowerQ provides detailed, easy-to-understand reports after every Test & Tag service, ensuring you have a complete record.',
     icon: 'fas fa-recycle',
+    iconColor: '#39b54a',
   },
   {
     title: 'Affordable Price',
     text: 'PowerQ Test & Tag Melbourne offers competitive and affordable pricing for electrical testing and tagging services.',
     icon: 'far fa-handshake',
+    iconColor: '#212121',
   },
 ]
 
 export const whyChooseBanner = {
-  image: '/content-img/closeup-red-fire-extinguishers_53876-147842.jpg',
+  image: '/content-img/emergency-exit-sign-with-siren-light-direction-emergency-exit_35913-3108-1024x652.jpg',
 }
 
 export const relationsSection = {
