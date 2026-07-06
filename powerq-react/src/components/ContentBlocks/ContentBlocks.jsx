@@ -20,11 +20,35 @@ function SmartLink({ href, className, children }) {
 }
 
 export default function ContentBlocks({ blocks }) {
+  // Consecutive image blocks render as a side-by-side pair instead of two
+  // full-width images stacked on top of each other.
+  const grouped = []
+  for (let i = 0; i < blocks.length; i += 1) {
+    const block = blocks[i]
+    const next = blocks[i + 1]
+    if (block.type === 'image' && next && next.type === 'image') {
+      grouped.push({ type: 'imagePair', images: [block, next] })
+      i += 1
+    } else {
+      grouped.push(block)
+    }
+  }
+
   return (
     <>
-      {blocks.map((block, index) => {
+      {grouped.map((block, index) => {
         const key = `${block.type}-${index}`
         switch (block.type) {
+          case 'imagePair':
+            return (
+              <div className="row gy-3 mb-30" key={key}>
+                {block.images.map((img, i) => (
+                  <div className="col-md-6" key={i}>
+                    <img src={img.src} alt={img.alt || ''} className="w-100" style={{ borderRadius: 8 }} />
+                  </div>
+                ))}
+              </div>
+            )
           case 'heading': {
             const level = block.level || 2
             const Tag = `h${level}`

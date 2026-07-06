@@ -1,5 +1,8 @@
 // Content sourced verbatim (light cleanup only) from the real powerq.com.au pages
 // saved in /Content. Each service page is data-driven and rendered by ServicePage.jsx.
+// `sections` renders as alternating image/text rows (matches the real site's layout);
+// `blocks` renders any remaining content below that as a stacked column (headings,
+// paragraphs, lists, FAQs) via ContentBlocks.
 
 export const services = [
   {
@@ -9,18 +12,26 @@ export const services = [
     cardText: 'Ensure safety and compliance with professional electrical cord test and tag services across Melbourne.',
     pageTitle: 'Electrical Cord Test and Tag in Melbourne',
     heroImage: '/content-img/electrician-working_53876-16064-220x154.jpg',
-    blocks: [
-      { type: 'heading', text: 'Why do Testing and Tagging' },
+    sections: [
       {
-        type: 'paragraph',
-        text: 'Testing and tagging of equipment is essential in order to ensure that they operate safely and do not pose a risk to people, property or the work environment. Testing should be conducted regularly as electrical appliances have the potential to cause serious injury or death if they are not maintained properly. Even events which are less severe can result in skin burns, organ damage, etc. To stay safe, employers and self-employed personnel must have their equipment tested/tagged regularly. Doing so can help avoid potentially fatal results and keep workers safe. If your employees regularly use electrical equipment, testing and tagging is a must!',
+        heading: 'Why do Testing and Tagging',
+        paragraphs: [
+          'Testing and tagging of equipment is essential in order to ensure that they operate safely and do not pose a risk to people, property or the work environment. Testing should be conducted regularly as electrical appliances have the potential to cause serious injury or death if they are not maintained properly. Even events which are less severe can result in skin burns, organ damage, etc. To stay safe, employers and self-employed personnel must have their equipment tested/tagged regularly. Doing so can help avoid potentially fatal results and keep workers safe. If your employees regularly use electrical equipment, testing and tagging is a must!',
+        ],
+        boldNote: 'We strongly suggest testing and tagging as a necessary precaution for any equipment in use.',
+        cta: { text: 'Read More', href: '/request-a-quote' },
+        centerCta: true,
+        image: '/content-img/male-electrician-works-switchboard-with-electrical-connecting-cable_169016-15086.jpg',
+        imageSide: 'right',
       },
-      { type: 'image', src: '/content-img/male-electrician-works-switchboard-with-electrical-connecting-cable_169016-15086.jpg' },
-      { type: 'image', src: '/content-img/Electrical-Cord-Testing-in-Melbourne-1024x682.jpg' },
-      { type: 'heading', text: 'Electrical Cord Testing Melbourne' },
       {
-        type: 'paragraph',
-        text: 'Are you looking for a trusted Electrical Test and Tag services in Melbourne? At PowerQ Test & Tag Melbourne, we provide a complete inspection and check on electrical cords for any bent or damaged pins, missing securing nuts and more. We also ensure that the form of the cord has not been twisted, there is no discolouration, foreign objects attached to the outer insulation of the cord. On completion, our professional team will provide a comprehensive report along with all test results and actions taken. Upon completion of testing, we provide a full report with all test results and actions taken.',
+        heading: 'Electrical Cord Testing Melbourne',
+        paragraphs: [
+          'Are you looking for a trusted Electrical Test and Tag services in Melbourne? At [PowerQ Test & Tag Melbourne](/), we provide a complete inspection and check on electrical cords for any bent or damaged pins, missing securing nuts and more. We also ensure that the form of the cord has not been twisted, there is no discolouration, foreign objects attached to the outer insulation of the cord. On completion, our professional team will provide a comprehensive report along with all test results and actions taken. Upon completion of testing, we provide a full report with all test results and actions taken.',
+        ],
+        boldNote: 'We can also inspect other equipment to ensure complete safety at workplace.',
+        image: '/content-img/Electrical-Cord-Testing-in-Melbourne-1024x682.jpg',
+        imageSide: 'left',
       },
     ],
   },
@@ -31,27 +42,38 @@ export const services = [
     cardText: 'PowerQ provides reliable fire extinguisher testing for safety compliance in Melbourne.',
     pageTitle: 'Fire Extinguisher Testing Melbourne',
     heroImage: '/content-img/Fire-Safety-Training-for-Oil-Gas-960x640-1.jpg',
-    blocks: [
-      { type: 'heading', text: 'Welcome to PowerQ – Leading the Way in Advanced Fire Safety Solutions and Unmatched Protection!' },
+    sections: [
       {
-        type: 'paragraph',
-        text: 'At PowerQ, we are committed to delivering cutting-edge fire safety solutions tailored to your needs. From high-quality fire extinguishers to comprehensive testing, tagging, and maintenance services, we ensure your safety with the latest industry standards and technology. Our expert team in Melbourne is dedicated to providing unparalleled protection for homes, businesses, and beyond. With PowerQ, you can trust that your safety is in the hands of professionals who prioritize reliability, innovation, and excellence in every service we offer.',
+        heading: 'Welcome to PowerQ – Leading the Way in Advanced Fire Safety Solutions and Unmatched Protection!',
+        paragraphs: [
+          'At PowerQ, we are committed to delivering cutting-edge fire safety solutions tailored to your needs. From high-quality fire extinguishers to comprehensive testing, tagging, and maintenance services, we ensure your safety with the latest industry standards and technology. Our expert team in Melbourne is dedicated to providing unparalleled protection for homes, businesses, and beyond. With PowerQ, you can trust that your safety is in the hands of professionals who prioritize reliability, innovation, and excellence in every service we offer.',
+        ],
+        image: '/content-img/1685363510980.jpeg',
+        imageSide: 'right',
       },
-      { type: 'image', src: '/content-img/1685363510980.jpeg' },
-      { type: 'stat', value: '1.2K', label: 'Satisfied Clients' },
-      { type: 'heading', text: 'We at PowerQ Test & Tag Melbourne believe in making relations' },
       {
-        type: 'paragraph',
-        text: 'At PowerQ Test & Tag Melbourne, our focus is on building relationships. We provide cost-effective electrical testing and tagging services with full compliance to test and tag regulations in Victoria. Our team of experienced professionals use their smarts and skills to guarantee you peace of mind that we follow all necessary regulations for your industry. With us, you get the assurance of quality service backed by full public liability cover. Furthermore, we possess the necessary public liability cover that gives you the assurance of safety when you choose us for our test and tag services. Rest assured, we abide by all applicable regulations pertinent to your industry sector.',
+        heading: 'We at PowerQ Test & Tag Melbourne believe in making relations',
+        paragraphs: [
+          'At **PowerQ** [Test & Tag Melbourne](/), our focus is on building relationships. We provide cost-effective electrical testing and tagging services with full compliance to test and tag regulations in Victoria. Our team of experienced professionals use their smarts and skills to guarantee you peace of mind that we follow all necessary regulations for your industry. With us, you get the assurance of quality service backed by full public liability cover. Furthermore, we possess the necessary public liability cover that gives you the assurance of safety when you choose us for our test and tag services. Rest assured, we abide by all applicable regulations pertinent to your industry sector.',
+        ],
+        cta: { text: 'CONTACT US', href: '/request-a-quote' },
+        image: '/content-img/Fire-Safety-Training-for-Oil-Gas-960x640-1.jpg',
+        imageSide: 'left',
+        statCard: { image: '/content-img/1685363510980.jpeg', value: '1.2 K', label: 'Satisfied Clients' },
       },
-      { type: 'cta', text: 'CONTACT US', href: '/request-a-quote' },
-      { type: 'heading', text: 'Fire Extinguisher Testing Melbourne' },
       {
-        type: 'paragraph',
-        text: 'Are you looking for reliable fire extinguisher testing services in Melbourne? PowerQ Test & Tag Melbourne provides comprehensive servicing and maintenance of fire protection systems to ensure that your fire extinguishers work when required. We have experience in inspection, assessment and testing of manufacturer’s equipment. After completion we provide a report along with compliance certificates for the tests conducted. Contact us today to get your fire extinguishers tested!',
+        heading: 'Fire Extinguisher Testing Melbourne',
+        boldLead: 'Keep your fire equipment serviced and maintained',
+        paragraphs: [
+          'Are you looking for reliable fire extinguisher testing services in Melbourne? PowerQ Test & Tag Melbourne provides comprehensive servicing and maintenance of fire protection systems to ensure that your fire extinguishers work when required. We have experience in inspection, assessment and testing of manufacturer’s equipment. After completion we provide a report along with compliance certificates for the tests conducted. [Contact us](/contact-us) today to get your fire extinguishers tested!',
+        ],
+        boldNote: 'It is extremely important to service and maintain your fire equipment',
+        cta: { text: 'Buy Fire Extinguisher Products', href: '/request-a-quote' },
+        image: '/content-img/basic-fire-safety-awareness-video-learning-course-min.jpg',
+        imageSide: 'right',
+        accentBar: true,
+        grayBandBefore: true,
       },
-      { type: 'cta', text: 'Buy Fire Extinguisher Products', href: '/request-a-quote' },
-      { type: 'image', src: '/content-img/basic-fire-safety-awareness-video-learning-course-min.jpg' },
     ],
   },
   {
@@ -61,14 +83,18 @@ export const services = [
     cardText: 'PowerQ tests and services RCDs to ensure optimal protection from electrical hazards.',
     pageTitle: 'RCD/ Safety Switches in Melbourne',
     heroImage: '/content-img/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up_169016-5076-1024x655.jpg',
-    blocks: [
-      { type: 'image', src: '/content-img/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up_169016-5076-1024x655.jpg' },
-      { type: 'heading', text: 'We at PowerQ Test & Tag Melbourne believe in making relations' },
+    sections: [
       {
-        type: 'paragraph',
-        text: 'At Test & Tag Melbourne, our focus is on building relationships. We provide cost-effective services with full compliance to test and tag regulations in Victoria. Our team of experienced professionals use their smarts and skills to guarantee you peace of mind that we follow all necessary regulations for your industry. With us, you get the assurance of quality service backed by full public liability cover.',
+        heading: 'We at PowerQ Test & Tag Melbourne believe in making relations',
+        paragraphs: [
+          'At Test & Tag Melbourne, our focus is on building relationships. We provide cost-effective services with full compliance to test and tag regulations in Victoria. Our team of experienced professionals use their smarts and skills to guarantee you peace of mind that we follow all necessary regulations for your industry. With us, you get the assurance of quality service backed by full public liability cover.',
+        ],
+        cta: { text: 'CONTACT US', href: '/request-a-quote' },
+        image: '/content-img/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up_169016-5076-1024x655.jpg',
+        imageSide: 'left',
       },
-      { type: 'cta', text: 'CONTACT US', href: '/request-a-quote' },
+    ],
+    blocks: [
       { type: 'heading', text: 'We recommend regular RCD tests to ensure the safety of life at work and home that could be endangered in case of an unfortunate contact with a faulty wiring.' },
       { type: 'heading', level: 3, text: 'Safety Switch Testing Melbourne' },
       {
@@ -102,14 +128,18 @@ export const services = [
     cardText: 'PowerQ delivers accurate three phase testing to ensure equipment safety and performance.',
     pageTitle: 'Three Phase Testing in Melbourne',
     heroImage: '/content-img/3-Phase-to-240V-power-board-scaled.jpg',
-    blocks: [
-      { type: 'heading', text: 'Three Phase Testing Melbourne' },
+    sections: [
       {
-        type: 'paragraph',
-        text: 'PowerQ Test & Tag Melbourne is the industry leader for Three-Phase Testing in Melbourne, offering full compliance services that abide by Victoria’s test and tag regulations. Our experienced team of professionals guarantee top-notch service with full public liability cover, giving customers peace of mind in knowing they are receiving the highest quality work. We are confident our electrical testing and tagging services meet all applicable standards so you can have confidence when having us complete your Three-Phase Testing.',
+        heading: 'Three Phase Testing Melbourne',
+        paragraphs: [
+          'PowerQ Test & Tag Melbourne is the industry leader for Three-Phase Testing in Melbourne, offering full compliance services that abide by Victoria’s test and tag regulations. Our experienced team of professionals guarantee top-notch service with full public liability cover, giving customers peace of mind in knowing they are receiving the highest quality work. We are confident our electrical testing and tagging services meet all applicable standards so you can have confidence when having us complete your Three-Phase Testing.',
+        ],
+        cta: { text: 'CONTACT US', href: '/request-a-quote' },
+        image: '/content-img/Three-Phase-Testing-Melbourne_-1.jpg',
+        imageSide: 'right',
       },
-      { type: 'cta', text: 'CONTACT US', href: '/request-a-quote' },
-      { type: 'image', src: '/content-img/Three-Phase-Testing-Melbourne_-1.jpg' },
+    ],
+    blocks: [
       { type: 'heading', text: 'The Australian Standards AS/NZS 3760:2010 recognizes three important tests for compliance of equipment using three phase switch or socket' },
       { type: 'image', src: '/content-img/c1aad3ee-82a1-43d4-a720-304935d55bd5-688x1024.jpeg' },
       { type: 'heading', text: 'Three Phase Testing Melbourne' },
@@ -142,14 +172,18 @@ export const services = [
     cardText: 'PowerQ provides precise microwave leakage testing to ensure appliance safety and compliance.',
     pageTitle: 'Microwave Testing in Melbourne',
     heroImage: '/content-img/Microwave-Testing.jpg',
-    blocks: [
-      { type: 'image', src: '/content-img/Microwave-Testing.jpg' },
-      { type: 'heading', text: 'We at PowerQ Test & Tag Melbourne believe in making relations' },
+    sections: [
       {
-        type: 'paragraph',
-        text: 'PowerQ firmly believes in building strong customer relationships. Located in Melbourne, our team is backed by ample experience and competence to conduct efficient electrical testing and tagging services with full compliance to the regulations specific to Victoria. Furthermore, we possess the necessary public liability cover that gives you the assurance of safety when you choose us for our test and tag services. Rest assured, we abide by all applicable regulations pertinent to your industry sector.',
+        heading: 'We at PowerQ Test & Tag Melbourne believe in making relations',
+        paragraphs: [
+          'PowerQ firmly believes in building strong customer relationships. Located in Melbourne, our team is backed by ample experience and competence to conduct efficient electrical testing and tagging services with full compliance to the regulations specific to Victoria. Furthermore, we possess the necessary public liability cover that gives you the assurance of safety when you choose us for our test and tag services. Rest assured, we abide by all applicable regulations pertinent to your industry sector.',
+        ],
+        cta: { text: 'CONTACT US', href: '/request-a-quote' },
+        image: '/content-img/Microwave-Testing.jpg',
+        imageSide: 'left',
       },
-      { type: 'cta', text: 'CONTACT US', href: '/request-a-quote' },
+    ],
+    blocks: [
       { type: 'heading', text: 'PowerQ Test & Tag Melbourne uses proper radiation detection equipment in accordance with Australian safety standards for microwave testing.' },
       { type: 'heading', level: 3, text: 'Microwave Safety Testing Melbourne' },
       {
@@ -179,14 +213,18 @@ export const services = [
     cardText: 'PowerQ ensures your emergency exit lights are fully functional and compliant with safety standards.',
     pageTitle: 'Emergency Exit Light Testing in Melbourne',
     heroImage: '/content-img/green-emergency-exit-sign-ceiling_53876-123089.jpg',
-    blocks: [
-      { type: 'heading', text: 'We at PowerQ Test & Tag Melbourne believe in making relations' },
+    sections: [
       {
-        type: 'paragraph',
-        text: 'At PowerQ Test & Tag we are committed to building strong and trusting partnerships. Located in Melbourne, we are your go-to electrical testing and tagging experts providing services that comply with Victoria’s regulations. As a team of skilled professionals, we have the power to provide you with remarkable service while also giving you complete assurance that professional test and tag standards are met. Rest easy knowing that our public liability cover and expertise will not let you down when it comes to test and tag services.',
+        heading: 'We at PowerQ Test & Tag Melbourne believe in making relations',
+        paragraphs: [
+          'At PowerQ Test & Tag we are committed to building strong and trusting partnerships. Located in Melbourne, we are your go-to electrical testing and tagging experts providing services that comply with Victoria’s regulations. As a team of skilled professionals, we have the power to provide you with remarkable service while also giving you complete assurance that professional test and tag standards are met. Rest easy knowing that our public liability cover and expertise will not let you down when it comes to test and tag services.',
+        ],
+        cta: { text: 'CONTACT US', href: '/request-a-quote' },
+        image: '/content-img/Emergency-Exit-Light-Testing.jpg',
+        imageSide: 'right',
       },
-      { type: 'cta', text: 'CONTACT US', href: '/request-a-quote' },
-      { type: 'image', src: '/content-img/Emergency-Exit-Light-Testing.jpg' },
+    ],
+    blocks: [
       { type: 'image', src: '/content-img/emergency-exit-sign-with-siren-light-direction-emergency-exit_35913-3108-1024x652.jpg' },
       { type: 'heading', text: 'Exit Light Testing Melbourne' },
       {
@@ -220,13 +258,17 @@ export const services = [
     cardText: 'PowerQ offers professional smoke alarm testing and servicing for reliable fire detection.',
     pageTitle: 'Smoke Alarm Service in Melbourne',
     heroImage: '/content-img/fire-gda479faea_640.jpg',
-    blocks: [
-      { type: 'heading', text: 'We at PowerQ Test & Tag Melbourne believe in making relations' },
+    sections: [
       {
-        type: 'paragraph',
-        text: 'Based in Melbourne, PowerQ Test & Tag Melbourne offers services in Melbourne with full compliance to test and tag regulations that apply for Victoria. We are an experienced team of smart and skilled professionals, with full public liability cover and competence in test and tag services. We assure you complete peace of mind when you engage us as we follow all test and tag regulations that apply to your industry. We pride ourselves on delivering prompt, reliable, and affordable services tailored to meet your specific needs. Trust PowerQ Test & Tag Melbourne to ensure the safety and compliance of your electrical equipment.',
+        heading: 'We at PowerQ Test & Tag Melbourne believe in making relations',
+        paragraphs: [
+          'Based in Melbourne, PowerQ Test & Tag Melbourne offers services in Melbourne with full compliance to test and tag regulations that apply for Victoria. We are an experienced team of smart and skilled professionals, with full public liability cover and competence in test and tag services. We assure you complete peace of mind when you engage us as we follow all test and tag regulations that apply to your industry. We pride ourselves on delivering prompt, reliable, and affordable services tailored to meet your specific needs. Trust PowerQ Test & Tag Melbourne to ensure the safety and compliance of your electrical equipment.',
+        ],
+        image: '/content-img/WEB-DEVELOPMENT-4-1024x512.png',
+        imageSide: 'right',
       },
-      { type: 'image', src: '/content-img/WEB-DEVELOPMENT-4-1024x512.png' },
+    ],
+    blocks: [
       { type: 'image', src: '/content-img/fire-gda479faea_640.jpg' },
       { type: 'heading', text: 'Inspect and Test Stand Alone Smoke Alarms' },
       { type: 'heading', text: 'Why should I have a smoke alarm?' },

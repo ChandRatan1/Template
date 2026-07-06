@@ -1,6 +1,7 @@
 import { useParams, Navigate, Link } from 'react-router-dom'
 import PageHero from '../components/PageHero/PageHero'
 import ContentBlocks from '../components/ContentBlocks/ContentBlocks'
+import ServiceSection from '../components/ServiceSection/ServiceSection'
 import { getServiceBySlug } from '../data/services'
 import { company } from '../data/siteData'
 
@@ -14,14 +15,17 @@ export default function ServicePage() {
 
   return (
     <>
-      <PageHero title={service.pageTitle} current={service.navTitle} />
+      <PageHero title={service.pageTitle} current={service.navTitle} image={service.heroImage} />
       <section className="space-top space-extra-bottom">
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-9">
-              <ContentBlocks blocks={service.blocks} />
+          {service.sections?.map((section, i) => <ServiceSection {...section} key={i} />)}
+          {service.blocks && (
+            <div className="row justify-content-center">
+              <div className="col-lg-9">
+                <ContentBlocks blocks={service.blocks} />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
       <section className="bg-secondary space-top-extra space-extra-bottom text-center py-5">

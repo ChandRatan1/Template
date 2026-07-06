@@ -11,14 +11,21 @@ const staticPages = [
   { title: 'Blog', href: '/blog', text: 'PowerQ blog news updates' },
 ]
 
-const serviceEntries = services.map((s) => ({
-  title: s.pageTitle,
-  href: `/${s.slug}`,
-  text: `${s.navTitle} ${s.cardTitle} ${s.cardText} ${s.blocks
+const serviceEntries = services.map((s) => {
+  const sectionText = (s.sections || [])
+    .map((section) => [section.heading, ...(section.paragraphs || [])].filter(Boolean).join(' '))
+    .join(' ')
+  const blockText = (s.blocks || [])
     .filter((b) => b.type === 'paragraph' || b.type === 'heading')
     .map((b) => b.text)
-    .join(' ')}`,
-}))
+    .join(' ')
+
+  return {
+    title: s.pageTitle,
+    href: `/${s.slug}`,
+    text: `${s.navTitle} ${s.cardTitle} ${s.cardText} ${sectionText} ${blockText}`,
+  }
+})
 
 const faqEntries = faqItems.map((f) => ({
   title: f.q,
