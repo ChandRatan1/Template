@@ -1,10 +1,11 @@
 import { useState } from 'react'
+import './FaqAccordion.css'
 
 export default function FaqAccordion({ items, idPrefix = 'faq', defaultOpen = 0 }) {
   const [openIndex, setOpenIndex] = useState(defaultOpen)
 
   return (
-    <div className="accordion-box">
+    <div className="accordion-box icon-accordion-box">
       {items.map((item, index) => {
         const isOpen = openIndex === index
         const collapseId = `${idPrefix}-collapse-${index}`
@@ -19,7 +20,11 @@ export default function FaqAccordion({ items, idPrefix = 'faq', defaultOpen = 0 
                 aria-controls={collapseId}
                 onClick={() => setOpenIndex(isOpen ? -1 : index)}
               >
-                {item.q}
+                <span className="accordion-icon-box">
+                  <i className="fas fa-user-friends" />
+                </span>
+                <span className="accordion-button-text">{item.q}</span>
+                <i className={`accordion-chevron fas fa-angle-${isOpen ? 'up' : 'down'}`} />
               </button>
             </div>
             <div

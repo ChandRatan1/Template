@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { company, socialLinks, footerLinks } from '../../data/siteData'
 import './Footer.css'
 
@@ -54,7 +54,7 @@ export default function Footer() {
                 <ul className="menu">
                   {footerLinks.services.map((link) => (
                     <li key={link.label}>
-                      <Link to={link.href}>{link.label}</Link>
+                      <NavLink to={link.href}>{link.label}</NavLink>
                     </li>
                   ))}
                 </ul>
@@ -67,7 +67,9 @@ export default function Footer() {
                 <ul>
                   {footerLinks.general.map((link) => (
                     <li key={link.label}>
-                      <Link to={link.href}>{link.label}</Link>
+                      <NavLink to={link.href} end={link.href === '/'}>
+                        {link.label}
+                      </NavLink>
                     </li>
                   ))}
                 </ul>

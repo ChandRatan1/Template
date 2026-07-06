@@ -80,7 +80,9 @@
 }
 
 .site-footer .footer-widget.widget_nav_menu a:hover,
-.site-footer .footer-widget.widget_pages a:hover {
+.site-footer .footer-widget.widget_pages a:hover,
+.site-footer .footer-widget.widget_nav_menu a.active,
+.site-footer .footer-widget.widget_pages a.active {
   color: var(--theme-color);
 }
 
