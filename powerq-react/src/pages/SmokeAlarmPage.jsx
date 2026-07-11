@@ -59,7 +59,7 @@ export default function SmokeAlarmPage() {
         <div className="container">
           {/* We at PowerQ... (dark card) */}
           <div className="smoke-theme-dark">
-            <div className="row align-items-center gy-4">
+            <div className="row align-items-start gy-4">
               <div className="col-lg-6">
                 <h2 className="sec-title text-white">{relations.heading}</h2>
                 <p className="sec-text text-white">{renderInline(relations.paragraph)}</p>
@@ -72,7 +72,7 @@ export default function SmokeAlarmPage() {
 
           {/* Inspect and test (light card) */}
           <div className="smoke-theme-light">
-            <div className="row align-items-center gy-4">
+            <div className="row align-items-start gy-4">
               <div className="col-lg-6">
                 <img src={inspect.image} alt="" className="w-100" style={{ borderRadius: 8 }} />
               </div>
@@ -116,7 +116,7 @@ export default function SmokeAlarmPage() {
           <p className="sec-text text-center col-lg-9 mx-auto mb-5">{newLaws}</p>
 
           {/* Smoke alarm facts + overlay image */}
-          <div className="row align-items-center gy-4 mb-5">
+          <div className="row align-items-start gy-4 mb-5">
             <div className="col-lg-6">
               <h2 className="sec-title">{facts.heading}</h2>
               {facts.groups.map((group) => (

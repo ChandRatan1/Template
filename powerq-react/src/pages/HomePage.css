@@ -169,7 +169,7 @@
 .pricing-intro {
   position: relative;
   isolation: isolate;
-  padding: 70px 0;
+  padding: 70px 0 160px;
 }
 
 .pricing-intro::before {
@@ -183,6 +183,35 @@
 .pricing-intro-subtitle {
   color: #4caf50 !important;
   border-color: #4caf50 !important;
+}
+
+.pricing-section-title-white {
+  color: var(--white-color);
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 26px;
+  margin-top: 18px;
+  margin-bottom: 0;
+}
+
+.pricing-cards-section {
+  position: relative;
+  padding-top: 0;
+}
+
+.pricing-cards-overlap {
+  position: relative;
+  margin-top: -90px;
+}
+
+@media (max-width: 767px) {
+  .pricing-intro {
+    padding: 70px 0;
+  }
+
+  .pricing-cards-overlap {
+    margin-top: 0;
+  }
 }
 
 .pricing-section-title {
@@ -201,10 +230,79 @@
   background-color: var(--theme-color);
 }
 
+.pricing-tier-card {
+  border-radius: 6px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-tier-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-tier-header {
+  background-color: #2b2b2b;
+  padding: 24px 16px;
+}
+
+.pricing-tier-name {
+  color: var(--white-color);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.pricing-tier-range,
+.pricing-tier-minfee {
+  color: #4caf50;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.pricing-tier-body {
+  background-color: var(--white-color);
+  padding: 24px 20px;
+}
+
+.pricing-tier-price {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--title-color);
+  margin-bottom: 16px;
+}
+
+.pricing-tier-price span {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--body-color);
+}
+
+.pricing-tier-features {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  text-align: left;
+}
+
+.pricing-tier-features li {
+  font-size: 14px;
+  color: var(--body-color);
+  padding: 6px 0;
+}
+
+.pricing-tier-features li i {
+  color: #4caf50;
+  margin-right: 6px;
+}
+
 .pricing-highlight-box {
-  background-color: var(--smoke-color);
+  background-color: var(--white-color);
   border-radius: 6px;
   padding: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
@@ -252,7 +350,8 @@
 .flip-card-front img {
   width: 100%;
   height: 70%;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: var(--white-color);
 }
 
 .flip-card-title {
@@ -346,7 +445,8 @@
 .timeline-card img {
   width: 100%;
   height: 130px;
-  object-fit: cover;
+  object-fit: contain;
+  background-color: var(--smoke-color);
   border-radius: 6px;
   margin-bottom: 14px;
 }

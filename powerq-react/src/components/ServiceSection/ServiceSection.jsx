@@ -94,7 +94,7 @@ export default function ServiceSection({
           <p>{bannerText}</p>
         </div>
       )}
-      <div className="row align-items-center gy-4 service-section">
+      <div className="row align-items-start gy-4 service-section">
         {imageSide === 'left' ? [imageCol, textCol] : [textCol, imageCol]}
       </div>
     </>

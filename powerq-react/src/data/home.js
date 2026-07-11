@@ -61,6 +61,47 @@ export const pricingHighlights = {
   ],
 }
 
+export const pricingTiers = {
+  subtitle: 'Pricing Plans',
+  title: 'We offer best price and packages for test & tag in Melbourne',
+  ctaText: 'Get a Quote',
+  ctaHref: '/request-a-quote',
+  tiers: [
+    {
+      name: 'Small Business',
+      range: '1 -500 tags',
+      minFee: 'Minimum fee $120 (GST excl.)',
+      price: '$4.00',
+      unit: '/ tag',
+      features: ['Trade Power Tools', 'Small Factories, Warehouses and Retail Stores'],
+    },
+    {
+      name: 'Medium Business',
+      range: '500 – 1000 tags',
+      minFee: 'Minimum fee $120 (GST excl.)',
+      price: '$3.50',
+      unit: '/ tag',
+      features: ['Trade Power Tools', 'Small Factories, Warehouses and Retail Stores'],
+    },
+    {
+      name: 'Large Business',
+      range: '1000-2000 tags',
+      minFee: 'Minimum fee $120 (GST excl.)',
+      price: '$2.80',
+      unit: '/ tag',
+      features: ['Trade Power Tools', 'Small Factories, Warehouses and Retail Stores'],
+    },
+    {
+      name: 'Large Offices / Schools',
+      range: 'Over 2000 tags',
+      minFee: 'Minimum fee $120 (GST excl.)',
+      price: '$2.40',
+      unit: '/ tag',
+      features: ['Trade Power Tools', 'Small Factories, Warehouses and Retail Stores'],
+    },
+  ],
+}
+
 export const safetyStats = [
   { percent: 90, title: 'Ensuring Compliance', text: 'We follow safety regulations to prevent electrical hazards.' },
   { percent: 85, title: 'Prioritizing Risk Prevention', text: 'Regular testing helps us catch potential issues early.' },

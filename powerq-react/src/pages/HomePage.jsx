@@ -8,6 +8,7 @@ import {
   topServices,
   pricingIntro,
   pricingHighlights,
+  pricingTiers,
   safetyStats,
   whyChooseLong,
   featureHighlights,
@@ -19,6 +20,44 @@ import {
 import './HomePage.css'
 
 const TESTIMONIALS_VISIBLE = 3
+
+function WhyChooseSection() {
+  return (
+    <section className="space-top space-bottom">
+      <div className="container">
+        <div className="row align-items-start gx-100">
+          <div className="col-lg-6 text-center mb-4 mb-lg-0">
+            <img src={whyChooseLong.image} alt="" className="w-100" style={{ borderRadius: 8 }} />
+          </div>
+          <div className="col-lg-6 text-center text-lg-start">
+            <div className="title-area mb-0">
+              <span className="sec-subtitle">Why Choose Us</span>
+              <h2 className="sec-title">{whyChooseLong.title}</h2>
+              {whyChooseLong.paragraphs.map((p, i) => (
+                <p className="sec-text" key={i}>
+                  {p.includes(whyChooseLong.linkText) ? (
+                    <>
+                      {p.split(whyChooseLong.linkText)[0]}
+                      <a href={whyChooseLong.linkHref} target="_blank" rel="noreferrer">
+                        {whyChooseLong.linkText}
+                      </a>
+                      {p.split(whyChooseLong.linkText)[1]}
+                    </>
+                  ) : (
+                    p
+                  )}
+                </p>
+              ))}
+              <Link to="/request-a-quote" className="vs-btn">
+                Request a Quote<i className="far fa-arrow-right" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 export default function HomePage() {
   const [testimonialIndex, setTestimonialIndex] = useState(0)
@@ -113,24 +152,38 @@ export default function HomePage() {
         <div className="container text-center">
           <span className="sec-subtitle pricing-intro-subtitle">{pricingIntro.subtitle}</span>
           <h2 className="sec-title text-white">{pricingIntro.title}</h2>
+          <h3 className="pricing-section-title-white">{pricingHighlights.title}</h3>
         </div>
       </section>
 
       {/* Pricing Highlights */}
-      <section className="space-top space-extra-bottom">
+      <section className="pricing-cards-section space-extra-bottom">
         <div className="container">
-          <div className="title-area">
-            <h2 className="sec-title pricing-section-title">{pricingHighlights.title}</h2>
-          </div>
-          <div className="row gy-4 justify-content-center">
-            {pricingHighlights.cards.map((card, i) => (
-              <div className="col-md-6 col-lg-3" key={i}>
-                <div className="pricing-highlight-box h-100">
-                  {card.map((line) => (
-                    <p className="pricing-highlight-line" key={line}>
-                      <i className="fas fa-check-square" /> {line}
+          <div className="row gy-4 justify-content-center pricing-cards-overlap">
+            {pricingTiers.tiers.map((tier) => (
+              <div className="col-md-6 col-lg-3" key={tier.name}>
+                <div className="pricing-tier-card h-100">
+                  <div className="pricing-tier-header">
+                    <h3 className="pricing-tier-name">{tier.name}</h3>
+                    <p className="pricing-tier-range">{tier.range}</p>
+                    <p className="pricing-tier-minfee">{tier.minFee}</p>
+                  </div>
+                  <div className="pricing-tier-body">
+                    <p className="pricing-tier-price">
+                      {tier.price}
+                      <span>{tier.unit}</span>
                     </p>
-                  ))}
+                    <ul className="pricing-tier-features">
+                      {tier.features.map((f) => (
+                        <li key={f}>
+                          <i className="fas fa-check-circle" /> {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link to={pricingTiers.ctaHref} className="vs-btn">
+                      {pricingTiers.ctaText}
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -168,6 +221,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <WhyChooseSection />
 
       {/* Feature Highlights */}
       <section className="bg-secondary space-top space-extra-bottom">
@@ -232,40 +287,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Choose PowerQ (long) */}
-      <section className="space-top space-bottom">
-        <div className="container">
-          <div className="row align-items-center gx-100">
-            <div className="col-lg-6 text-center mb-4 mb-lg-0">
-              <img src={whyChooseLong.image} alt="" className="w-100" style={{ borderRadius: 8 }} />
-            </div>
-            <div className="col-lg-6 text-center text-lg-start">
-              <div className="title-area mb-0">
-                <span className="sec-subtitle">Why Choose Us</span>
-                <h2 className="sec-title">{whyChooseLong.title}</h2>
-                {whyChooseLong.paragraphs.map((p, i) => (
-                  <p className="sec-text" key={i}>
-                    {p.includes(whyChooseLong.linkText) ? (
-                      <>
-                        {p.split(whyChooseLong.linkText)[0]}
-                        <a href={whyChooseLong.linkHref} target="_blank" rel="noreferrer">
-                          {whyChooseLong.linkText}
-                        </a>
-                        {p.split(whyChooseLong.linkText)[1]}
-                      </>
-                    ) : (
-                      p
-                    )}
-                  </p>
-                ))}
-                <Link to="/request-a-quote" className="vs-btn">
-                  Request a Quote<i className="far fa-arrow-right" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WhyChooseSection />
 
       {/* Services all over Melbourne banner */}
       <section className="services-everywhere-band">
@@ -285,7 +307,7 @@ export default function HomePage() {
             <h2 className="sec-title">Getting Started Is Easy</h2>
             <p className="sec-text col-lg-8 mx-auto">
               Getting started with our Test &amp; Tag services is simple and hassle-free. Just reach out to PowerQ,
-              and our expert team will schedule a convenient time for you.
+              and our expert team will schedule a convenient!
             </p>
           </div>
           <div className="row gy-4">

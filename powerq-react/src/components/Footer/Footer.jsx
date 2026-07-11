@@ -3,8 +3,6 @@ import { company, socialLinks, footerLinks } from '../../data/siteData'
 import './Footer.css'
 
 export default function Footer() {
-  const year = new Date().getFullYear()
-
   const contactRows = [
     { icon: 'fas fa-phone-alt', href: company.phoneHref, text: company.phoneDisplay },
     { icon: 'fas fa-envelope', href: `mailto:${company.email}`, text: company.email },
@@ -96,9 +94,9 @@ export default function Footer() {
       <div className="copyright-wrap">
         <div className="container-fluid footer-container">
           <p className="copyright-text">
-            copyright <i className="fal fa-copyright" /> {year} By {company.name}, created By{' '}
-            <a href="https://ndminfotech.com/" target="_blank" rel="noreferrer" className="copyright-credit">
-              NDM Infotech
+            copyright <i className="fal fa-copyright" /> 2025 By {company.name} , created By{' '}
+            <a href="https://ovsinnovation.in/" target="_blank" rel="noreferrer" className="copyright-credit">
+              OVS Innovation
             </a>
           </p>
         </div>

@@ -8,7 +8,7 @@ export default function RequestQuotePage() {
 
       <section className="space-top space-extra-bottom">
         <div className="container">
-          <div className="row align-items-center gx-100">
+          <div className="row align-items-start gx-100">
             <div className="col-lg-6 mb-4 mb-lg-0">
               <h2 className="sec-title">{requestQuoteIntro.title}</h2>
               {requestQuoteIntro.paragraphs.map((p, i) => (

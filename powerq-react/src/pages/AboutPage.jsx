@@ -57,7 +57,7 @@ export default function AboutPage() {
       {/* Relations */}
       <section className="bg-secondary space-top space-extra-bottom">
         <div className="container">
-          <div className="row align-items-center gx-100">
+          <div className="row align-items-start gx-100">
             <div className="col-lg-6 text-center mb-4 mb-lg-0">
               <img src={relationsSection.image} alt="" className="w-100" style={{ borderRadius: 8 }} />
             </div>
@@ -91,7 +91,7 @@ export default function AboutPage() {
       {/* About intro */}
       <section className="bg-secondary space-top space-extra-bottom">
         <div className="container">
-          <div className="row align-items-center gx-100">
+          <div className="row align-items-start gx-100">
             <div className="col-lg-6 text-center text-lg-start order-lg-2">
               <img src={aboutIntro.image} alt="" className="w-100" style={{ borderRadius: 8 }} />
             </div>
