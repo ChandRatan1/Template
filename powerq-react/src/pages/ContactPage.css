@@ -28,3 +28,74 @@
   font-size: 16px;
   color: #323232;
 }
+
+.contact-map-row {
+  min-height: 620px;
+  margin: 0;
+}
+
+.contact-map-col {
+  padding: 0;
+}
+
+.contact-map-col iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 620px;
+  border: 0;
+}
+
+.contact-form-col {
+  display: flex;
+  align-items: center;
+  padding: 60px 6vw;
+}
+
+.contact-quote-form.form-style1 {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.contact-quote-form label {
+  display: block;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--title-color);
+  margin-bottom: 8px;
+}
+
+.contact-quote-form .form-group {
+  margin-bottom: 22px;
+}
+
+.contact-quote-form select,
+.contact-quote-form input {
+  height: 50px;
+  font-size: 15px;
+  border: 1.5px solid #d8dde1;
+}
+
+.contact-quote-form textarea {
+  min-height: 110px;
+  font-size: 15px;
+  border: 1.5px solid #d8dde1;
+}
+
+.contact-quote-form .vs-btn.style3 {
+  height: 54px;
+  font-size: 16px;
+}
+
+@media (max-width: 991px) {
+  .contact-map-row {
+    min-height: auto;
+  }
+  .contact-map-col iframe {
+    min-height: 380px;
+  }
+  .contact-form-col {
+    padding: 40px 20px;
+  }
+}

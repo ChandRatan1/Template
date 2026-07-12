@@ -11,6 +11,7 @@ export const services = [
     cardTitle: 'Electrical Test & Tag',
     cardText: 'Ensure safety and compliance with professional electrical cord test and tag services across Melbourne.',
     pageTitle: 'Electrical Cord Test and Tag in Melbourne',
+    seoTitle: 'Electrical Cord Test and Tag in Melbourne | PowerQ',
     heroImage: '/content-img/electrician-working_53876-16064-220x154.jpg',
     sections: [
       {
@@ -23,6 +24,7 @@ export const services = [
         centerCta: true,
         image: '/content-img/male-electrician-works-switchboard-with-electrical-connecting-cable_169016-15086.jpg',
         imageSide: 'right',
+        cornerClip: true,
       },
       {
         heading: 'Electrical Cord Testing Melbourne',
@@ -41,6 +43,7 @@ export const services = [
     cardTitle: 'Extinguisher Testing',
     cardText: 'PowerQ provides reliable fire extinguisher testing for safety compliance in Melbourne.',
     pageTitle: 'Fire Extinguisher Testing Melbourne',
+    seoTitle: 'Fire Extinguisher Testing Melbourne and Maintenance Near Me',
     heroImage: '/content-img/Fire-Safety-Training-for-Oil-Gas-960x640-1.jpg',
     sections: [
       {
@@ -48,8 +51,6 @@ export const services = [
         paragraphs: [
           'At PowerQ, we are committed to delivering cutting-edge fire safety solutions tailored to your needs. From high-quality fire extinguishers to comprehensive testing, tagging, and maintenance services, we ensure your safety with the latest industry standards and technology. Our expert team in Melbourne is dedicated to providing unparalleled protection for homes, businesses, and beyond. With PowerQ, you can trust that your safety is in the hands of professionals who prioritize reliability, innovation, and excellence in every service we offer.',
         ],
-        image: '/content-img/1685363510980.jpeg',
-        imageSide: 'right',
       },
       {
         heading: 'We at PowerQ Test & Tag Melbourne believe in making relations',
@@ -82,6 +83,7 @@ export const services = [
     cardTitle: 'RCD Testing',
     cardText: 'PowerQ tests and services RCDs to ensure optimal protection from electrical hazards.',
     pageTitle: 'RCD/ Safety Switches in Melbourne',
+    seoTitle: 'RCD and Safety Switch Testing Services in Melbourne',
     heroImage: '/content-img/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up_169016-5076-1024x655.jpg',
     sections: [
       {
@@ -93,25 +95,28 @@ export const services = [
         image: '/content-img/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up_169016-5076-1024x655.jpg',
         imageSide: 'left',
       },
-    ],
-    blocks: [
-      { type: 'heading', text: 'We recommend regular RCD tests to ensure the safety of life at work and home that could be endangered in case of an unfortunate contact with a faulty wiring.' },
-      { type: 'heading', level: 3, text: 'Safety Switch Testing Melbourne' },
       {
-        type: 'paragraph',
-        text: 'Are you looking for a reliable safety switch testing service in Melbourne? Look no further! Residual Current Device (RCD) testing is an essential part of electrical safety maintenance in your property, and we are here to provide it. RCDs are highly sensitive devices that disconnect a circuit or power source as soon as they detect an imbalance in electric current, providing necessary protection and preventing injuries or fatalities. At our service centre, our professionals will take care of all your safety switch testing needs with confidence and accuracy.',
+        dark: true,
+        image: '/content-img/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up_169016-5076-1024x655.jpg',
+        imageSide: 'left',
+        overlayCard: {
+          text: 'We recommend regular RCD tests to ensure the safety of life at work and home that could be endangered in case of an unfortunate contact with a faulty wiring.',
+        },
+        heading: 'Safety Switch Testing Melbourne',
+        paragraphs: [
+          'Are you looking for a reliable safety switch testing service in Melbourne? Look no further! Residual Current Device (RCD) testing is an essential part of electrical safety maintenance in your property, and we are here to provide it. RCDs are highly sensitive devices that disconnect a circuit or power source as soon as they detect an imbalance in electric current, providing necessary protection and preventing injuries or fatalities. At our service centre, our professionals will take care of all your safety switch testing needs with confidence and accuracy.',
+        ],
       },
-      { type: 'image', src: '/content-img/woman-turning-off-light-switch-1024x816.jpg' },
-      { type: 'image', src: '/content-img/concrete-wall-with-meters-pipes-1024x683.jpg' },
-      { type: 'heading', level: 3, text: 'RCD or Safety Switches play a vital role in your safety from any hazards with electrical equipment and appliances you use at workplace or at home.' },
       {
-        type: 'paragraph',
-        text: 'RCDs should be tested periodically to check their performance for trip current and time are within the specified limits. At PowerQ, we provide accurate testing of your RCDs as required by the Australia/New Zealand Standards AS/NZS 3760:2010. Using a range of high quality test instruments, our technicians are able to test the performance of your RCDs for trip current and time to ensure they are within specified limits. To satisfy safety obligations, it is recommended to have safety switch tests done biannually.',
-      },
-      { type: 'heading', level: 3, text: 'RCD tests to ensure compliance include:' },
-      {
-        type: 'list',
-        items: [
+        image: '/content-img/woman-turning-off-light-switch-1024x816.jpg',
+        cornerImage: '/content-img/concrete-wall-with-meters-pipes-1024x683.jpg',
+        imageSide: 'left',
+        heading: 'RCD or Safety Switches play a vital role in your safety from any hazards with electrical equipment and appliances you use at workplace or at home.',
+        paragraphs: [
+          'RCDs should be tested periodically to check their performance for trip current and time are within the specified limits. At **PowerQ**, we provide accurate testing of your RCDs as required by the Australia/New Zealand Standards AS/NZS 3760:2010. Using a range of high quality test instruments, our technicians are able to test the performance of your RCDs for trip current and time to ensure they are within specified limits. To satisfy safety obligations, it is recommended to have safety switch tests done biannually.',
+        ],
+        secondHeading: 'RCD tests to ensure compliance include:',
+        list: [
           'The push button test',
           'Visual inspection and operational testing',
           'Tripping time to test for trip time as prescribed by Australian standards',
@@ -127,32 +132,34 @@ export const services = [
     cardTitle: 'Three Phase Testing',
     cardText: 'PowerQ delivers accurate three phase testing to ensure equipment safety and performance.',
     pageTitle: 'Three Phase Testing in Melbourne',
-    heroImage: '/content-img/3-Phase-to-240V-power-board-scaled.jpg',
+    seoTitle: 'Three Phase Testing Services in Melbourne | PowerQ',
+    heroImage: '/content-img/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up_169016-5076-1024x655.jpg',
     sections: [
       {
         heading: 'Three Phase Testing Melbourne',
         paragraphs: [
-          'PowerQ Test & Tag Melbourne is the industry leader for Three-Phase Testing in Melbourne, offering full compliance services that abide by Victoria’s test and tag regulations. Our experienced team of professionals guarantee top-notch service with full public liability cover, giving customers peace of mind in knowing they are receiving the highest quality work. We are confident our electrical testing and tagging services meet all applicable standards so you can have confidence when having us complete your Three-Phase Testing.',
+          'PowerQ Test & Tag Melbourne is the industry leader for Three-Phase Testing in Melbourne, offering full compliance services that abide by Victoria’s test and tag regulations. Our experienced team of professionals guarantee top-notch service with full public liability cover, giving customers piece of mind in knowing they are receiving the highest quality work. We are confident our electrical testing and tagging services meet all applicable standards so you can have confidence when having us complete your Three-Phase Testing.',
         ],
         cta: { text: 'CONTACT US', href: '/request-a-quote' },
         image: '/content-img/Three-Phase-Testing-Melbourne_-1.jpg',
         imageSide: 'right',
+        cornerClip: true,
       },
       {
         bannerText:
           'The Australian Standards AS/NZS 3760:2010 recognizes three important tests for compliance of equipment using three phase switch or socket',
-        image: '/content-img/c1aad3ee-82a1-43d4-a720-304935d55bd5-688x1024.jpeg',
+        image: '/content-img/c1aad3ee-82a1-43d4-a720-304935d55bd5-cleaned.jpeg',
         imageSide: 'left',
         heading: 'Three Phase Testing Melbourne',
         paragraphs: ['These tests are required to successfully complete a three phase testing inspection:'],
         numberedList: [
           {
             label: 'Earth Continuity',
-            text: 'The Earth Continuity test measures the resistance supplied by the equipment or machine’s earth wire. For current to pass to earth from the equipment as quickly as feasible, the resistance needs to be very low. The maximum resistance allowed for this test is below 1Ω.',
+            text: 'The Earth Continuity test measures the resistance supplied by the equipment or machine’s earth wire. For current to pass to earth from the equipment as quickly as feasible, the resistance needs to very low. The maximum resistance allowed for this test is below 1Ω.',
           },
           {
             label: 'Insulation resistance',
-            text: 'The Insulation Resistance test measures the resistance provided by the machine/equipment’s insulation. This resistance is measured in Ohms (Ω) and the minimum ohms required for a successful test is 1MΩ (megaohm) which equates to 1,000,000 ohms.',
+            text: 'The Insulation Resistance test measures the resistance provided by the machine/equipment’s insulation. This resistance is measured in Ohms (Ω) and the minimum ohms required for a successful test is 1MΩ (megaohm) which equated to 1.000.000 ohms.',
           },
           {
             label: 'Earth Leakage',
@@ -164,9 +171,7 @@ export const services = [
     blocks: [
       {
         type: 'paragraph',
-        text: 'Another test that can be carried out on 3-Phase equipment is the RCD trip time test while testing RCD safety switches. The maximum trip time for 3-Phase RCDs must not exceed 300 milliseconds (ms).',
-        linkText: 'RCD safety switches',
-        linkHref: '/rcd-safety-switches-in-melbourne',
+        text: 'Another test that can be carried out on 3-Phase equipment is RCD trip time test while testing [RCD safety switches](/rcd-safety-switches-in-melbourne). The maximum trip time for 3-Phase RCDs must not exceed 300 milliseconds (ms).',
       },
       { type: 'cta', text: 'BOOK OUR SERVICES', href: '/request-a-quote' },
     ],
@@ -177,6 +182,7 @@ export const services = [
     cardTitle: 'Microwave Testing',
     cardText: 'PowerQ provides precise microwave leakage testing to ensure appliance safety and compliance.',
     pageTitle: 'Microwave Testing in Melbourne',
+    seoTitle: 'Microwave Leakage Testing in Melbourne | PowerQ',
     heroImage: '/content-img/Microwave-Testing.jpg',
     sections: [
       {
@@ -184,31 +190,34 @@ export const services = [
         paragraphs: [
           'PowerQ firmly believes in building strong customer relationships. Located in Melbourne, our team is backed by ample experience and competence to conduct efficient electrical testing and tagging services with full compliance to the regulations specific to Victoria. Furthermore, we possess the necessary public liability cover that gives you the assurance of safety when you choose us for our test and tag services. Rest assured, we abide by all applicable regulations pertinent to your industry sector.',
         ],
-        cta: { text: 'CONTACT US', href: '/request-a-quote' },
+        cta: { text: 'CONTACT US', href: '/contact-us' },
         image: '/content-img/Microwave-Testing.jpg',
         imageSide: 'left',
       },
-    ],
-    blocks: [
-      { type: 'heading', text: 'PowerQ Test & Tag Melbourne uses proper radiation detection equipment in accordance with Australian safety standards for microwave testing.' },
-      { type: 'heading', level: 3, text: 'Microwave Safety Testing Melbourne' },
       {
-        type: 'paragraph',
-        text: 'Are you looking for microwave safety testing in Melbourne? The regular use of microwaves, and their increasing age, can lead to a build-up of dirt and contained particles that may cause radiation leakage. While the radiation from microwaves is used for the purpose of cooking food and other things, these same radiations can become dangerous if not kept properly monitored. To ensure your safety and health, it is suggested to get regular tests done on your microwave to inspect for any potential leaks or damage which may bring forth radiation. Older microwave models also require more frequent testing due to signs of wear and tear or deteriorated parts. Don’t take the risk – ensure you get proper microwave safety testing today! PowerQ Test & Tag Melbourne recommends regular testing of a microwave to ensure that you and your family, or employees, are safe. Our professional technicians use radiation detection equipment that is compliant with Australian standards to conduct tests after inspecting the microwave for any physical damages. With our microwave emission assessment, you can be assured that your environment is not negatively affected by radiation and stay safe.',
+        bannerText: 'PowerQ Test & Tag Melbourne uses proper radiation detection equipment in accordance with Australian safety standards for microwave testing.',
+        heading: 'Microwave Safety Testing Melbourne',
+        paragraphs: [
+          'Are you looking for microwave safety testing in Melbourne? The regular use of microwaves and their increasing age, can lead to a build-up of dirt and contained particles that may cause radiation leakage. While the radiations from microwaves are used in the purpose of cooking food and other things, these same radiations can become dangerous if not kept properly monitored. To ensure your safety and health, it is suggested to get regular tests done on your microwave to inspect for any potential leaks or damage which may bring forth radiation. Older microwave models also require more frequent testing due to signs of wear and tear or deteriorated parts. Don’t take the risk – ensure you get proper microwave safety testing today!',
+          '**PowerQ** Test & Tag Melbourne recommends regular testing of a microwave to ensure that you and your family, or employees are safe. Our professional technicians use radiation detection equipment that is compliant with Australian standards to conduct tests after inspecting the microwave for any physical damages. With our microwave emission assessment, you can be assured that your environment is not negatively affected by radiation and stay safe.',
+        ],
+        imagePair: [
+          '/content-img/Microwave-Testing-near-me-Wyndham-Melbourne-e1741440221938.jpg',
+          '/content-img/mechanic-uses-screwdriver-tighten-screws-tv_1150-24067.jpg',
+        ],
       },
-      { type: 'image', src: '/content-img/Microwave-Testing-near-me-Wyndham-Melbourne-e1741440221938.jpg' },
-      { type: 'image', src: '/content-img/mechanic-uses-screwdriver-tighten-screws-tv_1150-24067.jpg' },
-      { type: 'heading', text: 'We will also provide certification tags after the testing exercise and will issue a schedule for the next servicing to keep things up to date.' },
-      { type: 'image', src: '/content-img/close-up-device-with-kitchen-control_23-2148994129.avif' },
-      { type: 'heading', level: 3, text: 'Microwave Appliance Testing includes:' },
       {
-        type: 'list',
-        items: [
+        bannerText: 'We will also provide certification tags after the testing exercise and will issue a schedule for the next servicing to keep things up to date.',
+        heading: 'Microwave Appliance Testing includes:',
+        headingLevel: 3,
+        list: [
           'An electrical safety test to ensure appliance safety compliance.',
           'A physical inspection and correct functioning assessment to check for damage and deterioration.',
           'A power output and electrical cords inspection for compliance with acceptable standards of electrical flow and magnetization.',
           'A radiation emissions inspection to evaluate radiation levels.',
         ],
+        image: '/content-img/close-up-device-with-kitchen-control_23-2148994129.avif',
+        imageSide: 'left',
       },
     ],
   },
@@ -218,7 +227,8 @@ export const services = [
     cardTitle: 'Exit & Emergency Light Testing',
     cardText: 'PowerQ ensures your emergency exit lights are fully functional and compliant with safety standards.',
     pageTitle: 'Emergency Exit Light Testing in Melbourne',
-    heroImage: '/content-img/green-emergency-exit-sign-ceiling_53876-123089.jpg',
+    seoTitle: 'Emergency Exit Light Testing in Melbourne | PowerQ',
+    heroImage: '/content-img/emergency-exit-sign-with-siren-light-direction-emergency-exit_35913-3108-1024x652.jpg',
     sections: [
       {
         heading: 'We at PowerQ Test & Tag Melbourne believe in making relations',
@@ -229,32 +239,36 @@ export const services = [
         image: '/content-img/Emergency-Exit-Light-Testing.jpg',
         imageSide: 'right',
       },
-    ],
-    blocks: [
-      { type: 'image', src: '/content-img/emergency-exit-sign-with-siren-light-direction-emergency-exit_35913-3108-1024x652.jpg' },
-      { type: 'heading', text: 'Exit Light Testing Melbourne' },
       {
-        type: 'paragraph',
-        text: 'A business should always be confident that the emergency exit light and exit signs are working as expected. Nobody would like a situation at work where emergency lighting or exit signs do not turn on in the event of a power failure or evacuation. Attention is required as people at any workplace should be able to find their way out of the premises in case of an emergency. This is a requirement that is looked at by WorkCover and insurance providers in case of any workplace incident involving people using emergency light or exit. PowerQ Test & Tag Melbourne offers help to have your compliance for exit and emergency light testing in Melbourne appropriately ticked.',
+        dark: true,
+        image: '/content-img/emergency-exit-sign-with-siren-light-direction-emergency-exit_35913-3108-1024x652.jpg',
+        imageSide: 'left',
+        heading: 'Exit Light Testing Melbourne',
+        paragraphs: [
+          'A business should always be confident that the emergency exit light and exit signs are working as expected. Nobody would like a situation at work where emergency lighting or exit signs do not turn on in the event of a power failure or evacuation. Attention is required as people at any workplace should be able to find their way out of the premises in case of an emergency. This is a requirement that is looked at by WorkCover and insurance providers in case of any workplace incident involving people using emergency light or exit. PowerQ Test & Tag Melbourne offers help to have your compliance for exit and emergency light testing in Melbourne appropriately ticked.',
+        ],
+        fullWidthNote:
+          'It is a regulation in Victoria for businesses to have emergency lights working at the exit doors. Schedule a full test of the emergency lights annually. You need a professional to advise you properly on these rules and regulations to ensure the safety of you and your employees. For example, if your emergency light setup is supposed to give you two full hours of light in the event of loss of power, the test has to last for at least two hours.',
       },
       {
-        type: 'paragraph',
-        text: 'It is a regulation in Victoria for businesses to have emergency lights working at the exit doors. Schedule a full test of the emergency lights annually. You need a professional to advise you properly on these rules and regulations to ensure the safety of you and your employees. For example, if your emergency light setup is supposed to give you two full hours of light in the event of loss of power, the test has to last for at least two hours.',
-      },
-      {
-        type: 'paragraph',
-        text: 'The exit light testing is done to ensure that the emergency exit lights stay illuminated for at least 90 minutes on battery power. The test is not complicated as mostly the emergency exit light comes with a small “push to test” button to test the light illuminated while on battery power.',
-      },
-      {
-        type: 'list',
-        items: [
+        paragraphs: [
+          'The exit light testing is done to ensure that the emergency exit lights stay illuminated for at least 90 minutes on battery power. The test is not complicated as mostly the emergency exit light comes with a small “push to test” button to test the light illuminated while on battery power.',
+        ],
+        boldNote: 'The process involves these steps:',
+        list: [
           'Testing of all lights to be operational under mains power',
           'Check and replace if any mains powered globes / lights are failing',
           'A 90-minute mains isolation test to check battery backup',
           'During the isolation test, checking to ensure no emergency lighting has failed',
         ],
+        image: '/content-img/Exit-Light-testing-standard.webp',
+        imageSide: 'right',
+        detailCircles: [
+          '/content-img/Exit-Light-testing-standard.webp',
+          '/content-img/Exit-Light-testing-standard.webp',
+          '/content-img/Exit-Light-testing-standard.webp',
+        ],
       },
-      { type: 'image', src: '/content-img/Exit-Light-testing-standard.webp' },
     ],
   },
   {

@@ -1,39 +1,59 @@
 import { useState } from 'react'
 
-const initialForm = { name: '', email: '', phone: '' }
+const initialForm = { name: '', email: '', phone: '', message: '' }
 const QUOTE_EMAIL = 'neetukumarseo00@gmail.com'
+const QUOTE_EMAIL_CC = 'vijeta27april@gmail.com,Vijeta.pandey2023@gmail.com'
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-export default function QuoteForm({ title = 'Request a free Quote', className = 'form-style1', showLabels = false }) {
+export default function QuoteForm({ title = 'Request a free Quote', className = 'form-style1', showLabels = false, showMessage = false }) {
   const [form, setForm] = useState(initialForm)
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setForm((prev) => ({ ...prev, [name]: value }))
   }
 
+  const validate = () => {
+    const name = form.name.trim()
+    const email = form.email.trim()
+    const phone = form.phone.trim()
+    if (!name) return 'Please enter your name.'
+    if (!email || !EMAIL_PATTERN.test(email)) return 'Please enter a valid email address.'
+    if (!phone || phone.replace(/\D/g, '').length < 8) return 'Please enter a valid phone number.'
+    return ''
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setSubmitted(false)
+    const validationError = validate()
+    if (validationError) {
+      setError(validationError)
+      return
+    }
     setSending(true)
-    setError(false)
+    setError('')
     try {
       const res = await fetch(`https://formsubmit.co/ajax/${QUOTE_EMAIL}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           _subject: 'New Quote Request - PowerQ Website',
-          Name: form.name,
-          Email: form.email,
-          'Phone No.': form.phone,
+          _cc: QUOTE_EMAIL_CC,
+          Name: form.name.trim(),
+          Email: form.email.trim(),
+          'Phone No.': form.phone.trim(),
+          ...(showMessage ? { Message: form.message.trim() } : {}),
         }),
       })
       if (!res.ok) throw new Error('Request failed')
       setSubmitted(true)
       setForm(initialForm)
     } catch {
-      setError(true)
+      setError('Something went wrong sending your request. Please try again.')
     } finally {
       setSending(false)
     }
@@ -55,13 +75,19 @@ export default function QuoteForm({ title = 'Request a free Quote', className = 
           {showLabels && <label htmlFor="quote-phone">Phone No.</label>}
           <input id="quote-phone" type="tel" name="phone" placeholder="" value={form.phone} onChange={handleChange} required />
         </div>
+        {showMessage && (
+          <div className="col-md-6 col-xl-12 form-group">
+            {showLabels && <label htmlFor="quote-message">Message</label>}
+            <textarea id="quote-message" name="message" placeholder="Message" value={form.message} onChange={handleChange} rows={4} />
+          </div>
+        )}
         <div className="col-12 form-btn">
           <button className="vs-btn style3" type="submit" disabled={sending}>
             {sending ? 'Sending...' : 'Send'}
           </button>
         </div>
         {submitted && <p className="form-message">Thanks! We’ll be in touch shortly with your free quote.</p>}
-        {error && <p className="form-message form-message-error">Something went wrong. Please try again.</p>}
+        {error && <p className="form-message form-message-error">{error}</p>}
       </div>
     </form>
   )

@@ -14,6 +14,139 @@
   position: relative;
 }
 
+.service-image-wrap img {
+  border-radius: 8px;
+  max-height: 480px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.service-image-wrap:hover img {
+  transform: translateY(6px);
+}
+
+.service-image-wrap-clipped img {
+  border-radius: 0 90px 0 0;
+}
+
+.service-image-wrap-contain img {
+  object-fit: contain;
+  max-height: none;
+  background-color: var(--white-color);
+}
+
+.service-corner-image {
+  position: absolute;
+  right: -24px;
+  bottom: -30px;
+  width: 45%;
+  max-width: 220px;
+  height: auto;
+  border: 6px solid var(--white-color);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.service-overlay-card {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  max-width: 480px;
+  background: var(--white-color);
+  border-radius: 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  padding: 24px 28px;
+}
+
+.service-overlay-card p {
+  margin: 0;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--title-color);
+}
+
+.service-dark-band {
+  background-color: #0f0f0f;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 60px;
+  padding: 60px calc((100vw - var(--main-container, 1320px)) / 2 + 15px);
+}
+
+.service-plain-list {
+  padding-left: 20px;
+  margin: 16px 0 0;
+}
+
+.service-plain-list li {
+  color: var(--body-color);
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.service-image-pair {
+  display: flex;
+  gap: 16px;
+  height: 100%;
+}
+
+.service-image-pair-item {
+  width: 50%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.service-full-width-note {
+  margin-top: 24px;
+}
+
+.service-detail-circles {
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 14px;
+}
+
+.service-detail-circle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--white-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+.service-detail-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-detail-circle:nth-child(1) img {
+  object-position: top left;
+}
+
+.service-detail-circle:nth-child(2) img {
+  object-position: center;
+}
+
+.service-detail-circle:nth-child(3) img {
+  object-position: bottom right;
+}
+
 .service-accent-bar {
   position: absolute;
   top: 10px;

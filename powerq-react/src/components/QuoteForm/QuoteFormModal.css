@@ -1,0 +1,99 @@
+.quote-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 2, 2, 0.65);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.quote-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  animation: quoteModalIn 0.25s ease;
+}
+
+.quote-modal-dialog .form-style1 {
+  max-width: 100%;
+  margin: 0;
+}
+
+.quote-modal-dialog .form-group {
+  margin-bottom: 18px;
+  padding: 12px 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--white-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quote-modal-dialog .form-group:focus-within {
+  border-color: var(--theme-color);
+  box-shadow: 0 0 0 3px rgba(201, 15, 22, 0.08);
+}
+
+.quote-modal-dialog .form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--title-color);
+}
+
+.quote-modal-dialog .form-group input,
+.quote-modal-dialog .form-group textarea {
+  height: auto;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.quote-modal-dialog .form-group textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+.quote-modal-dialog .form-btn {
+  margin-top: 6px;
+}
+
+.quote-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white-color);
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  color: var(--title-color);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.quote-modal-close:hover {
+  color: #0d861d;
+}
+
+@keyframes quoteModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

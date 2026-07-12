@@ -61,6 +61,15 @@ export const pricingHighlights = {
   ],
 }
 
+export const specializeBanner = {
+  image: '/content-img/man-electrical-technician-working-switchboard-with-fuses_169016-24062.avif',
+  title: 'We specialize in all types of Testing & Tagging in Melbourne',
+  paragraph:
+    'At Testing & Tagging Melbourne, we are committed to providing excellent services when it comes to electrical testing and tagging. We understand the risks associated with faulty or damaged equipment, which is why we specialise in making sure all electrical appliances are up to safety standards. Our experienced team will offer advice as to what regulations your machines must meet, as well as conducting regular tests and inspections to ensure that everything is functioning correctly and safely. By taking care of all your test and tagging needs, you can have peace of mind knowing that your equipment won’t put people at risk of an electrical hazard. We are dedicated to providing you and your premises with comprehensive testing services and solutions for a safer work environment!',
+  linkText: 'electrical testing and tagging',
+  linkHref: '/electrical-test-and-tag-in-melbourne',
+}
+
 export const pricingTiers = {
   subtitle: 'Pricing Plans',
   title: 'We offer best price and packages for test & tag in Melbourne',

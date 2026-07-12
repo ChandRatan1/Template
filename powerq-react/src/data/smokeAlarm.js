@@ -74,7 +74,11 @@ export const kitchenBathroom = {
 export const installedIn = {
   heading: 'Smoke alarms must be installed in:',
   cards: [
-    { icon: 'fas fa-home', title: 'All residential buildings where people sleep (houses, units, flats and townhouses).', text: '' },
+    {
+      icon: 'fas fa-home',
+      title: 'All residential buildings where people sleep (houses, units, flats and townhouses).',
+      text: 'This includes every bedroom, each hallway connecting a bedroom to the rest of the home, and any other area required under the Building Code of Australia. Alarms must comply with AS 3786 and be positioned according to manufacturer guidelines for early fire detection.',
+    },
     {
       icon: 'far fa-building',
       title: 'Buildings used for short term accommodation',

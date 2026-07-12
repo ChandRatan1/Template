@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { company, navItems } from '../../data/siteData'
+import useTheme from '../../hooks/useTheme'
 import './Header.css'
 
 function DesktopNav({ className }) {
@@ -125,6 +126,7 @@ export default function Header() {
   const [isSticky, setIsSticky] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openLabel, setOpenLabel] = useState(null)
+  const [theme, toggleTheme] = useTheme()
 
   useEffect(() => {
     const onScroll = () => setIsSticky(window.scrollY > 200)
@@ -181,6 +183,14 @@ export default function Header() {
                 <Link to="/cart" aria-label="Cart">
                   <i className="far fa-shopping-cart" />
                 </Link>
+                <button
+                  className="theme-toggle-btn"
+                  onClick={toggleTheme}
+                  aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                  title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                >
+                  <i className={theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'} />
+                </button>
                 <button className="vs-menu-toggle d-lg-none" onClick={toggleMenu} aria-label="Open menu">
                   <i className="fal fa-bars" />
                 </button>

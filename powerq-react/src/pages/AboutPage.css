@@ -24,6 +24,30 @@
   z-index: -1;
 }
 
+.about-why-heading {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 18px;
+  font-size: 38px;
+  margin-bottom: 24px;
+}
+
+.about-why-heading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--white-color);
+}
+
+.about-why-text {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
 .about-why-icon {
   font-size: 40px;
   color: var(--theme-color);
@@ -58,5 +82,34 @@
   .about-why-cards-row {
     margin-top: 0;
   }
+}
+
+.who-we-are-card {
+  background-color: var(--white-color);
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  padding: 50px 60px;
+}
+
+.who-we-are-heading {
+  font-size: 36px;
+}
+
+.who-we-are-text {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.vs-btn.who-we-are-btn {
+  background-color: var(--theme-color);
+}
+
+.about-intro-heading {
+  font-size: 32px;
+}
+
+.about-intro-text {
+  font-size: 16px;
+  line-height: 1.8;
 }
 

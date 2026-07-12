@@ -1,12 +1,31 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero/PageHero'
-import { posts } from '../data/blog'
+import { posts as localPosts } from '../data/blog'
+import { fetchPosts } from '../utils/blogApi'
+import usePageTitle from '../hooks/usePageTitle'
 
 export default function BlogPage() {
+  usePageTitle('Blog | PowerQ')
+  const [posts, setPosts] = useState(localPosts)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    let cancelled = false
+    fetchPosts().then((apiPosts) => {
+      if (cancelled) return
+      if (apiPosts !== null) setPosts(apiPosts)
+      setLoading(false)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
   return (
     <>
       <PageHero title="Blog" current="Blog" />
-      {posts.length === 0 && (
+      {!loading && posts.length === 0 && (
         <section className="space-top space-extra-bottom text-center">
           <div className="container">
             <p className="sec-text">There is no blog post</p>

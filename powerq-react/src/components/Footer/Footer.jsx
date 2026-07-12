@@ -95,8 +95,8 @@ export default function Footer() {
         <div className="container-fluid footer-container">
           <p className="copyright-text">
             copyright <i className="fal fa-copyright" /> 2025 By {company.name} , created By{' '}
-            <a href="https://ovsinnovation.in/" target="_blank" rel="noreferrer" className="copyright-credit">
-              OVS Innovation
+            <a href="https://ndminfotech.com/" target="_blank" rel="noreferrer" className="copyright-credit">
+              NDM Infotech
             </a>
           </p>
         </div>

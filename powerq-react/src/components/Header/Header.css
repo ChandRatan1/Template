@@ -44,8 +44,17 @@
   color: var(--theme-color);
 }
 
+.theme-toggle-btn {
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--theme-color);
+}
+
 .header-nav-bar {
-  background-color: var(--title-color);
+  background-color: #16171a;
 }
 
 .header-nav-bar.is-sticky {
@@ -176,8 +185,12 @@
 }
 
 .header-search-form button:hover {
-  background-color: var(--title-color);
+  background-color: #16171a;
   color: #0d861d;
+}
+
+.vs-menu-wrapper .mobile-logo img {
+  max-width: 185px;
 }
 
 .mobile-search-form {

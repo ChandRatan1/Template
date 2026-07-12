@@ -2,9 +2,11 @@ import PageHero from '../components/PageHero/PageHero'
 import QuoteForm from '../components/QuoteForm/QuoteForm'
 import { contactCards } from '../data/contact'
 import { company } from '../data/siteData'
+import usePageTitle from '../hooks/usePageTitle'
 import './ContactPage.css'
 
 export default function ContactPage() {
+  usePageTitle('Contact Us - PowerQ Test and Tag in Melbourne')
   return (
     <>
       <PageHero title="Contact Us" current="Contact Us" />
@@ -32,23 +34,18 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-secondary space-extra-bottom">
-        <div className="container">
-          <div className="row align-items-stretch gx-100">
-            <div className="col-lg-6 mb-4 mb-lg-0">
-              <iframe
-                title="PowerQ location map"
-                src={`https://www.google.com/maps?q=${encodeURIComponent(company.address)}&output=embed`}
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: 420, borderRadius: 8 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-            <div className="col-lg-6">
-              <QuoteForm title="Send Us a Message" />
-            </div>
+      <section className="bg-secondary contact-map-section">
+        <div className="row g-0 align-items-stretch contact-map-row">
+          <div className="col-lg-7 contact-map-col">
+            <iframe
+              title="PowerQ location map"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(company.address)}&output=embed`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <div className="col-lg-5 contact-form-col">
+            <QuoteForm title="Send Us a Message" className="form-style1 contact-quote-form" showLabels showMessage />
           </div>
         </div>
       </section>

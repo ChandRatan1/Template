@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
 import { bgStyle } from '../utils/bg'
 import { whyChoosePoints, whyChooseBanner, relationsSection, whoWeAre, aboutIntro, beatQuote, team } from '../data/about'
+import usePageTitle from '../hooks/usePageTitle'
 import './AboutPage.css'
 
 export default function AboutPage() {
+  usePageTitle('About U - Trusted Test and Tag Experts in Melbourne')
   return (
     <>
       {/* Why choose PowerQ (doubles as this page's hero — single background image, no separate title banner) */}
@@ -22,8 +24,8 @@ export default function AboutPage() {
             </ul>
           </div>
           <div className="title-area text-center mb-0">
-            <h2 className="sec-title text-white">Why choose PowerQ for Test &amp; Tag in Melbourne</h2>
-            <p className="sec-text col-lg-8 mx-auto text-white">
+            <h2 className="sec-title text-white about-why-heading">Why choose PowerQ for Test &amp; Tag in Melbourne</h2>
+            <p className="sec-text col-lg-8 mx-auto text-white about-why-text">
               PowerQ is the leading provider of testing and tagging services in Melbourne. Our conveniently
               scheduled after-hours services ensure safety for businesses, restaurants, workshops, offices, schools,
               shops and more. We conduct detailed electrical testing and tagging inspections for our clients so that
@@ -79,10 +81,18 @@ export default function AboutPage() {
       <section className="space-top space-extra-bottom">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-9 text-center">
-              <span className="sec-subtitle">Who We Are</span>
-              <h2 className="sec-title">{whoWeAre.title}</h2>
-              <p className="sec-text">{whoWeAre.paragraph}</p>
+            <div className="col-lg-9">
+              <div className="who-we-are-card">
+                <span className="sec-subtitle">Why Choose Us</span>
+                <h2 className="sec-title who-we-are-heading">{whoWeAre.title}</h2>
+                <p className="sec-text who-we-are-text">
+                  <strong>PowerQ</strong>
+                  {whoWeAre.paragraph.replace(/^PowerQ/, '')}
+                </p>
+                <Link to="/request-a-quote" className="vs-btn who-we-are-btn">
+                  Get A Quote
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -97,11 +107,10 @@ export default function AboutPage() {
             </div>
             <div className="col-lg-6 text-center text-lg-start order-lg-1">
               <div className="title-area mb-0">
-                <span className="sec-subtitle">{aboutIntro.title}</span>
-                <h2 className="sec-title">24/7 Testing &amp; Tagging Services</h2>
-                <p className="sec-text">{aboutIntro.paragraph}</p>
+                <h2 className="sec-title about-intro-heading">{aboutIntro.title}</h2>
+                <p className="sec-text about-intro-text">{aboutIntro.paragraph}</p>
                 <Link to="/contact-us" className="vs-btn">
-                  Contact us<i className="far fa-long-arrow-right" />
+                  Contact us
                 </Link>
               </div>
             </div>

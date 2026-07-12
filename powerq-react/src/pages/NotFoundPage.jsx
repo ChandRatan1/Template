@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import usePageTitle from '../hooks/usePageTitle'
 
 export default function NotFoundPage() {
+  usePageTitle('404 Page Not Found | PowerQ')
   return (
     <section className="space-top space-extra-bottom text-center" style={{ paddingTop: 160 }}>
       <div className="container">

@@ -6,7 +6,8 @@
 }
 
 .smoke-theme-dark {
-  background-color: #141414;
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
 }
 
 .smoke-theme-dark .sec-text a {
@@ -25,6 +26,12 @@
   padding: 30px 24px;
   text-align: center;
   height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.smoke-fact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .smoke-fact-card i {
@@ -64,18 +71,21 @@
 
 .smoke-image-overlay-card {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  right: 20px;
+  bottom: 20px;
+  max-width: 320px;
   background-color: var(--theme-color);
   color: var(--white-color);
-  padding: 16px 20px;
-  border-radius: 6px;
+  padding: 20px 24px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .smoke-image-overlay-card p {
-  margin: 0 0 8px;
-  font-size: 14px;
-  white-space: nowrap;
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  white-space: normal;
 }
 
 .smoke-image-overlay-card p:last-child {
@@ -103,6 +113,10 @@
   margin-bottom: 16px;
 }
 
+.smoke-check-green {
+  color: #0d861d;
+}
+
 .smoke-footnote {
   font-size: 14px;
   color: #666;
@@ -110,7 +124,9 @@
 }
 
 .plain-accordion-box .plain-accordion-item {
-  border-bottom: 1px solid var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-bottom: 12px;
 }
 
 .plain-accordion-button {
@@ -121,11 +137,15 @@
   gap: 16px;
   background: transparent;
   border: none;
-  padding: 18px 4px;
+  padding: 18px 20px;
   text-align: left;
   font-weight: 700;
   color: var(--title-color);
   cursor: pointer;
+}
+
+.plain-accordion-button i {
+  color: #0d861d;
 }
 
 .plain-accordion-item.active .plain-accordion-button {
@@ -133,7 +153,7 @@
 }
 
 .plain-accordion-body {
-  padding: 0 4px 18px;
+  padding: 0 20px 18px;
   color: #555;
 }
 

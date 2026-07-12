@@ -8,15 +8,16 @@ import {
   topServices,
   pricingIntro,
   pricingHighlights,
+  specializeBanner,
   pricingTiers,
   safetyStats,
   whyChooseLong,
   featureHighlights,
   expertise,
   serviceHighlights,
-  timeline,
   testimonials,
 } from '../data/home'
+import usePageTitle from '../hooks/usePageTitle'
 import './HomePage.css'
 
 const TESTIMONIALS_VISIBLE = 3
@@ -25,14 +26,15 @@ function WhyChooseSection() {
   return (
     <section className="space-top space-bottom">
       <div className="container">
+        <div className="title-area text-center">
+          <h2 className="sec-title">{whyChooseLong.title}</h2>
+        </div>
         <div className="row align-items-start gx-100">
           <div className="col-lg-6 text-center mb-4 mb-lg-0">
             <img src={whyChooseLong.image} alt="" className="w-100" style={{ borderRadius: 8 }} />
           </div>
           <div className="col-lg-6 text-center text-lg-start">
             <div className="title-area mb-0">
-              <span className="sec-subtitle">Why Choose Us</span>
-              <h2 className="sec-title">{whyChooseLong.title}</h2>
               {whyChooseLong.paragraphs.map((p, i) => (
                 <p className="sec-text" key={i}>
                   {p.includes(whyChooseLong.linkText) ? (
@@ -60,6 +62,7 @@ function WhyChooseSection() {
 }
 
 export default function HomePage() {
+  usePageTitle('PowerQ - Professional Test and Tag Services in Melbourne')
   const [testimonialIndex, setTestimonialIndex] = useState(0)
   const visibleTestimonials = Array.from({ length: TESTIMONIALS_VISIBLE }, (_, i) => testimonials[(testimonialIndex + i) % testimonials.length])
   const nextTestimonial = () => setTestimonialIndex((i) => (i + 1) % testimonials.length)
@@ -98,7 +101,7 @@ export default function HomePage() {
         <div className="container">
           <div className="row gy-3 justify-content-center">
             {whyChooseIcons.map((item) => (
-              <div className="col-6 col-md-4 col-lg-2 text-center" key={item.label}>
+              <div className="col-6 col-md-4 col-lg-2" key={item.label}>
                 <div className="why-choose-icon">
                   <i className={item.icon} />
                 </div>
@@ -132,7 +135,6 @@ export default function HomePage() {
                       </h3>
                       <Link to={service.href} className="vs-btn">
                         {service.ctaText}
-                        <i className="far fa-long-arrow-right" />
                       </Link>
                     </div>
                   </div>
@@ -196,6 +198,46 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Pricing Highlight Checklist Cards */}
+      <section className="space-extra-bottom">
+        <div className="container">
+          <h3 className="pricing-highlight-heading">{pricingHighlights.title}</h3>
+          <div className="row gy-4">
+            {pricingHighlights.cards.map((items, i) => (
+              <div className="col-md-6 col-lg-3" key={i}>
+                <div className="pricing-highlight-card h-100">
+                  <ul className="pricing-highlight-checklist">
+                    {items.map((item) => (
+                      <li key={item}>
+                        <span className="pricing-highlight-check">✅</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Specialize banner */}
+      <section className="specialize-banner" data-bg-src={specializeBanner.image} style={bgStyle(specializeBanner.image)}>
+        <div className="container text-center">
+          <h2 className="sec-title text-white mb-4 specialize-banner-heading">{specializeBanner.title}</h2>
+          <p className="sec-text text-white specialize-banner-text">
+            {specializeBanner.paragraph.split(specializeBanner.linkText)[0]}
+            <Link to={specializeBanner.linkHref} className="specialize-banner-link">
+              {specializeBanner.linkText}
+            </Link>
+            {specializeBanner.paragraph.split(specializeBanner.linkText)[1]}
+          </p>
+          <Link to="/request-a-quote" className="vs-btn">
+            Request A Quote
+          </Link>
+        </div>
+      </section>
+
       {/* Safety Assurance Stats */}
       <section className="bg-secondary space-top space-extra-bottom">
         <div className="container">
@@ -221,8 +263,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <WhyChooseSection />
 
       {/* Feature Highlights */}
       <section className="bg-secondary space-top space-extra-bottom">
@@ -251,7 +291,9 @@ export default function HomePage() {
             {expertise.map((e) => (
               <div className="col-md-4" key={e.title}>
                 <div className="expertise-card">
-                  <img src={e.image} alt={e.title} />
+                  <div className="expertise-card-img-wrap">
+                    <img src={e.image} alt={e.title} />
+                  </div>
                   <h3 className="expertise-card-title">{e.title}</h3>
                 </div>
               </div>
@@ -261,15 +303,18 @@ export default function HomePage() {
       </section>
 
       {/* Service Highlights */}
-      <section className="bg-secondary space-top space-extra-bottom">
+      <section
+        className="service-highlights-band space-top space-extra-bottom"
+        data-bg-src="/content-img/man-electrical-technician-working-switchboard-with-fuses_169016-24062.avif"
+        style={bgStyle('/content-img/man-electrical-technician-working-switchboard-with-fuses_169016-24062.avif')}
+      >
         <div className="container">
-          <div className="title-area text-center">
-            <span className="sec-subtitle">Our Services</span>
-            <h2 className="sec-title">PowerQ Test and Tag Services</h2>
+          <div className="title-area">
+            <h2 className="sec-title text-white service-highlights-heading">PowerQ Test and Tag Services</h2>
           </div>
-          <div className="row gy-4">
+          <div className="service-highlights-grid">
             {serviceHighlights.map((s) => (
-              <div className="col-md-6 col-lg-3" key={s.title}>
+              <div className="service-highlights-grid-item" key={s.title}>
                 <Link to={s.href} className="flip-card">
                   <div className="flip-card-inner">
                     <div className="flip-card-front">
@@ -296,32 +341,6 @@ export default function HomePage() {
           <Link to="/request-a-quote" className="vs-btn">
             Request a Quote<i className="far fa-arrow-right" />
           </Link>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="space-top space-extra-bottom">
-        <div className="container">
-          <div className="title-area text-center">
-            <span className="sec-subtitle">How It Works</span>
-            <h2 className="sec-title">Getting Started Is Easy</h2>
-            <p className="sec-text col-lg-8 mx-auto">
-              Getting started with our Test &amp; Tag services is simple and hassle-free. Just reach out to PowerQ,
-              and our expert team will schedule a convenient!
-            </p>
-          </div>
-          <div className="row gy-4">
-            {timeline.map((step) => (
-              <div className="col-md-6 col-lg-3" key={step.date}>
-                <div className="timeline-card">
-                  <img src={step.image} alt={step.title} />
-                  <span className="timeline-date">{step.date}</span>
-                  <h3 className="h6">{step.title}</h3>
-                  <p className="sec-text">{step.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

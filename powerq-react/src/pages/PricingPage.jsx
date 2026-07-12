@@ -2,10 +2,12 @@ import PageHero from '../components/PageHero/PageHero'
 import ServiceSection from '../components/ServiceSection/ServiceSection'
 import { bgStyle } from '../utils/bg'
 import { pricingIntro, pricingPlans, pricingFactors, experienceFactors } from '../data/pricing'
+import usePageTitle from '../hooks/usePageTitle'
 import './HomePage.css'
 import './PricingPage.css'
 
 export default function PricingPage() {
+  usePageTitle('Test and Tag Pricing Melbourne - Affordable Rates | PowerQ')
   return (
     <>
       <PageHero title="Cost of Test & Tag in Melbourne" current="Pricing" />
@@ -28,7 +30,7 @@ export default function PricingPage() {
           <h2 className="sec-title text-white mb-4">{pricingPlans.title}</h2>
           <div className="row justify-content-center">
             <div className="col-xl-8">
-              <div className="pricing-highlight-box" style={{ background: 'var(--white-color)' }}>
+              <div className="pricing-highlight-box">
                 <ul className="pricing-highlight-list">
                   {pricingPlans.items.map((item) => (
                     <li key={item.label}>
@@ -50,14 +52,16 @@ export default function PricingPage() {
             paragraphs={pricingFactors.paragraphs}
             image={pricingFactors.image}
             imageSide="right"
+            imageContain
           />
           <ServiceSection
             image={experienceFactors.image}
             imageSide="left"
+            imageContain
             heading={experienceFactors.title}
             boldLead={experienceFactors.boldLead}
-            paragraphs={experienceFactors.points}
-            boldNote={experienceFactors.boldNote}
+            list={experienceFactors.points}
+            closingNote={experienceFactors.boldNote}
           />
         </div>
       </section>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { renderInline } from '../../utils/inlineMarkup'
 
 function isInternal(href) {
   return typeof href === 'string' && href.startsWith('/')
@@ -61,13 +62,7 @@ export default function ContentBlocks({ blocks }) {
           case 'paragraph':
             return (
               <p className="sec-text" key={key}>
-                {block.text}
-                {block.linkText && (
-                  <>
-                    {' '}
-                    <SmartLink href={block.linkHref}>{block.linkText}</SmartLink>
-                  </>
-                )}
+                {renderInline(block.text)}
               </p>
             )
           case 'list':

@@ -4,6 +4,7 @@ import PageHero from '../components/PageHero/PageHero'
 import { renderInline } from '../utils/inlineMarkup'
 import { getServiceBySlug } from '../data/services'
 import { company } from '../data/siteData'
+import usePageTitle from '../hooks/usePageTitle'
 import {
   relations,
   inspect,
@@ -50,6 +51,7 @@ function PlainAccordionItem({ item, isOpen, onToggle }) {
 
 export default function SmokeAlarmPage() {
   const [openFaq, setOpenFaq] = useState(0)
+  usePageTitle('Smoke Alarm Installation & Testing in Melbourne | PowerQ')
 
   return (
     <>
@@ -57,12 +59,12 @@ export default function SmokeAlarmPage() {
 
       <section className="space-top space-extra-bottom">
         <div className="container">
-          {/* We at PowerQ... (dark card) */}
+          {/* We at PowerQ... */}
           <div className="smoke-theme-dark">
             <div className="row align-items-start gy-4">
               <div className="col-lg-6">
-                <h2 className="sec-title text-white">{relations.heading}</h2>
-                <p className="sec-text text-white">{renderInline(relations.paragraph)}</p>
+                <h2 className="sec-title">{relations.heading}</h2>
+                <p className="sec-text">{renderInline(relations.paragraph)}</p>
               </div>
               <div className="col-lg-6">
                 <img src={relations.image} alt="" className="w-100" style={{ borderRadius: 8 }} />
@@ -218,7 +220,7 @@ export default function SmokeAlarmPage() {
                 <ul className="list-unstyled">
                   {includedExcluded.included.map((item) => (
                     <li key={item}>
-                      <i className="fas fa-check text-theme me-2" />
+                      <i className="fas fa-check smoke-check-green me-2" />
                       {item}
                     </li>
                   ))}

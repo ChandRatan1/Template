@@ -1,0 +1,8 @@
+# Single-page app fallback: send any path that isn't a real file/folder to index.html
+# so React Router can handle client-side routes (e.g. /about-us, /blog/my-post).
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

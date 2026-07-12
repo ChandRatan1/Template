@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero/PageHero'
+import usePageTitle from '../hooks/usePageTitle'
 
 export default function PlaceholderPage({ title, message }) {
+  usePageTitle(`${title} | PowerQ`)
   return (
     <>
       <PageHero title={title} current={title} />
