@@ -5,6 +5,7 @@
 
 .faq-compliance-table {
   width: 100%;
+  min-width: 720px;
   border-collapse: collapse;
   text-align: center;
   border: 2px solid #000;

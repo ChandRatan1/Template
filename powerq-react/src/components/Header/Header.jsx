@@ -189,7 +189,19 @@ export default function Header() {
                   aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
                   title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
                 >
-                  <i className={theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'} />
+                  {theme === 'dark' ? (
+                    <svg viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="currentColor" aria-hidden="true">
+                      <circle cx="12" cy="12" r="4.5" />
+                      <g stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
+                        <line x1="12" y1="1" x2="12" y2="4" />
+                        <line x1="12" y1="20" x2="12" y2="23" />
+                        <line x1="1" y1="12" x2="4" y2="12" />
+                        <line x1="20" y1="12" x2="23" y2="12" />
+                      </g>
+                    </svg>
+                  ) : (
+                    <i className="fas fa-moon" />
+                  )}
                 </button>
                 <button className="vs-menu-toggle d-lg-none" onClick={toggleMenu} aria-label="Open menu">
                   <i className="fal fa-bars" />

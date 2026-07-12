@@ -49,6 +49,14 @@
   object-fit: cover;
 }
 
+@media (max-width: 575px) {
+  .service-corner-image {
+    right: 0;
+    bottom: -20px;
+    width: 42%;
+  }
+}
+
 .service-overlay-card {
   position: absolute;
   left: 24px;
@@ -78,7 +86,7 @@
   margin-left: -50vw;
   margin-right: -50vw;
   margin-bottom: 60px;
-  padding: 60px calc((100vw - var(--main-container, 1320px)) / 2 + 15px);
+  padding: 60px max(15px, calc((100vw - var(--main-container, 1320px)) / 2 + 15px));
 }
 
 .service-plain-list {
@@ -99,7 +107,9 @@
 }
 
 .service-image-pair-item {
-  width: 50%;
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
   height: 100%;
   min-height: 220px;
   object-fit: cover;

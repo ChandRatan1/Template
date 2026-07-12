@@ -21,3 +21,16 @@
 .pricing-highlight-list .text-theme {
   white-space: nowrap;
 }
+
+@media (max-width: 575px) {
+  .pricing-highlight-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 16px 18px;
+  }
+
+  .pricing-highlight-list .text-theme {
+    white-space: normal;
+  }
+}

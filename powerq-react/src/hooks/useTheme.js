@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react'
 
 export default function useTheme() {
-  const [theme, setTheme] = useState(() => {
-    const stored = localStorage.getItem('theme')
-    if (stored === 'dark' || stored === 'light') return stored
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-  })
+  // Always starts on light/sun mode for every fresh page load or new tab —
+  // toggling is intentionally not persisted (no localStorage), so a dark
+  // mode choice never carries over to a new visit.
+  const [theme, setTheme] = useState('light')
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
   }, [theme])
 
   const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
