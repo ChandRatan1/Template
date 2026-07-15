@@ -128,6 +128,8 @@ export const services = [
           'Two fast trip and two non-trip tests tripping current test',
           'Inspection of switchboard door, hinge, lock and weatherproof seal',
         ],
+        closingNote:
+          'Once every test is complete, we provide a written report covering each result, so you have clear, dated evidence of compliance for your records, your insurer, or any workplace audit.',
       },
     ],
   },
@@ -195,6 +197,7 @@ export const services = [
         heading: 'We at PowerQ Test & Tag Melbourne believe in making relations',
         paragraphs: [
           'PowerQ firmly believes in building strong customer relationships. Located in Melbourne, our team is backed by ample experience and competence to conduct efficient electrical testing and tagging services with full compliance to the regulations specific to Victoria. Furthermore, we possess the necessary public liability cover that gives you the assurance of safety when you choose us for our test and tag services. Rest assured, we abide by all applicable regulations pertinent to your industry sector.',
+          'Our technicians arrive on time, work efficiently around your kitchen or workplace schedule, and leave you with a clear compliance report for every microwave tested. Whether it is a single appliance in a staff kitchen or a full commercial fleet, we bring the same careful, standards-based approach to every job.',
         ],
         cta: { text: 'CONTACT US', href: '/contact-us' },
         image: '/content-img/Microwave-Testing.jpg',
@@ -215,11 +218,15 @@ export const services = [
         bannerText: 'We will also provide certification tags after the testing exercise and will issue a schedule for the next servicing to keep things up to date.',
         heading: 'Microwave Appliance Testing includes:',
         headingLevel: 3,
+        paragraphs: [
+          'Every microwave we test goes through the same thorough, standards-based process, covering these key checks:',
+        ],
         list: [
           'An electrical safety test to ensure appliance safety compliance.',
           'A physical inspection and correct functioning assessment to check for damage and deterioration.',
           'A power output and electrical cords inspection for compliance with acceptable standards of electrical flow and magnetization.',
           'A radiation emissions inspection to evaluate radiation levels.',
+          'A dated compliance tag applied to the appliance, along with a written report of the results for your records.',
         ],
         image: '/content-img/close-up-device-with-kitchen-control_23-2148994129.avif',
         imageSide: 'left',

@@ -31,7 +31,7 @@ export const whyChooseBanner = {
 export const relationsSection = {
   title: 'We at PowerQ Test & Tag Melbourne believe in making relations',
   paragraph:
-    'At PowerQ Test & Tag Melbourne, we believe in fostering relationships that last. As an experienced team of skilled electrical test and tag technicians based in Melbourne, we guarantee peace of mind when you engage us for our test and tag services. We are dedicated to promoting safety in the workplace with full compliance to the relevant regulations for Victoria. We make sure to have all the correct credentials with full public liability cover and competency. We provide a flawless service every single time!',
+    'At PowerQ Test & Tag Melbourne, we believe in fostering relationships that last. As an experienced team of skilled electrical test and tag technicians based in Melbourne, we guarantee peace of mind when you engage us for our test and tag services. We are dedicated to promoting safety in the workplace with full compliance to the relevant regulations for Victoria. We make sure to have all the correct credentials with full public liability cover and competency. We provide a flawless service every single time! Many of our clients have been with us for years, booking us in for their annual and biannual testing because they know exactly what to expect: a punctual, professional visit and a clear report they can rely on.',
   image: '/content-img/male-electrician-works-switchboard-with-electrical-connecting-cable_169016-15204.avif',
 }
 
@@ -44,7 +44,7 @@ export const whoWeAre = {
 export const aboutIntro = {
   title: 'About Us',
   paragraph:
-    'At PowerQ, we provide 24/7 testing and tagging services anytime you need in Melbourne. We are trusted by our customers for our fair prices, swiftness, trustworthiness, and professional knowledge on safety protocols. Our main objective is to make sure that everyone in the workplace is safe and secure through efficient testing and tagging Melbourne wide.',
+    'At PowerQ, we provide 24/7 testing and tagging services anytime you need in Melbourne. We are trusted by our customers for our fair prices, swiftness, trustworthiness, and professional knowledge on safety protocols. Our main objective is to make sure that everyone in the workplace is safe and secure through efficient testing and tagging Melbourne wide. From small businesses to large commercial sites, our team adapts to your environment and schedule, so you get thorough, compliant testing without unnecessary downtime.',
   image: '/content-img/Emergency-Test-and-Tag-Tarneit.jpeg',
 }
 

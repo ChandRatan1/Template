@@ -16,7 +16,7 @@ export default function PricingPage() {
         <div className="container">
           <ServiceSection
             heading={pricingIntro.title}
-            paragraphs={[pricingIntro.paragraph]}
+            paragraphs={[pricingIntro.paragraph, pricingIntro.paragraph2]}
             cta={{ text: 'BOOK OUR SERVICES', href: '/request-a-quote' }}
             image={pricingIntro.image}
             imageSide="right"
