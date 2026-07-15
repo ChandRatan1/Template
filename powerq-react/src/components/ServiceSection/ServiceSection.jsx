@@ -52,6 +52,7 @@ export default function ServiceSection({
   detailCircles,
   fullWidthNote,
   closingNote,
+  stretchImage,
 }) {
   const HeadingTag = `h${headingLevel}`
 
@@ -98,7 +99,7 @@ export default function ServiceSection({
         </div>
       ) : (
         <div
-          className={`service-image-wrap${cornerClip ? ' service-image-wrap-clipped' : ''}${imageContain ? ' service-image-wrap-contain' : ''}`}
+          className={`service-image-wrap${cornerClip ? ' service-image-wrap-clipped' : ''}${imageContain ? ' service-image-wrap-contain' : ''}${stretchImage ? ' service-image-wrap-stretch' : ''}`}
         >
           <img src={image} alt={imageAlt} className="w-100" />
           {accentBar && <span className="service-accent-bar" aria-hidden="true" />}
@@ -134,7 +135,7 @@ export default function ServiceSection({
   const hasImageCol = image || imagePair
 
   const row = (
-    <div className="row align-items-start gy-4 service-section">
+    <div className={`row ${stretchImage ? 'align-items-stretch' : 'align-items-start'} gy-4 service-section`}>
       {hasImageCol ? (imageSide === 'left' ? [imageCol, textCol] : [textCol, imageCol]) : textCol}
     </div>
   )

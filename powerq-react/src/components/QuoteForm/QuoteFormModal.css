@@ -49,6 +49,7 @@
 }
 
 .quote-modal-dialog .form-group input,
+.quote-modal-dialog .form-group select,
 .quote-modal-dialog .form-group textarea {
   height: auto;
   padding: 0;

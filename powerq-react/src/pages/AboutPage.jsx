@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { bgStyle } from '../utils/bg'
-import { whyChoosePoints, whyChooseBanner, relationsSection, whoWeAre, aboutIntro, beatQuote, team } from '../data/about'
+import { whyChoosePoints, whyChooseBanner, relationsSection, whoWeAre, aboutIntro, beatQuote } from '../data/about'
 import usePageTitle from '../hooks/usePageTitle'
 import './AboutPage.css'
 
@@ -133,45 +133,6 @@ export default function AboutPage() {
                   <i className="fas fa-check-circle text-theme me-2" />
                   {point}
                 </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="bg-secondary space-top space-extra-bottom">
-        <div className="container">
-          <div className="title-area text-center">
-            <span className="sec-subtitle">Our Team</span>
-            <h2 className="sec-title">Meet Our Fearless Firefighters</h2>
-            <p className="sec-text col-lg-8 mx-auto">
-              Our team of dedicated firefighters is always ready to protect and serve, ensuring your safety with
-              unmatched courage and commitment. Trained to handle any emergency, they are the first line of defense
-              when it comes to fire prevention and response.
-            </p>
-          </div>
-          <div className="row gy-4">
-            {team.map((member) => (
-              <div className="col-md-6 col-lg-3" key={member.name}>
-                <div className="team-style1">
-                  <div className="team-img">
-                    <img src={member.image} alt={member.name} />
-                  </div>
-                  <div className="team-content">
-                    <h3 className="team-name">{member.name}</h3>
-                    <span className="team-degi">{member.role}</span>
-                    <p className="sec-text mt-2">{member.bio}</p>
-                    <p className="mb-0">
-                      <a href={`tel:${member.phone}`} className="text-reset d-block">
-                        {member.phone}
-                      </a>
-                      <a href={`mailto:${member.email}`} className="text-reset">
-                        {member.email}
-                      </a>
-                    </p>
-                  </div>
-                </div>
               </div>
             ))}
           </div>

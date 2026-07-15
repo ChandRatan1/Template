@@ -10,9 +10,7 @@ import {
   pricingHighlights,
   specializeBanner,
   pricingTiers,
-  safetyStats,
   whyChooseLong,
-  featureHighlights,
   expertise,
   serviceHighlights,
   testimonials,
@@ -203,11 +201,12 @@ export default function HomePage() {
         <div className="container">
           <h3 className="pricing-highlight-heading">{pricingHighlights.title}</h3>
           <div className="row gy-4">
-            {pricingHighlights.cards.map((items, i) => (
+            {pricingHighlights.cards.map((card, i) => (
               <div className="col-md-6 col-lg-3" key={i}>
-                <div className="pricing-highlight-card h-100">
+                <div className="pricing-highlight-card h-100" data-bg-src={card.image} style={bgStyle(card.image)}>
+                  <div className="pricing-highlight-card-overlay" />
                   <ul className="pricing-highlight-checklist">
-                    {items.map((item) => (
+                    {card.items.map((item) => (
                       <li key={item}>
                         <span className="pricing-highlight-check">✅</span>
                         {item}
@@ -235,48 +234,6 @@ export default function HomePage() {
           <Link to="/request-a-quote" className="vs-btn">
             Request A Quote
           </Link>
-        </div>
-      </section>
-
-      {/* Safety Assurance Stats */}
-      <section className="bg-secondary space-top space-extra-bottom">
-        <div className="container">
-          <div className="title-area text-center">
-            <span className="sec-subtitle">Safety Assurance</span>
-            <h2 className="sec-title">Commitment to Public Safety</h2>
-            <p className="sec-text col-lg-8 mx-auto">
-              We are unwavering in our commitment to public safety. We understand that electrical hazards can pose
-              serious risks to individuals and property, which is why we prioritize the safety and well-being of our
-              employees, clients, and the community.
-            </p>
-          </div>
-          <div className="row gy-4">
-            {safetyStats.map((stat) => (
-              <div className="col-md-6 col-lg-3" key={stat.title}>
-                <div className="stat-card">
-                  <div className="stat-percent">{stat.percent}%</div>
-                  <h3 className="h5">{stat.title}</h3>
-                  <p className="sec-text">{stat.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Feature Highlights */}
-      <section className="bg-secondary space-top space-extra-bottom">
-        <div className="container">
-          <div className="row gy-4">
-            {featureHighlights.map((f) => (
-              <div className="col-md-6 col-lg-3" key={f.title}>
-                <div className="process-style1">
-                  <h3 className="process-name">{f.title}</h3>
-                  <p className="process-text">{f.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

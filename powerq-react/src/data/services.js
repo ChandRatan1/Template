@@ -18,6 +18,7 @@ export const services = [
         heading: 'Why do Testing and Tagging',
         paragraphs: [
           'Testing and tagging of equipment is essential in order to ensure that they operate safely and do not pose a risk to people, property or the work environment. Testing should be conducted regularly as electrical appliances have the potential to cause serious injury or death if they are not maintained properly. Even events which are less severe can result in skin burns, organ damage, etc. To stay safe, employers and self-employed personnel must have their equipment tested/tagged regularly. Doing so can help avoid potentially fatal results and keep workers safe. If your employees regularly use electrical equipment, testing and tagging is a must!',
+          'A qualified technician checks each item for damage to the cord, plug and casing, verifies the earth continuity and insulation resistance, and applies a dated tag so everyone on site can see at a glance when the next test is due. Keeping this cycle up to date is one of the simplest and most cost-effective ways to reduce electrical risk in any workplace.',
         ],
         boldNote: 'We strongly suggest testing and tagging as a necessary precaution for any equipment in use.',
         cta: { text: 'Read More', href: '/request-a-quote' },
@@ -30,6 +31,7 @@ export const services = [
         heading: 'Electrical Cord Testing Melbourne',
         paragraphs: [
           'Are you looking for a trusted Electrical Test and Tag services in Melbourne? At [PowerQ Test & Tag Melbourne](/), we provide a complete inspection and check on electrical cords for any bent or damaged pins, missing securing nuts and more. We also ensure that the form of the cord has not been twisted, there is no discolouration, foreign objects attached to the outer insulation of the cord. On completion, our professional team will provide a comprehensive report along with all test results and actions taken. Upon completion of testing, we provide a full report with all test results and actions taken.',
+          'We test power leads, extension cords, RCDs and portable appliances used across offices, warehouses, construction sites and retail spaces, so every piece of equipment on your premises meets AS/NZS 3760 requirements. Our flexible scheduling means we can work around your business hours to minimise any disruption to your team.',
         ],
         boldNote: 'We can also inspect other equipment to ensure complete safety at workplace.',
         image: '/content-img/Electrical-Cord-Testing-in-Melbourne-1024x682.jpg',
@@ -56,6 +58,7 @@ export const services = [
         heading: 'We at PowerQ Test & Tag Melbourne believe in making relations',
         paragraphs: [
           'At **PowerQ** [Test & Tag Melbourne](/), our focus is on building relationships. We provide cost-effective electrical testing and tagging services with full compliance to test and tag regulations in Victoria. Our team of experienced professionals use their smarts and skills to guarantee you peace of mind that we follow all necessary regulations for your industry. With us, you get the assurance of quality service backed by full public liability cover. Furthermore, we possess the necessary public liability cover that gives you the assurance of safety when you choose us for our test and tag services. Rest assured, we abide by all applicable regulations pertinent to your industry sector.',
+          'Whether you manage a single office or a large industrial site, our technicians tailor every visit to your equipment and schedule, so testing never disrupts your day-to-day operations. We keep detailed digital records of every test and tag we complete, giving you an audit-ready history whenever an inspector, insurer, or client asks for proof of compliance.',
         ],
         cta: { text: 'CONTACT US', href: '/request-a-quote' },
         image: '/content-img/Fire-Safety-Training-for-Oil-Gas-960x640-1.jpg',
@@ -90,6 +93,7 @@ export const services = [
         heading: 'We at PowerQ Test & Tag Melbourne believe in making relations',
         paragraphs: [
           'At Test & Tag Melbourne, our focus is on building relationships. We provide cost-effective services with full compliance to test and tag regulations in Victoria. Our team of experienced professionals use their smarts and skills to guarantee you peace of mind that we follow all necessary regulations for your industry. With us, you get the assurance of quality service backed by full public liability cover.',
+          'We know that faulty safety switches can put people and property at serious risk, which is why every test we carry out follows the relevant Australian Standards and is backed by a clear, easy-to-read report. From single-switch homes to large commercial switchboards, our technicians bring the same care and attention to every job, so you can trust that your electrical safety switches are working exactly as they should.',
         ],
         cta: { text: 'CONTACT US', href: '/request-a-quote' },
         image: '/content-img/man-electrical-technician-working-switchboard-with-fuses-installation-connection-electrical-equipment-close-up_169016-5076-1024x655.jpg',
@@ -105,6 +109,7 @@ export const services = [
         heading: 'Safety Switch Testing Melbourne',
         paragraphs: [
           'Are you looking for a reliable safety switch testing service in Melbourne? Look no further! Residual Current Device (RCD) testing is an essential part of electrical safety maintenance in your property, and we are here to provide it. RCDs are highly sensitive devices that disconnect a circuit or power source as soon as they detect an imbalance in electric current, providing necessary protection and preventing injuries or fatalities. At our service centre, our professionals will take care of all your safety switch testing needs with confidence and accuracy.',
+          'Regular testing not only keeps your property compliant with Victorian regulations, it also gives you genuine peace of mind that the switch will trip instantly the moment it detects a dangerous current imbalance.',
         ],
       },
       {
@@ -139,6 +144,7 @@ export const services = [
         heading: 'Three Phase Testing Melbourne',
         paragraphs: [
           'PowerQ Test & Tag Melbourne is the industry leader for Three-Phase Testing in Melbourne, offering full compliance services that abide by Victoria’s test and tag regulations. Our experienced team of professionals guarantee top-notch service with full public liability cover, giving customers piece of mind in knowing they are receiving the highest quality work. We are confident our electrical testing and tagging services meet all applicable standards so you can have confidence when having us complete your Three-Phase Testing.',
+          'Our technicians are equipped with calibrated testing instruments to accurately measure earth continuity, insulation resistance and earth leakage on three phase equipment, switches and sockets used across factories, workshops and commercial kitchens. We provide a detailed report after every test, so you always have compliance documentation on hand.',
         ],
         cta: { text: 'CONTACT US', href: '/request-a-quote' },
         image: '/content-img/Three-Phase-Testing-Melbourne_-1.jpg',
@@ -201,10 +207,9 @@ export const services = [
           'Are you looking for microwave safety testing in Melbourne? The regular use of microwaves and their increasing age, can lead to a build-up of dirt and contained particles that may cause radiation leakage. While the radiations from microwaves are used in the purpose of cooking food and other things, these same radiations can become dangerous if not kept properly monitored. To ensure your safety and health, it is suggested to get regular tests done on your microwave to inspect for any potential leaks or damage which may bring forth radiation. Older microwave models also require more frequent testing due to signs of wear and tear or deteriorated parts. Don’t take the risk – ensure you get proper microwave safety testing today!',
           '**PowerQ** Test & Tag Melbourne recommends regular testing of a microwave to ensure that you and your family, or employees are safe. Our professional technicians use radiation detection equipment that is compliant with Australian standards to conduct tests after inspecting the microwave for any physical damages. With our microwave emission assessment, you can be assured that your environment is not negatively affected by radiation and stay safe.',
         ],
-        imagePair: [
-          '/content-img/Microwave-Testing-near-me-Wyndham-Melbourne-e1741440221938.jpg',
-          '/content-img/mechanic-uses-screwdriver-tighten-screws-tv_1150-24067.jpg',
-        ],
+        image: '/content-img/Microwave-Testing-near-me-Wyndham-Melbourne-e1741440221938.jpg',
+        imageSide: 'right',
+        stretchImage: true,
       },
       {
         bannerText: 'We will also provide certification tags after the testing exercise and will issue a schedule for the next servicing to keep things up to date.',
@@ -234,6 +239,7 @@ export const services = [
         heading: 'We at PowerQ Test & Tag Melbourne believe in making relations',
         paragraphs: [
           'At PowerQ Test & Tag we are committed to building strong and trusting partnerships. Located in Melbourne, we are your go-to electrical testing and tagging experts providing services that comply with Victoria’s regulations. As a team of skilled professionals, we have the power to provide you with remarkable service while also giving you complete assurance that professional test and tag standards are met. Rest easy knowing that our public liability cover and expertise will not let you down when it comes to test and tag services.',
+          'From single-storey offices to multi-level commercial buildings, we make sure every exit light and illuminated sign is tested to the standard required to keep your building compliant and your people safe.',
         ],
         cta: { text: 'CONTACT US', href: '/request-a-quote' },
         image: '/content-img/Emergency-Exit-Light-Testing.jpg',
@@ -246,6 +252,7 @@ export const services = [
         heading: 'Exit Light Testing Melbourne',
         paragraphs: [
           'A business should always be confident that the emergency exit light and exit signs are working as expected. Nobody would like a situation at work where emergency lighting or exit signs do not turn on in the event of a power failure or evacuation. Attention is required as people at any workplace should be able to find their way out of the premises in case of an emergency. This is a requirement that is looked at by WorkCover and insurance providers in case of any workplace incident involving people using emergency light or exit. PowerQ Test & Tag Melbourne offers help to have your compliance for exit and emergency light testing in Melbourne appropriately ticked.',
+          'Our technicians carry out this testing efficiently and with minimal disruption to your business, providing a full compliance report once every light and sign on your premises has been checked.',
         ],
         fullWidthNote:
           'It is a regulation in Victoria for businesses to have emergency lights working at the exit doors. Schedule a full test of the emergency lights annually. You need a professional to advise you properly on these rules and regulations to ensure the safety of you and your employees. For example, if your emergency light setup is supposed to give you two full hours of light in the event of loss of power, the test has to last for at least two hours.',
@@ -253,6 +260,7 @@ export const services = [
       {
         paragraphs: [
           'The exit light testing is done to ensure that the emergency exit lights stay illuminated for at least 90 minutes on battery power. The test is not complicated as mostly the emergency exit light comes with a small “push to test” button to test the light illuminated while on battery power.',
+          'Once the test button is pressed, mains power to the light is cut and a technician confirms the battery-powered globe or LED remains bright and clearly visible for the full duration, exactly as it would need to during a real evacuation.',
         ],
         boldNote: 'The process involves these steps:',
         list: [

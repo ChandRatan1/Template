@@ -36,6 +36,15 @@
   background-color: var(--white-color);
 }
 
+.service-image-wrap-stretch {
+  height: 100%;
+}
+
+.service-image-wrap-stretch img {
+  height: 100%;
+  max-height: none;
+}
+
 .service-corner-image {
   position: absolute;
   right: -24px;

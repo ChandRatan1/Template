@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { serviceNavLinks } from '../../data/siteData'
 
-const initialForm = { name: '', email: '', phone: '', message: '' }
+const initialForm = { name: '', email: '', phone: '', service: '', message: '' }
 const QUOTE_EMAIL = 'neetukumarseo00@gmail.com'
 const QUOTE_EMAIL_CC = 'vijeta27april@gmail.com,Vijeta.pandey2023@gmail.com'
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -23,6 +24,7 @@ export default function QuoteForm({ title = 'Request a free Quote', className = 
     if (!name) return 'Please enter your name.'
     if (!email || !EMAIL_PATTERN.test(email)) return 'Please enter a valid email address.'
     if (!phone || phone.replace(/\D/g, '').length < 8) return 'Please enter a valid phone number.'
+    if (!form.service) return 'Please select a service.'
     return ''
   }
 
@@ -46,6 +48,7 @@ export default function QuoteForm({ title = 'Request a free Quote', className = 
           Name: form.name.trim(),
           Email: form.email.trim(),
           'Phone No.': form.phone.trim(),
+          Service: form.service,
           ...(showMessage ? { Message: form.message.trim() } : {}),
         }),
       })
@@ -74,6 +77,19 @@ export default function QuoteForm({ title = 'Request a free Quote', className = 
         <div className="col-md-6 col-xl-12 form-group">
           {showLabels && <label htmlFor="quote-phone">Phone No.</label>}
           <input id="quote-phone" type="tel" name="phone" placeholder="" value={form.phone} onChange={handleChange} required />
+        </div>
+        <div className="col-md-6 col-xl-12 form-group">
+          {showLabels && <label htmlFor="quote-service">Service</label>}
+          <select id="quote-service" name="service" value={form.service} onChange={handleChange} required>
+            <option value="" disabled>
+              Select a Service
+            </option>
+            {serviceNavLinks.map((service) => (
+              <option value={service.label} key={service.label}>
+                {service.label}
+              </option>
+            ))}
+          </select>
         </div>
         {showMessage && (
           <div className="col-md-6 col-xl-12 form-group">

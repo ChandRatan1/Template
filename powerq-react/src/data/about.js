@@ -55,37 +55,3 @@ export const beatQuote = {
   points: ['Committed to amazing service', 'Tag and Testing Services', 'Nothing wears on homeowners'],
 }
 
-export const team = [
-  {
-    name: 'Ravi Kumar',
-    role: 'Firefighter',
-    bio: 'A seasoned firefighter, Ravi’s quick thinking and courage make him an invaluable member of the team during emergencies.',
-    image: '/content-img/man-making-cable-voltage-measure_23-2147743078.jpg',
-    phone: '+1 (859) 254-6589',
-    email: 'info@example.com',
-  },
-  {
-    name: 'Priya Patel',
-    role: 'Fire Safety Officer',
-    bio: 'Priya ensures that all safety protocols are followed, conducting regular safety checks and ensuring compliance with fire regulations.',
-    image: '/content-img/firefighter-station-with-suit-safety-helmet_23-2149206415.jpg',
-    phone: '+1 (859) 254-6589',
-    email: 'info@example.com',
-  },
-  {
-    name: 'Arjun Sharma',
-    role: 'Fire Engine Driver',
-    bio: 'With exceptional driving skills and knowledge of fire response, Arjun ensures that the fire engine reaches the scene swiftly and safely.',
-    image: '/content-img/male-electrician-works-switchboard-with-electrical-connecting-cable_169016-15204.avif',
-    phone: '+1 (859) 254-6589',
-    email: 'info@example.com',
-  },
-  {
-    name: 'Neha Joshi',
-    role: 'Emergency Medical Technician',
-    bio: 'Neha is a skilled EMT who provides critical medical support during emergencies, saving lives with her expertise and calm under pressure.',
-    image: '/content-img/basic-fire-fighting-evacuation-fire-drill-simulation-training-safety-condominium-factory-1024x684.jpg',
-    phone: '+1 (859) 254-6589',
-    email: 'info@example.com',
-  },
-]

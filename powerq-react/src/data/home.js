@@ -50,14 +50,26 @@ export const pricingIntro = {
 export const pricingHighlights = {
   title: 'Fire Extinguisher Inspection Services Melbourne',
   cards: [
-    [
-      'Fire extinguisher Inspection Site fee $60 excl gst',
-      'Fire extinguisher inspection - $6.50 excl gst',
-      'Fire hose reel inspection - $12 excl gst',
-    ],
-    ['Fire extinguisher installation - $15 (Minimum site fee applies)'],
-    ['Smoke alarm inspection - $90 (upto 3 smoke inspection)'],
-    ['Emergency exit light inspection - $110 (inspect upto 3 exit lights)', 'All prices excl gst'],
+    {
+      image: '/content-img/closeup-red-fire-extinguishers_53876-147842.jpg',
+      items: [
+        'Fire extinguisher Inspection Site fee $60 excl gst',
+        'Fire extinguisher inspection - $6.50 excl gst',
+        'Fire hose reel inspection - $12 excl gst',
+      ],
+    },
+    {
+      image: '/content-img/basic-fire-safety-awareness-video-learning-course-min.jpg',
+      items: ['Fire extinguisher installation - $15 (Minimum site fee applies)'],
+    },
+    {
+      image: '/content-img/man-is-reaching-his-hand-push-fire-alarm-hand-station_1150-6187.avif',
+      items: ['Smoke alarm inspection - $90 (upto 3 smoke inspection)'],
+    },
+    {
+      image: '/content-img/green-emergency-exit-sign-ceiling_53876-123089.jpg',
+      items: ['Emergency exit light inspection - $110 (inspect upto 3 exit lights)', 'All prices excl gst'],
+    },
   ],
 }
 
@@ -111,13 +123,6 @@ export const pricingTiers = {
   ],
 }
 
-export const safetyStats = [
-  { percent: 90, title: 'Ensuring Compliance', text: 'We follow safety regulations to prevent electrical hazards.' },
-  { percent: 85, title: 'Prioritizing Risk Prevention', text: 'Regular testing helps us catch potential issues early.' },
-  { percent: 92, title: 'Protecting People and Property', text: 'Our focus is on safeguarding lives and assets.' },
-  { percent: 87, title: 'Fostering Trust', text: 'We build reliability through consistent safety practices.' },
-]
-
 export const whyChooseLong = {
   title: 'Why choose PowerQ for Testing & Tagging in Melbourne',
   paragraphs: [
@@ -129,25 +134,6 @@ export const whyChooseLong = {
   linkHref: 'https://en.wikipedia.org/wiki/Occupational_safety_and_health',
   image: '/content-img/Power-q-1.jpeg',
 }
-
-export const featureHighlights = [
-  {
-    title: 'Shop',
-    text: 'Explore our range of high-quality fire extinguishers, safety equipment, and fire safety products. Whether you’re outfitting your home, office, or industrial space, PowerQ has you covered.',
-  },
-  {
-    title: 'Affordable Price',
-    text: 'PowerQ offers professional Test & Tag services at highly competitive and affordable prices. We believe in providing top-quality service without compromising your budget.',
-  },
-  {
-    title: 'Workmanship Warranty',
-    text: 'At PowerQ, we stand behind the quality of our work. That’s why we offer a comprehensive workmanship warranty on all our services.',
-  },
-  {
-    title: 'Free Estimation',
-    text: 'At PowerQ, we offer free, no-obligation estimates for all our fire safety and Test & Tag services. Our team will assess your needs and provide an accurate, transparent quote.',
-  },
-]
 
 export const expertise = [
   { title: 'Commercial', image: '/content-img/Equipment-Test-and-Tag-in-Melbourne-1.jpg' },

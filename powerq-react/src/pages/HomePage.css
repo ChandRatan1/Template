@@ -279,7 +279,7 @@
 
 .pricing-tier-range,
 .pricing-tier-minfee {
-  color: #4caf50;
+  color: #000000;
   font-size: 13px;
   margin-bottom: 0;
 }
@@ -482,7 +482,12 @@
 }
 
 .pricing-highlight-card {
-  background-color: var(--white-color);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--title-color);
+  background-size: cover;
+  background-position: center;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -496,6 +501,13 @@
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
+.pricing-highlight-card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.75) 100%);
+}
+
 .pricing-highlight-checklist {
   list-style: none;
   margin: 0;
@@ -504,7 +516,7 @@
 
 .pricing-highlight-checklist li {
   margin-bottom: 14px;
-  color: var(--body-color);
+  color: var(--white-color);
   font-size: 15px;
   line-height: 1.6;
 }
@@ -550,19 +562,6 @@
 
 .specialize-banner-link:hover {
   color: var(--white-color);
-}
-
-.stat-card {
-  text-align: center;
-  padding: 10px;
-}
-
-.stat-percent {
-  font-family: var(--title-font);
-  font-size: 30px;
-  font-weight: 800;
-  color: var(--theme-color);
-  margin-bottom: 6px;
 }
 
 .expertise-card {

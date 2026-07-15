@@ -177,12 +177,6 @@ export default function Header() {
                 </div>
               </div>
               <div className="col d-flex justify-content-end align-items-center header-top-icons">
-                <Link to="/my-account" aria-label="My Account">
-                  <i className="far fa-user" />
-                </Link>
-                <Link to="/cart" aria-label="Cart">
-                  <i className="far fa-shopping-cart" />
-                </Link>
                 <button
                   className="theme-toggle-btn"
                   onClick={toggleTheme}
