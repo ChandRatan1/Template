@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { serviceNavLinks } from '../../data/siteData'
 
 const initialForm = { name: '', email: '', phone: '', service: '', message: '' }
-const QUOTE_EMAIL = 'neetukumarseo00@gmail.com'
-const QUOTE_EMAIL_CC = 'vijeta27april@gmail.com,Vijeta.pandey2023@gmail.com'
+const QUOTE_EMAIL = 'info@powerq.com.au'
+const QUOTE_EMAIL_CC = ['vijeta27april@gmail.com', 'Vijeta.pandey2023@gmail.com', 'neetukumarseo00@gmail.com'].join(',')
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-export default function QuoteForm({ title = 'Request a free Quote', className = 'form-style1', showLabels = false, showMessage = false }) {
+export default function QuoteForm({ title = 'Request a free Quote', className = 'form-style1', showLabels = false, showMessage = true }) {
   const [form, setForm] = useState(initialForm)
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
@@ -49,7 +49,7 @@ export default function QuoteForm({ title = 'Request a free Quote', className = 
           Email: form.email.trim(),
           'Phone No.': form.phone.trim(),
           Service: form.service,
-          ...(showMessage ? { Message: form.message.trim() } : {}),
+          Message: form.message.trim(),
         }),
       })
       if (!res.ok) throw new Error('Request failed')

@@ -64,11 +64,17 @@
 }
 
 .home-quote-form select,
-.home-quote-form input {
+.home-quote-form input,
+.home-quote-form textarea {
   height: 50px;
   font-size: 16px;
   border: 1.5px solid #1a1a1a;
   background-color: var(--white-color);
+}
+
+.home-quote-form textarea {
+  min-height: 110px;
+  resize: vertical;
 }
 
 .home-quote-form .vs-btn.style3 {

@@ -53,9 +53,9 @@ export const pricingHighlights = {
     {
       image: '/content-img/closeup-red-fire-extinguishers_53876-147842.jpg',
       items: [
-        'Fire extinguisher Inspection Site fee $60 excl gst',
-        'Fire extinguisher inspection - $6.50 excl gst',
-        'Fire hose reel inspection - $12 excl gst',
+        'Fire extinguisher Inspection Site fee $60 to $70 excl gst',
+        'Fire extinguisher inspection - $6.50 to $7.50 excl gst',
+        'Fire hose reel inspection - $12 to $15 excl gst',
       ],
     },
     {
