@@ -44,6 +44,29 @@
   </form>
 
 <script>
+async function readJsonResponse(res) {
+  const text = await res.text();
+  const contentType = res.headers.get('content-type') || '';
+
+  if (!text.trim()) {
+    throw new Error('The server returned an empty response. Check PHP error logs and confirm create_post.php is uploaded.');
+  }
+
+  if (text.trim().startsWith('<' + '?php')) {
+    throw new Error('PHP is not running for this request. Open this page through a PHP server, for example Hostinger /api-backend/admin.php or local php -S localhost:8000.');
+  }
+
+  if (!contentType.includes('application/json')) {
+    throw new Error('The server did not return JSON. Response started with: ' + text.trim().slice(0, 120));
+  }
+
+  try {
+    return JSON.parse(text);
+  } catch (err) {
+    throw new Error('The server returned invalid JSON. Response started with: ' + text.trim().slice(0, 120));
+  }
+}
+
 document.getElementById('post-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = document.getElementById('submit-btn');
@@ -56,7 +79,7 @@ document.getElementById('post-form').addEventListener('submit', async (e) => {
   try {
     const res = await fetch('create_post.php', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
         admin_password: document.getElementById('admin_password').value,
         title: document.getElementById('title').value,
@@ -65,7 +88,7 @@ document.getElementById('post-form').addEventListener('submit', async (e) => {
         content: document.getElementById('content').value,
       }),
     });
-    const data = await res.json();
+    const data = await readJsonResponse(res);
     if (!res.ok) throw new Error(data.error || 'Failed to publish.');
     msg.className = 'ok';
     msg.textContent = 'Published! View it at /blog/' + data.slug;

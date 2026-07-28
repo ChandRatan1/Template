@@ -1,6 +1,33 @@
 <?php
 // Shared PDO connection + small helpers used by every endpoint in this folder.
 
+ob_start();
+
+set_exception_handler(function ($e) {
+    bg_json_error(500, 'Server error: ' . $e->getMessage());
+});
+
+set_error_handler(function ($severity, $message, $file, $line) {
+    if (!(error_reporting() & $severity)) {
+        return false;
+    }
+    throw new ErrorException($message, 0, $severity, $file, $line);
+});
+
+register_shutdown_function(function () {
+    $error = error_get_last();
+    if (!$error) {
+        return;
+    }
+
+    $fatalTypes = [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR];
+    if (!in_array($error['type'], $fatalTypes, true)) {
+        return;
+    }
+
+    bg_json_error(500, 'Fatal server error while handling the blog request. Check Hostinger PHP error logs for details.');
+});
+
 function bg_config() {
     $path = __DIR__ . '/config.php';
     if (!file_exists($path)) {
@@ -21,7 +48,7 @@ function bg_pdo() {
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ]);
-    } catch (PDOException $e) {
+    } catch (Throwable $e) {
         bg_json_error(500, 'Could not connect to the database. Check config.php credentials.');
     }
     return $pdo;
@@ -38,9 +65,14 @@ function bg_cors() {
 }
 
 function bg_json($data, $status = 200) {
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
     http_response_code($status);
-    header('Content-Type: application/json; charset=utf-8');
-    echo json_encode($data);
+    if (!headers_sent()) {
+        header('Content-Type: application/json; charset=utf-8');
+    }
+    echo json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     exit;
 }
 
