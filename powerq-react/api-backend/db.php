@@ -33,7 +33,33 @@ function bg_config() {
     if (!file_exists($path)) {
         bg_json_error(500, 'config.php is missing. Copy config.sample.php to config.php and fill in the database credentials.');
     }
-    return require $path;
+
+    $configSource = file_get_contents($path);
+    if ($configSource === false) {
+        bg_json_error(500, 'Could not read api-backend/config.php.');
+    }
+
+    $looksLikeWordPressConfig = strpos($configSource, 'wp-settings.php') !== false
+        || strpos($configSource, 'ABSPATH') !== false
+        || (strpos($configSource, 'DB_NAME') !== false && strpos($configSource, 'return [') === false);
+
+    if ($looksLikeWordPressConfig) {
+        bg_json_error(500, 'api-backend/config.php must be this backend\'s plain array config, not WordPress wp-config.php. Replace it with api-backend/config.sample.php values and your Hostinger database credentials.');
+    }
+
+    $cfg = require $path;
+    if (!is_array($cfg)) {
+        bg_json_error(500, 'api-backend/config.php must return a PHP array.');
+    }
+
+    $required = ['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'TABLE_PREFIX', 'DEFAULT_AUTHOR_ID', 'ADMIN_PASSWORD', 'SITE_URL'];
+    foreach ($required as $key) {
+        if (!array_key_exists($key, $cfg)) {
+            bg_json_error(500, "api-backend/config.php is missing {$key}.");
+        }
+    }
+
+    return $cfg;
 }
 
 function bg_pdo() {

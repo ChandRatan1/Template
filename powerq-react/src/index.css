@@ -19,3 +19,11 @@ section[id] {
   background-color: #f8d7da;
   color: #842029;
 }
+
+.field-error {
+  margin: 6px 0 0;
+  color: #842029;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+}
