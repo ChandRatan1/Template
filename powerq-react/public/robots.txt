@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api-backend/
+Disallow: /search
+
+Sitemap: https://www.powerq.com.au/sitemap.xml
