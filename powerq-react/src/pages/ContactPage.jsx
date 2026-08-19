@@ -2,11 +2,15 @@ import PageHero from '../components/PageHero/PageHero'
 import QuoteForm from '../components/QuoteForm/QuoteForm'
 import { contactCards } from '../data/contact'
 import { company } from '../data/siteData'
-import usePageTitle from '../hooks/usePageTitle'
+import usePageSeo from '../hooks/usePageSeo'
 import './ContactPage.css'
 
 export default function ContactPage() {
-  usePageTitle('Contact Us - PowerQ Test and Tag in Melbourne')
+  usePageSeo({
+    title: 'Contact Us - PowerQ Test and Tag in Melbourne',
+    description:
+      "Get in touch with PowerQ for electrical test and tag services in Melbourne. Call, email, or visit us — we're here Mon-Fri 9am-7pm and weekends 10am-2pm.",
+  })
   return (
     <>
       <PageHero title="Contact Us" current="Contact Us" />

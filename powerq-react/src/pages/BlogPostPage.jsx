@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import PageHero from '../components/PageHero/PageHero'
 import { getPostBySlug } from '../data/blog'
 import { fetchPostBySlug } from '../utils/blogApi'
-import usePageTitle from '../hooks/usePageTitle'
+import usePageSeo from '../hooks/usePageSeo'
 import NotFoundPage from './NotFoundPage'
 
 export default function BlogPostPage() {
@@ -12,7 +12,11 @@ export default function BlogPostPage() {
   const [post, setPost] = useState(localPost)
   const [checkedApi, setCheckedApi] = useState(false)
 
-  usePageTitle(post ? `${post.title} | PowerQ` : 'Blog | PowerQ')
+  usePageSeo({
+    title: post ? `${post.title} | PowerQ` : 'Blog | PowerQ',
+    description: post?.excerpt,
+    image: post?.image,
+  })
 
   useEffect(() => {
     let cancelled = false

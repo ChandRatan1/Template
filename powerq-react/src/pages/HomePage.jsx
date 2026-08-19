@@ -15,7 +15,7 @@ import {
   serviceHighlights,
   testimonials,
 } from '../data/home'
-import usePageTitle from '../hooks/usePageTitle'
+import usePageSeo from '../hooks/usePageSeo'
 import './HomePage.css'
 
 const TESTIMONIALS_VISIBLE = 3
@@ -60,7 +60,7 @@ function WhyChooseSection() {
 }
 
 export default function HomePage() {
-  usePageTitle('PowerQ - Professional Test and Tag Services in Melbourne')
+  usePageSeo({ title: 'PowerQ - Professional Test and Tag Services in Melbourne' })
   const [testimonialIndex, setTestimonialIndex] = useState(0)
   const visibleTestimonials = Array.from({ length: TESTIMONIALS_VISIBLE }, (_, i) => testimonials[(testimonialIndex + i) % testimonials.length])
   const nextTestimonial = () => setTestimonialIndex((i) => (i + 1) % testimonials.length)

@@ -8,7 +8,7 @@ import FaqPage from './pages/FaqPage'
 import RequestQuotePage from './pages/RequestQuotePage'
 import BlogPage from './pages/BlogPage'
 import BlogPostPage from './pages/BlogPostPage'
-import ServicePage from './pages/ServicePage'
+import SlugPage from './pages/SlugPage'
 import SmokeAlarmPage from './pages/SmokeAlarmPage'
 import SearchPage from './pages/SearchPage'
 import NotFoundPage from './pages/NotFoundPage'
@@ -28,7 +28,7 @@ export default function App() {
           <Route path="blog/:slug" element={<BlogPostPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="smoke-alarm-service-melbourne" element={<SmokeAlarmPage />} />
-          <Route path=":slug" element={<ServicePage />} />
+          <Route path=":slug" element={<SlugPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

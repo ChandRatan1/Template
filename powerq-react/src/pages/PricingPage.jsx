@@ -2,12 +2,17 @@ import PageHero from '../components/PageHero/PageHero'
 import ServiceSection from '../components/ServiceSection/ServiceSection'
 import { bgStyle } from '../utils/bg'
 import { pricingIntro, pricingPlans, pricingFactors, experienceFactors } from '../data/pricing'
-import usePageTitle from '../hooks/usePageTitle'
+import usePageSeo from '../hooks/usePageSeo'
 import './HomePage.css'
 import './PricingPage.css'
 
 export default function PricingPage() {
-  usePageTitle('Test and Tag Pricing Melbourne - Affordable Rates | PowerQ')
+  usePageSeo({
+    title: 'Test and Tag Pricing Melbourne - Affordable Rates | PowerQ',
+    description:
+      'Transparent, tailored pricing for test and tag services in Melbourne. No flat rates or hidden fees — get a fair quote based on your equipment and site.',
+    image: pricingIntro.image,
+  })
   return (
     <>
       <PageHero title="Cost of Test & Tag in Melbourne" current="Pricing" />

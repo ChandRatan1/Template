@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero/PageHero'
 import { posts as localPosts } from '../data/blog'
 import { fetchPosts } from '../utils/blogApi'
-import usePageTitle from '../hooks/usePageTitle'
+import usePageSeo from '../hooks/usePageSeo'
 
 export default function BlogPage() {
-  usePageTitle('Blog | PowerQ')
+  usePageSeo({
+    title: 'Blog | PowerQ',
+    description:
+      'Read the latest news, tips and guides on electrical safety, test and tag compliance, and workplace safety standards from the PowerQ team in Melbourne.',
+  })
   const [posts, setPosts] = useState(localPosts)
   const [loading, setLoading] = useState(true)
 

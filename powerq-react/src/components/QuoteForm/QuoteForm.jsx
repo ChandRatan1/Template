@@ -1,13 +1,18 @@
 import { useState } from 'react'
 import { serviceNavLinks } from '../../data/siteData'
+import { submitQuote } from '../../utils/quoteApi'
 
+// Excludes visually ambiguous characters (0/O, 1/I/L) so the code is easy to read back.
+const CAPTCHA_CHARS = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'
 const createCaptcha = () => {
-  const left = Math.floor(Math.random() * 8) + 2
-  const right = Math.floor(Math.random() * 8) + 2
-  return { question: `${left} + ${right}`, answer: String(left + right) }
+  let code = ''
+  for (let i = 0; i < 6; i++) {
+    code += CAPTCHA_CHARS[Math.floor(Math.random() * CAPTCHA_CHARS.length)]
+  }
+  return { question: code, answer: code }
 }
 
-const initialForm = { name: '', email: '', phone: '', service: '', message: '', captcha: '' }
+const initialForm = { name: '', email: '', phone: '', service: '', message: '', captcha: '', website: '' }
 const QUOTE_EMAIL = 'info@powerq.com.au'
 const QUOTE_EMAIL_CC = ['vijeta27april@gmail.com', 'Vijeta.pandey2023@gmail.com', 'neetukumarseo00@gmail.com'].join(',')
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -51,8 +56,8 @@ export default function QuoteForm({ title = 'Request a free Quote', className = 
       return 'Message must be 300 characters or less.'
     }
 
-    if (name === 'captcha' && trimmed !== captcha.answer) {
-      return 'Please solve the captcha correctly.'
+    if (name === 'captcha' && trimmed.toUpperCase() !== captcha.answer.toUpperCase()) {
+      return 'Please enter the code shown correctly.'
     }
 
     return ''
@@ -76,7 +81,7 @@ export default function QuoteForm({ title = 'Request a free Quote', className = 
       nextValue = value.slice(0, 300)
       if (value.length > 300) nextError = 'Message must be 300 characters or less.'
     } else if (name === 'captcha') {
-      nextValue = value.replace(/\D/g, '').slice(0, 3)
+      nextValue = value.replace(/[^A-Za-z0-9]/g, '').slice(0, 6)
     }
 
     setForm((prev) => ({ ...prev, [name]: nextValue }))
@@ -118,39 +123,71 @@ export default function QuoteForm({ title = 'Request a free Quote', className = 
     }
     setSending(true)
     setError('')
-    try {
-      const res = await fetch(`https://formsubmit.co/ajax/${QUOTE_EMAIL}`, {
+
+    const name = form.name.trim()
+    const email = form.email.trim()
+    const phone = form.phone.trim()
+    const message = form.message.trim()
+
+    // Sent to both in parallel: the database (so it shows up in the admin
+    // panel) and formsubmit.co directly (so the email arrives even if the
+    // server's own mail sending is ever unavailable/misconfigured).
+    const [dbResult, emailResult] = await Promise.allSettled([
+      submitQuote({
+        name,
+        email,
+        phone,
+        service: form.service,
+        message,
+        source_page: title,
+        website: form.website,
+      }),
+      fetch(`https://formsubmit.co/ajax/${QUOTE_EMAIL}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           _subject: 'New Quote Request - PowerQ Website',
           _cc: QUOTE_EMAIL_CC,
-          Name: form.name.trim(),
-          Email: form.email.trim(),
-          'Phone No.': form.phone.trim(),
+          Name: name,
+          Email: email,
+          'Phone No.': phone,
           Service: form.service,
-          Message: form.message.trim(),
+          Message: message,
         }),
-      })
-      if (!res.ok) throw new Error('Request failed')
+      }),
+    ])
+
+    const dbSucceeded = dbResult.status === 'fulfilled' && dbResult.value.success
+    const emailSucceeded = emailResult.status === 'fulfilled' && emailResult.value.ok
+
+    if (dbSucceeded || emailSucceeded) {
       setSubmitted(true)
       setForm(initialForm)
       setFieldErrors(initialFieldErrors)
       setCaptcha(createCaptcha())
-    } catch {
-      setError('Something went wrong sending your request. Please try again.')
+    } else {
+      setError((dbResult.status === 'fulfilled' && dbResult.value.error) || 'Something went wrong sending your request. Please try again.')
       setCaptcha(createCaptcha())
       setForm((prev) => ({ ...prev, captcha: '' }))
       setFieldError('captcha', '')
-    } finally {
-      setSending(false)
     }
+    setSending(false)
   }
 
   return (
     <form className={className} onSubmit={handleSubmit}>
       <h3 className="form_title">{title}</h3>
       <div className="row">
+        <input
+          type="text"
+          name="website"
+          value={form.website}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+        />
         <div className="col-md-6 col-xl-12 form-group">
           {showLabels && <label htmlFor="quote-name">Name</label>}
           <input id="quote-name" type="text" name="name" placeholder="Name" value={form.name} onChange={handleChange} onBlur={handleBlur} maxLength={30} pattern="[A-Za-z ]+" title="Please write alphabetic characters only." aria-invalid={fieldErrors.name ? 'true' : 'false'} aria-describedby={fieldErrors.name ? 'quote-name-error' : undefined} required />
@@ -188,7 +225,7 @@ export default function QuoteForm({ title = 'Request a free Quote', className = 
         )}
         <div className="col-md-6 col-xl-12 form-group">
           {showLabels && <label htmlFor="quote-captcha">Captcha: {captcha.question}</label>}
-          <input id="quote-captcha" type="text" name="captcha" placeholder={`Captcha: ${captcha.question}`} value={form.captcha} onChange={handleChange} onBlur={handleBlur} inputMode="numeric" aria-invalid={fieldErrors.captcha ? 'true' : 'false'} aria-describedby={fieldErrors.captcha ? 'quote-captcha-error' : undefined} required />
+          <input id="quote-captcha" type="text" name="captcha" placeholder={`Captcha: ${captcha.question}`} value={form.captcha} onChange={handleChange} onBlur={handleBlur} autoCapitalize="characters" autoCorrect="off" aria-invalid={fieldErrors.captcha ? 'true' : 'false'} aria-describedby={fieldErrors.captcha ? 'quote-captcha-error' : undefined} required />
           {fieldErrors.captcha && <p id="quote-captcha-error" className="field-error">{fieldErrors.captcha}</p>}
         </div>
         <div className="col-12 form-btn">

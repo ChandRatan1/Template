@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom'
 import { bgStyle } from '../utils/bg'
 import { whyChoosePoints, whyChooseBanner, relationsSection, whoWeAre, aboutIntro, beatQuote } from '../data/about'
-import usePageTitle from '../hooks/usePageTitle'
+import usePageSeo from '../hooks/usePageSeo'
 import './AboutPage.css'
 
 export default function AboutPage() {
-  usePageTitle('About U - Trusted Test and Tag Experts in Melbourne')
+  usePageSeo({
+    title: 'About U - Trusted Test and Tag Experts in Melbourne',
+    description:
+      "PowerQ is Melbourne's trusted test and tag provider, delivering after-hours electrical safety inspections for businesses, schools, restaurants and offices.",
+    image: whyChooseBanner.image,
+  })
   return (
     <>
       {/* Why choose PowerQ (doubles as this page's hero — single background image, no separate title banner) */}

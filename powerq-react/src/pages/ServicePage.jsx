@@ -4,13 +4,13 @@ import ContentBlocks from '../components/ContentBlocks/ContentBlocks'
 import ServiceSection from '../components/ServiceSection/ServiceSection'
 import { getServiceBySlug } from '../data/services'
 import { company } from '../data/siteData'
-import usePageTitle from '../hooks/usePageTitle'
+import usePageSeo from '../hooks/usePageSeo'
 
 export default function ServicePage() {
   const { slug } = useParams()
   const service = getServiceBySlug(slug)
 
-  usePageTitle(service?.seoTitle)
+  usePageSeo({ title: service?.seoTitle, description: service?.cardText, image: service?.heroImage })
 
   if (!service) {
     return <Navigate to="/" replace />

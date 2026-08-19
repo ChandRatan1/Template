@@ -3,11 +3,16 @@ import PageHero from '../components/PageHero/PageHero'
 import QuoteFormModal from '../components/QuoteForm/QuoteFormModal'
 import { requestQuoteIntro } from '../data/contact'
 import { company } from '../data/siteData'
-import usePageTitle from '../hooks/usePageTitle'
+import usePageSeo from '../hooks/usePageSeo'
 import './RequestQuotePage.css'
 
 export default function RequestQuotePage() {
-  usePageTitle('Request a Free Quote - Test and Tag Services in Melbourne')
+  usePageSeo({
+    title: 'Request a Free Quote - Test and Tag Services in Melbourne',
+    description:
+      'Request a free, no-obligation quote for test and tag services in Melbourne. Fast turnaround, transparent pricing, and certified technicians ready to help.',
+    image: requestQuoteIntro.bottomImage,
+  })
   const [isQuoteOpen, setIsQuoteOpen] = useState(false)
 
   return (

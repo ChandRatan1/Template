@@ -1,7 +1,7 @@
 import PageHero from '../components/PageHero/PageHero'
 import FaqAccordion from '../components/FaqAccordion/FaqAccordion'
 import { faqIntro, regulatoryBlocks, faqItems } from '../data/faq'
-import usePageTitle from '../hooks/usePageTitle'
+import usePageSeo from '../hooks/usePageSeo'
 import './FaqPage.css'
 
 const half = Math.ceil(faqItems.length / 2)
@@ -9,7 +9,11 @@ const faqItemsLeft = faqItems.slice(0, half)
 const faqItemsRight = faqItems.slice(half)
 
 export default function FaqPage() {
-  usePageTitle('Frequently Asked Questions - Test and Tag Melbourne')
+  usePageSeo({
+    title: 'Frequently Asked Questions - Test and Tag Melbourne',
+    description:
+      'Testing and tagging is essential for ensuring electrical equipment is safe to use and compliant with safety standards in Victoria.',
+  })
   return (
     <>
       <PageHero title={faqIntro.title} current="Faq" description={faqIntro.paragraph} />

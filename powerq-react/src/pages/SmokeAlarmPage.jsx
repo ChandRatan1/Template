@@ -4,7 +4,7 @@ import PageHero from '../components/PageHero/PageHero'
 import { renderInline } from '../utils/inlineMarkup'
 import { getServiceBySlug } from '../data/services'
 import { company } from '../data/siteData'
-import usePageTitle from '../hooks/usePageTitle'
+import usePageSeo from '../hooks/usePageSeo'
 import {
   relations,
   inspect,
@@ -51,7 +51,11 @@ function PlainAccordionItem({ item, isOpen, onToggle }) {
 
 export default function SmokeAlarmPage() {
   const [openFaq, setOpenFaq] = useState(0)
-  usePageTitle('Smoke Alarm Installation & Testing in Melbourne | PowerQ')
+  usePageSeo({
+    title: 'Smoke Alarm Installation & Testing in Melbourne | PowerQ',
+    description: service.cardText,
+    image: service.heroImage,
+  })
 
   return (
     <>

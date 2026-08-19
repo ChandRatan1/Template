@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import PageHero from '../components/PageHero/PageHero'
 import { search } from '../data/searchIndex'
-import usePageTitle from '../hooks/usePageTitle'
+import usePageSeo from '../hooks/usePageSeo'
 
 function excerpt(text, query) {
   const lower = text.toLowerCase()
@@ -18,7 +18,10 @@ export default function SearchPage() {
   const initialQuery = searchParams.get('q') || ''
   const [query, setQuery] = useState(initialQuery)
 
-  usePageTitle(initialQuery ? `Search results for “${initialQuery}” | PowerQ` : 'Search | PowerQ')
+  usePageSeo({
+    title: initialQuery ? `Search results for “${initialQuery}” | PowerQ` : 'Search | PowerQ',
+    noIndex: true,
+  })
 
   const results = useMemo(() => search(initialQuery), [initialQuery])
 

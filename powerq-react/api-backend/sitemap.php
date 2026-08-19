@@ -31,13 +31,25 @@ $servicePaths = [
     'smoke-alarm-service-melbourne',
 ];
 
+// Local-area landing page slugs, mirrored from src/data/locations.js —
+// update this list if suburbs are added/removed there.
+$locationPaths = array_map(function ($suburb) {
+    return 'test-and-tag-in-' . $suburb;
+}, [
+    'ballarat', 'bendigo', 'brunswick', 'camberwell', 'campbellfield', 'carlton',
+    'clayton', 'coburg', 'craigieburn', 'cranbourne', 'dandenong', 'derrimut',
+    'docklands', 'doncaster', 'fitzroy', 'geelong', 'glen-waverley', 'glenroy',
+    'hallam', 'heidelberg', 'laverton', 'melbourne-cbd', 'port-melbourne', 'preston',
+    'somerton', 'springvale', 'sunshine-north', 'tarneit', 'thomastown', 'truganina',
+    'tullamarine', 'werribee', 'wyndham',
+]);
+
 $pdo = bg_pdo();
-$prefix = $cfg['TABLE_PREFIX'];
 $rows = $pdo->query("
-    SELECT post_name, post_date
-    FROM `{$prefix}posts`
-    WHERE post_type = 'post' AND post_status = 'publish'
-    ORDER BY post_date DESC
+    SELECT slug, updated_at
+    FROM posts
+    WHERE status = 'publish'
+    ORDER BY created_at DESC
 ")->fetchAll();
 
 header('Content-Type: application/xml; charset=utf-8');
@@ -59,9 +71,12 @@ foreach ($staticPaths as $path) {
 foreach ($servicePaths as $path) {
     $printUrl($path);
 }
+foreach ($locationPaths as $path) {
+    $printUrl($path);
+}
 foreach ($rows as $row) {
-    $lastmod = $row['post_date'] ? date('Y-m-d', strtotime($row['post_date'])) : null;
-    $printUrl('blog/' . $row['post_name'], $lastmod);
+    $lastmod = $row['updated_at'] ? date('Y-m-d', strtotime($row['updated_at'])) : null;
+    $printUrl('blog/' . $row['slug'], $lastmod);
 }
 
 echo '</urlset>' . "\n";
