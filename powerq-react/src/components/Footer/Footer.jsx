@@ -1,8 +1,14 @@
 import { Link, NavLink } from 'react-router-dom'
 import { company, socialLinks, footerLinks } from '../../data/siteData'
+import { useCatalog } from '../../context/CatalogContext'
 import './Footer.css'
 
 export default function Footer() {
+  const { services } = useCatalog()
+  // Excludes the first service, matching the original fixed footer list's
+  // behavior (it never repeated the first nav item either).
+  const footerServiceLinks = services.slice(1).map((s) => ({ label: s.navTitle, href: `/${s.slug}` }))
+
   const contactRows = [
     { icon: 'fas fa-phone-alt', href: company.phoneHref, text: company.phoneDisplay },
     { icon: 'fas fa-envelope', href: `mailto:${company.email}`, text: company.email },
@@ -50,7 +56,7 @@ export default function Footer() {
               <div className="widget widget_nav_menu footer-widget">
                 <h3 className="widget_title">Services</h3>
                 <ul className="menu">
-                  {footerLinks.services.map((link) => (
+                  {footerServiceLinks.map((link) => (
                     <li key={link.label}>
                       <NavLink to={link.href}>{link.label}</NavLink>
                     </li>

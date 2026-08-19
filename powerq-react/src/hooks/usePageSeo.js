@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useCatalog } from '../context/CatalogContext'
 
 // Canonical/OG URLs always point at the real production domain, regardless
 // of what host the page is actually being viewed from (localhost, etc.) —
@@ -54,10 +55,14 @@ function applyTags(title, description, image, url, noIndex) {
 // that shouldn't be indexed (search results, 404).
 export default function usePageSeo({ title, description, image, noIndex = false } = {}) {
   const location = useLocation()
+  const { pageMeta } = useCatalog()
+  const override = pageMeta[location.pathname]
 
   useEffect(() => {
-    const finalTitle = title || DEFAULT_TITLE
-    const finalDescription = description || DEFAULT_DESCRIPTION
+    // An admin-set override (Page SEO tab) wins over what the page itself
+    // passed in; that in turn wins over the site-wide default.
+    const finalTitle = override?.title || title || DEFAULT_TITLE
+    const finalDescription = override?.description || description || DEFAULT_DESCRIPTION
     const finalImage = image ? (image.startsWith('http') ? image : `${SITE_ORIGIN}${image}`) : DEFAULT_IMAGE
     const finalUrl = `${SITE_ORIGIN}${location.pathname}`
 
@@ -66,5 +71,5 @@ export default function usePageSeo({ title, description, image, noIndex = false 
     return () => {
       applyTags(DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_IMAGE, `${SITE_ORIGIN}/`, false)
     }
-  }, [title, description, image, noIndex, location.pathname])
+  }, [title, description, image, noIndex, location.pathname, override])
 }

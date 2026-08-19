@@ -51,7 +51,10 @@ $cfg = bg_config();
   <div id="protected-sections" style="display: none;">
     <div class="tabs">
       <button type="button" class="tab-btn" data-tab="blogs">Blogs</button>
+      <button type="button" class="tab-btn" data-tab="services">Services</button>
+      <button type="button" class="tab-btn" data-tab="locations">Locations</button>
       <button type="button" class="tab-btn" data-tab="quotes">Request Quotes</button>
+      <button type="button" class="tab-btn" data-tab="seo">Page SEO</button>
       <button type="button" class="tab-btn" data-tab="robots">robots.txt</button>
     </div>
 
@@ -90,11 +93,112 @@ $cfg = bg_config();
       </div>
     </div>
 
+    <!-- Services tab -->
+    <div id="tab-services" class="tab-panel">
+      <div id="service-list-view">
+        <button type="button" id="add-service-btn">+ Add Service</button>
+        <p class="hint">A new service automatically appears in the nav menu, footer, and quote-form dropdown.</p>
+        <div id="services-msg" class="msg"></div>
+        <div id="services-table"></div>
+      </div>
+
+      <div id="service-form-view" style="display: none;">
+        <h2 id="service-form-title">Add Service</h2>
+        <form id="service-form">
+          <input type="hidden" id="service-id" value="" />
+
+          <label for="service-slug">URL slug (e.g. "my-new-service"; only letters, numbers, hyphens)</label>
+          <input id="service-slug" type="text" pattern="[a-z0-9-]+" />
+
+          <label for="service-navTitle">Nav title (shown in menu, footer, quote form)</label>
+          <input id="service-navTitle" type="text" required />
+
+          <label for="service-cardTitle">Card title</label>
+          <input id="service-cardTitle" type="text" />
+
+          <label for="service-cardText">Card text / meta description (short, 1-2 sentences)</label>
+          <input id="service-cardText" type="text" />
+
+          <label for="service-pageTitle">Page title (shown as the page heading)</label>
+          <input id="service-pageTitle" type="text" required />
+
+          <label for="service-seoTitle">SEO title (browser tab / search result title)</label>
+          <input id="service-seoTitle" type="text" />
+
+          <label for="service-heroImage">Hero image URL</label>
+          <input id="service-heroImage" type="text" placeholder="/content-img/..." />
+
+          <label for="service-contentJson">Content (JSON)</label>
+          <p class="hint">Must be valid JSON shaped like <code>{"sections": [{"heading": "...", "paragraphs": ["..."], "image": "/content-img/...", "imageSide": "left"}]}</code>. Edit carefully — this drives the page's layout.</p>
+          <textarea id="service-contentJson" required style="font-family: monospace;"></textarea>
+
+          <div style="margin-top: 16px;">
+            <button type="submit" id="service-submit-btn">Save</button>
+            <button type="button" class="secondary" id="service-cancel-btn">Cancel</button>
+          </div>
+          <div id="service-form-msg" class="msg"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Locations tab -->
+    <div id="tab-locations" class="tab-panel">
+      <div id="location-list-view">
+        <button type="button" id="add-location-btn">+ Add Location</button>
+        <p class="hint">Suburb pages aren't linked from the site's menu/footer — reachable by direct URL and listed in the sitemap.</p>
+        <div id="locations-msg" class="msg"></div>
+        <div id="locations-table"></div>
+      </div>
+
+      <div id="location-form-view" style="display: none;">
+        <h2 id="location-form-title">Add Location</h2>
+        <form id="location-form">
+          <input type="hidden" id="location-id" value="" />
+
+          <label for="location-suburb">Suburb name</label>
+          <input id="location-suburb" type="text" required />
+          <p class="hint" id="location-slug-hint"></p>
+
+          <label for="location-intro">Intro paragraph</label>
+          <textarea id="location-intro" required></textarea>
+
+          <div style="margin-top: 16px;">
+            <button type="submit" id="location-submit-btn">Save</button>
+            <button type="button" class="secondary" id="location-cancel-btn">Cancel</button>
+          </div>
+          <div id="location-form-msg" class="msg"></div>
+        </form>
+      </div>
+    </div>
+
     <!-- Quote requests tab -->
     <div id="tab-quotes" class="tab-panel">
       <p class="hint">Everyone who has submitted the "Request a Quote" form on the live site.</p>
       <div id="requests-msg" class="msg"></div>
       <div id="requests-table"></div>
+    </div>
+
+    <!-- Page SEO tab -->
+    <div id="tab-seo" class="tab-panel">
+      <p class="hint">Override a page's meta title/description without touching code. Leave a field blank to fall back to the page's default.</p>
+      <label for="seo-path">Page path (e.g. /about-us, /fire-extinguisher-melbourne, /)</label>
+      <input id="seo-path" type="text" placeholder="/about-us" />
+      <div style="margin-top: 8px;">
+        <button type="button" id="seo-load-btn">Load</button>
+      </div>
+
+      <div id="seo-form-view" style="display: none; margin-top: 20px;">
+        <label for="seo-title">Title override</label>
+        <input id="seo-title" type="text" />
+
+        <label for="seo-description">Description override</label>
+        <textarea id="seo-description"></textarea>
+
+        <div style="margin-top: 16px;">
+          <button type="button" id="seo-save-btn">Save</button>
+        </div>
+      </div>
+      <div id="seo-msg" class="msg"></div>
     </div>
 
     <!-- robots.txt tab -->
@@ -187,6 +291,8 @@ function switchTab(name) {
   document.querySelectorAll('.tab-btn').forEach((b) => b.classList.toggle('active', b.dataset.tab === name));
   document.querySelectorAll('.tab-panel').forEach((p) => p.classList.toggle('active', p.id === 'tab-' + name));
   if (name === 'blogs') loadBlogs();
+  if (name === 'services') loadServices();
+  if (name === 'locations') loadLocations();
   if (name === 'quotes') loadQuoteRequests();
   if (name === 'robots') loadRobots();
 }
@@ -317,6 +423,295 @@ document.getElementById('post-form').addEventListener('submit', async (e) => {
   } finally {
     btn.disabled = false;
     btn.textContent = isEdit ? 'Save Changes' : 'Publish Post';
+  }
+});
+
+// --- Services: list ---
+async function loadServices() {
+  const msg = document.getElementById('services-msg');
+  const tableHost = document.getElementById('services-table');
+  msg.className = 'msg';
+  tableHost.textContent = 'Loading...';
+
+  try {
+    const res = await fetch('services.php', { headers: { Accept: 'application/json' } });
+    const data = await readJsonResponse(res);
+    if (!res.ok) throw new Error(data.error || 'Failed to load services.');
+    window.__services = data;
+
+    if (!data.length) {
+      tableHost.innerHTML = '';
+      showMsg(msg, true, 'No services yet.');
+      return;
+    }
+    const rows = data.map((s, i) => `
+      <tr>
+        <td>${escapeHtml(s.navTitle)}</td>
+        <td>${escapeHtml(s.slug)}</td>
+        <td>
+          <a class="action-link" href="${SITE_URL}/${encodeURIComponent(s.slug)}" target="_blank" rel="noopener"><button type="button" class="small secondary">View</button></a>
+          <button type="button" class="small" data-edit-service="${i}">Edit</button>
+          <button type="button" class="small danger" data-delete-service="${i}">Delete</button>
+        </td>
+      </tr>
+    `).join('');
+    tableHost.innerHTML = `
+      <table>
+        <thead><tr><th>Nav Title</th><th>Slug</th><th>Actions</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    `;
+    tableHost.querySelectorAll('[data-edit-service]').forEach((btn) => {
+      btn.addEventListener('click', () => showServiceForm(window.__services[Number(btn.dataset.editService)]));
+    });
+    tableHost.querySelectorAll('[data-delete-service]').forEach((btn) => {
+      btn.addEventListener('click', () => deleteService(window.__services[Number(btn.dataset.deleteService)]));
+    });
+  } catch (err) {
+    tableHost.innerHTML = '';
+    showMsg(msg, false, err.message);
+  }
+}
+
+document.getElementById('add-service-btn').addEventListener('click', () => showServiceForm(null));
+document.getElementById('service-cancel-btn').addEventListener('click', () => showServiceList());
+
+function showServiceForm(service) {
+  document.getElementById('service-list-view').style.display = 'none';
+  document.getElementById('service-form-view').style.display = 'block';
+  document.getElementById('service-form-msg').className = 'msg';
+  const isEdit = !!service;
+  document.getElementById('service-form-title').textContent = isEdit ? 'Edit Service' : 'Add Service';
+  document.getElementById('service-id').value = isEdit ? service.id : '';
+  document.getElementById('service-slug').value = isEdit ? service.slug : '';
+  document.getElementById('service-slug').disabled = isEdit;
+  document.getElementById('service-navTitle').value = isEdit ? service.navTitle : '';
+  document.getElementById('service-cardTitle').value = isEdit ? service.cardTitle : '';
+  document.getElementById('service-cardText').value = isEdit ? service.cardText : '';
+  document.getElementById('service-pageTitle').value = isEdit ? service.pageTitle : '';
+  document.getElementById('service-seoTitle').value = isEdit ? service.seoTitle : '';
+  document.getElementById('service-heroImage').value = isEdit ? service.heroImage : '';
+  document.getElementById('service-contentJson').value = isEdit
+    ? JSON.stringify({ sections: service.sections, blocks: service.blocks || undefined }, null, 2)
+    : '{\n  "sections": [\n    { "heading": "", "paragraphs": [""], "image": "", "imageSide": "left" }\n  ]\n}';
+  document.getElementById('service-submit-btn').textContent = isEdit ? 'Save Changes' : 'Add Service';
+}
+
+function showServiceList() {
+  document.getElementById('service-form-view').style.display = 'none';
+  document.getElementById('service-list-view').style.display = 'block';
+  document.getElementById('service-form').reset();
+}
+
+async function deleteService(service) {
+  if (!confirm('Delete "' + service.navTitle + '"? This cannot be undone.')) return;
+  const msg = document.getElementById('services-msg');
+  try {
+    await callAdmin('delete_service.php', { id: service.id });
+    showMsg(msg, true, 'Deleted.');
+    loadServices();
+  } catch (err) {
+    showMsg(msg, false, err.message);
+  }
+}
+
+document.getElementById('service-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('service-submit-btn');
+  const msg = document.getElementById('service-form-msg');
+  const id = document.getElementById('service-id').value;
+  const isEdit = !!id;
+  msg.className = 'msg';
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  const fields = {
+    slug: document.getElementById('service-slug').value,
+    navTitle: document.getElementById('service-navTitle').value,
+    cardTitle: document.getElementById('service-cardTitle').value,
+    cardText: document.getElementById('service-cardText').value,
+    pageTitle: document.getElementById('service-pageTitle').value,
+    seoTitle: document.getElementById('service-seoTitle').value,
+    heroImage: document.getElementById('service-heroImage').value,
+    contentJson: document.getElementById('service-contentJson').value,
+  };
+
+  try {
+    if (isEdit) {
+      await callAdmin('update_service.php', { id: Number(id), ...fields });
+    } else {
+      await callAdmin('create_service.php', fields);
+    }
+    showMsg(msg, true, 'Saved.');
+    setTimeout(() => { showServiceList(); loadServices(); }, 700);
+  } catch (err) {
+    showMsg(msg, false, err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = isEdit ? 'Save Changes' : 'Add Service';
+  }
+});
+
+// --- Locations: list ---
+async function loadLocations() {
+  const msg = document.getElementById('locations-msg');
+  const tableHost = document.getElementById('locations-table');
+  msg.className = 'msg';
+  tableHost.textContent = 'Loading...';
+
+  try {
+    const res = await fetch('locations.php', { headers: { Accept: 'application/json' } });
+    const data = await readJsonResponse(res);
+    if (!res.ok) throw new Error(data.error || 'Failed to load locations.');
+    window.__locations = data;
+
+    if (!data.length) {
+      tableHost.innerHTML = '';
+      showMsg(msg, true, 'No locations yet.');
+      return;
+    }
+    const rows = data.map((l, i) => `
+      <tr>
+        <td>${escapeHtml(l.suburb)}</td>
+        <td>${escapeHtml(l.slug)}</td>
+        <td>
+          <a class="action-link" href="${SITE_URL}/${encodeURIComponent(l.slug)}" target="_blank" rel="noopener"><button type="button" class="small secondary">View</button></a>
+          <button type="button" class="small" data-edit-location="${i}">Edit</button>
+          <button type="button" class="small danger" data-delete-location="${i}">Delete</button>
+        </td>
+      </tr>
+    `).join('');
+    tableHost.innerHTML = `
+      <table>
+        <thead><tr><th>Suburb</th><th>Slug</th><th>Actions</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    `;
+    tableHost.querySelectorAll('[data-edit-location]').forEach((btn) => {
+      btn.addEventListener('click', () => showLocationForm(window.__locations[Number(btn.dataset.editLocation)]));
+    });
+    tableHost.querySelectorAll('[data-delete-location]').forEach((btn) => {
+      btn.addEventListener('click', () => deleteLocation(window.__locations[Number(btn.dataset.deleteLocation)]));
+    });
+  } catch (err) {
+    tableHost.innerHTML = '';
+    showMsg(msg, false, err.message);
+  }
+}
+
+document.getElementById('add-location-btn').addEventListener('click', () => showLocationForm(null));
+document.getElementById('location-cancel-btn').addEventListener('click', () => showLocationList());
+
+function showLocationForm(location) {
+  document.getElementById('location-list-view').style.display = 'none';
+  document.getElementById('location-form-view').style.display = 'block';
+  document.getElementById('location-form-msg').className = 'msg';
+  const isEdit = !!location;
+  document.getElementById('location-form-title').textContent = isEdit ? 'Edit Location' : 'Add Location';
+  document.getElementById('location-id').value = isEdit ? location.id : '';
+  document.getElementById('location-suburb').value = isEdit ? location.suburb : '';
+  document.getElementById('location-intro').value = isEdit ? location.intro : '';
+  document.getElementById('location-slug-hint').textContent = isEdit
+    ? 'URL: /' + location.slug + ' (fixed — not editable)'
+    : 'The URL will be generated automatically as /test-and-tag-in-<suburb>.';
+  document.getElementById('location-submit-btn').textContent = isEdit ? 'Save Changes' : 'Add Location';
+}
+
+function showLocationList() {
+  document.getElementById('location-form-view').style.display = 'none';
+  document.getElementById('location-list-view').style.display = 'block';
+  document.getElementById('location-form').reset();
+}
+
+async function deleteLocation(location) {
+  if (!confirm('Delete "' + location.suburb + '"? This cannot be undone.')) return;
+  const msg = document.getElementById('locations-msg');
+  try {
+    await callAdmin('delete_location.php', { id: location.id });
+    showMsg(msg, true, 'Deleted.');
+    loadLocations();
+  } catch (err) {
+    showMsg(msg, false, err.message);
+  }
+}
+
+document.getElementById('location-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('location-submit-btn');
+  const msg = document.getElementById('location-form-msg');
+  const id = document.getElementById('location-id').value;
+  const isEdit = !!id;
+  msg.className = 'msg';
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  const fields = {
+    suburb: document.getElementById('location-suburb').value,
+    intro: document.getElementById('location-intro').value,
+  };
+
+  try {
+    if (isEdit) {
+      await callAdmin('update_location.php', { id: Number(id), ...fields });
+    } else {
+      await callAdmin('create_location.php', fields);
+    }
+    showMsg(msg, true, 'Saved.');
+    setTimeout(() => { showLocationList(); loadLocations(); }, 700);
+  } catch (err) {
+    showMsg(msg, false, err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = isEdit ? 'Save Changes' : 'Add Location';
+  }
+});
+
+// --- Page SEO ---
+document.getElementById('seo-load-btn').addEventListener('click', async () => {
+  const msg = document.getElementById('seo-msg');
+  const formView = document.getElementById('seo-form-view');
+  const path = document.getElementById('seo-path').value.trim();
+  msg.className = 'msg';
+  formView.style.display = 'none';
+
+  if (!path.startsWith('/')) {
+    showMsg(msg, false, 'Path must start with / (e.g. /about-us).');
+    return;
+  }
+
+  try {
+    const res = await fetch('page_meta.php', { headers: { Accept: 'application/json' } });
+    const data = await readJsonResponse(res);
+    if (!res.ok) throw new Error(data.error || 'Failed to load page SEO data.');
+    const existing = data.find((row) => row.path === path);
+    document.getElementById('seo-title').value = existing ? existing.title : '';
+    document.getElementById('seo-description').value = existing ? existing.description : '';
+    formView.style.display = 'block';
+  } catch (err) {
+    showMsg(msg, false, err.message);
+  }
+});
+
+document.getElementById('seo-save-btn').addEventListener('click', async () => {
+  const btn = document.getElementById('seo-save-btn');
+  const msg = document.getElementById('seo-msg');
+  const path = document.getElementById('seo-path').value.trim();
+  msg.className = 'msg';
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  try {
+    await callAdmin('update_page_meta.php', {
+      path,
+      title: document.getElementById('seo-title').value,
+      description: document.getElementById('seo-description').value,
+    });
+    showMsg(msg, true, 'Saved.');
+  } catch (err) {
+    showMsg(msg, false, err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Save';
   }
 });
 

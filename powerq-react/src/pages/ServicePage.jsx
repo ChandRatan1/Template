@@ -2,12 +2,13 @@ import { useParams, Navigate, Link } from 'react-router-dom'
 import PageHero from '../components/PageHero/PageHero'
 import ContentBlocks from '../components/ContentBlocks/ContentBlocks'
 import ServiceSection from '../components/ServiceSection/ServiceSection'
-import { getServiceBySlug } from '../data/services'
+import { useCatalog } from '../context/CatalogContext'
 import { company } from '../data/siteData'
 import usePageSeo from '../hooks/usePageSeo'
 
 export default function ServicePage() {
   const { slug } = useParams()
+  const { getServiceBySlug } = useCatalog()
   const service = getServiceBySlug(slug)
 
   usePageSeo({ title: service?.seoTitle, description: service?.cardText, image: service?.heroImage })

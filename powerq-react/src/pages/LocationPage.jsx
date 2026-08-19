@@ -1,12 +1,13 @@
 import { useParams, Navigate, Link } from 'react-router-dom'
 import PageHero from '../components/PageHero/PageHero'
 import ServiceSection from '../components/ServiceSection/ServiceSection'
-import { getLocationBySlug } from '../data/locations'
-import { serviceNavLinks, company } from '../data/siteData'
+import { useCatalog } from '../context/CatalogContext'
+import { company } from '../data/siteData'
 import usePageSeo from '../hooks/usePageSeo'
 
 export default function LocationPage() {
   const { slug } = useParams()
+  const { getLocationBySlug, services } = useCatalog()
   const location = getLocationBySlug(slug)
 
   usePageSeo({
@@ -18,8 +19,8 @@ export default function LocationPage() {
     return <Navigate to="/" replace />
   }
 
-  const serviceLinks = serviceNavLinks.map(
-    (service) => `[${service.label}](${service.href}) available in ${location.suburb}.`,
+  const serviceLinks = services.map(
+    (service) => `[${service.navTitle}](/${service.slug}) available in ${location.suburb}.`,
   )
 
   return (

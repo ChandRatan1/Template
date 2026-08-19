@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero/PageHero'
 import { renderInline } from '../utils/inlineMarkup'
-import { getServiceBySlug } from '../data/services'
+import { useCatalog } from '../context/CatalogContext'
 import { company } from '../data/siteData'
 import usePageSeo from '../hooks/usePageSeo'
 import {
@@ -18,8 +18,6 @@ import {
   includedExcluded,
 } from '../data/smokeAlarm'
 import './SmokeAlarmPage.css'
-
-const service = getServiceBySlug('smoke-alarm-service-melbourne')
 
 function PlainAccordionItem({ item, isOpen, onToggle }) {
   return (
@@ -51,6 +49,8 @@ function PlainAccordionItem({ item, isOpen, onToggle }) {
 
 export default function SmokeAlarmPage() {
   const [openFaq, setOpenFaq] = useState(0)
+  const { getServiceBySlug } = useCatalog()
+  const service = getServiceBySlug('smoke-alarm-service-melbourne')
   usePageSeo({
     title: 'Smoke Alarm Installation & Testing in Melbourne | PowerQ',
     description: service.cardText,

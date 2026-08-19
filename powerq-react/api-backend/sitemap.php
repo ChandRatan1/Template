@@ -19,32 +19,13 @@ $staticPaths = [
     'blog',
 ];
 
-// Service page slugs, mirrored from src/data/services.js — update this list
-// if services are added/removed there.
-$servicePaths = [
-    'electrical-test-and-tag-in-melbourne',
-    'fire-extinguisher-melbourne',
-    'rcd-safety-switches-in-melbourne',
-    'three-phase-testing-melbourne',
-    'microwave-testing-in-melbourne',
-    'emergency-exit-light-testing-in-melbourne',
-    'smoke-alarm-service-melbourne',
-];
-
-// Local-area landing page slugs, mirrored from src/data/locations.js —
-// update this list if suburbs are added/removed there.
-$locationPaths = array_map(function ($suburb) {
-    return 'test-and-tag-in-' . $suburb;
-}, [
-    'ballarat', 'bendigo', 'brunswick', 'camberwell', 'campbellfield', 'carlton',
-    'clayton', 'coburg', 'craigieburn', 'cranbourne', 'dandenong', 'derrimut',
-    'docklands', 'doncaster', 'fitzroy', 'geelong', 'glen-waverley', 'glenroy',
-    'hallam', 'heidelberg', 'laverton', 'melbourne-cbd', 'port-melbourne', 'preston',
-    'somerton', 'springvale', 'sunshine-north', 'tarneit', 'thomastown', 'truganina',
-    'tullamarine', 'werribee', 'wyndham',
-]);
-
 $pdo = bg_pdo();
+
+// Services and locations are database-backed (admin-editable), so the
+// sitemap stays self-maintaining — no list to keep in sync here anymore.
+$servicePaths = array_column($pdo->query('SELECT slug FROM services ORDER BY id')->fetchAll(), 'slug');
+$locationPaths = array_column($pdo->query('SELECT slug FROM locations ORDER BY id')->fetchAll(), 'slug');
+
 $rows = $pdo->query("
     SELECT slug, updated_at
     FROM posts

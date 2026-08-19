@@ -19,20 +19,15 @@ export const socialLinks = [
   { label: 'LinkedIn', icon: 'fab fa-linkedin-in', href: 'https://www.linkedin.com/company/powerq-test-and-tag-melbourne/' },
 ]
 
-export const serviceNavLinks = [
-  { label: 'Electrical test and tag', href: '/electrical-test-and-tag-in-melbourne' },
-  { label: 'Fire Extinguishers', href: '/fire-extinguisher-melbourne' },
-  { label: 'RCD/Safety Switches', href: '/rcd-safety-switches-in-melbourne' },
-  { label: 'Three Phase Testing', href: '/three-phase-testing-melbourne' },
-  { label: 'Microwave Testing', href: '/microwave-testing-in-melbourne' },
-  { label: 'Emergency Exit Light Testing', href: '/emergency-exit-light-testing-in-melbourne' },
-  { label: 'Smoke Alarm Service', href: '/smoke-alarm-service-melbourne' },
-]
+// The "Service" nav item's children, and the footer's "Services" list, are
+// now built at render time from the live service catalog (see
+// CatalogContext / useCatalog) instead of a fixed list here — so a service
+// added via the admin panel automatically shows up in both places. Header.jsx
+// and Footer.jsx compose those dynamic pieces in with the static items below.
 
-export const navItems = [
+export const navItemsBase = [
   { label: 'Home', href: '/' },
   { label: 'About us', href: '/about-us' },
-  { label: 'Service', href: '#', children: serviceNavLinks },
   { label: 'Pricing', href: '/cost-of-test-tag-in-melbourne' },
   { label: 'Faq', href: '/faq' },
   { label: 'Request a Quote', href: '/request-a-quote' },
@@ -41,7 +36,6 @@ export const navItems = [
 ]
 
 export const footerLinks = {
-  services: serviceNavLinks.slice(1),
   general: [
     { label: 'Home', href: '/' },
     { label: 'About us', href: '/about-us' },

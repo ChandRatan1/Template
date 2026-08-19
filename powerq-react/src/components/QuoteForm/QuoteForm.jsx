@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { serviceNavLinks } from '../../data/siteData'
+import { useCatalog } from '../../context/CatalogContext'
 import { submitQuote } from '../../utils/quoteApi'
 
 // Excludes visually ambiguous characters (0/O, 1/I/L) so the code is easy to read back.
@@ -20,6 +20,7 @@ const NAME_PATTERN = /^[A-Za-z\s]+$/
 const initialFieldErrors = { name: '', email: '', phone: '', message: '', captcha: '' }
 
 export default function QuoteForm({ title = 'Request a free Quote', className = 'form-style1', showLabels = false, showMessage = true }) {
+  const { services } = useCatalog()
   const [form, setForm] = useState(initialForm)
   const [captcha, setCaptcha] = useState(createCaptcha)
   const [submitted, setSubmitted] = useState(false)
@@ -209,9 +210,9 @@ export default function QuoteForm({ title = 'Request a free Quote', className = 
             <option value="" disabled>
               Select a Service
             </option>
-            {serviceNavLinks.map((service) => (
-              <option value={service.label} key={service.label}>
-                {service.label}
+            {services.map((service) => (
+              <option value={service.navTitle} key={service.slug}>
+                {service.navTitle}
               </option>
             ))}
           </select>

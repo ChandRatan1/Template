@@ -1,10 +1,20 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { company, navItems } from '../../data/siteData'
+import { company, navItemsBase } from '../../data/siteData'
+import { useCatalog } from '../../context/CatalogContext'
 import useTheme from '../../hooks/useTheme'
 import './Header.css'
 
-function DesktopNav({ className }) {
+// Same position as before the Service dropdown became catalog-driven: after
+// "About us", before "Pricing".
+function buildNavItems(services) {
+  const serviceChildren = services.map((s) => ({ label: s.navTitle, href: `/${s.slug}` }))
+  const items = [...navItemsBase]
+  items.splice(2, 0, { label: 'Service', href: '#', children: serviceChildren })
+  return items
+}
+
+function DesktopNav({ className, navItems }) {
   // Tracks a menu item whose dropdown should be force-hidden right after a
   // submenu link is clicked, so only the destination page shows — the
   // dropdown doesn't linger open just because the mouse hasn't moved yet.
@@ -46,7 +56,7 @@ function DesktopNav({ className }) {
   )
 }
 
-function MobileNav({ openLabel, onToggle, onNavigate }) {
+function MobileNav({ openLabel, onToggle, onNavigate, navItems }) {
   return (
     <div className="vs-mobile-menu">
       <ul>
@@ -127,6 +137,8 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openLabel, setOpenLabel] = useState(null)
   const [theme, toggleTheme] = useTheme()
+  const { services } = useCatalog()
+  const navItems = buildNavItems(services)
 
   useEffect(() => {
     const onScroll = () => setIsSticky(window.scrollY > 200)
@@ -159,7 +171,7 @@ export default function Header() {
             </Link>
           </div>
           <SearchForm className="mobile-search-form" inputId="mobile-search" />
-          <MobileNav openLabel={openLabel} onToggle={toggleSubmenu} onNavigate={closeMenu} />
+          <MobileNav openLabel={openLabel} onToggle={toggleSubmenu} onNavigate={closeMenu} navItems={navItems} />
         </div>
       </div>
 
@@ -213,7 +225,7 @@ export default function Header() {
           <div className="container-fluid header-container">
             <div className="row align-items-center justify-content-between">
               <div className="col-auto">
-                <DesktopNav className="main-menu menu-style1 d-none d-lg-block" />
+                <DesktopNav className="main-menu menu-style1 d-none d-lg-block" navItems={navItems} />
               </div>
               <div className="col-auto d-none d-lg-block">
                 <SearchForm className="header-search-form" inputId="desktop-search" />

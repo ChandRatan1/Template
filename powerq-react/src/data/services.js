@@ -7,7 +7,7 @@
 export const services = [
   {
     slug: 'electrical-test-and-tag-in-melbourne',
-    navTitle: 'Electrical Test and Tag',
+    navTitle: 'Electrical test and tag',
     cardTitle: 'Electrical Test & Tag',
     cardText: 'Ensure safety and compliance with professional electrical cord test and tag services across Melbourne.',
     pageTitle: 'Electrical Cord Test and Tag in Melbourne',
