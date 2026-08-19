@@ -4,3 +4,6 @@
 <Files "config.sample.php">
   Require all denied
 </Files>
+<FilesMatch "\.sql$">
+  Require all denied
+</FilesMatch>
