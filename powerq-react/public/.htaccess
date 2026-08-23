@@ -262,4 +262,4 @@ RewriteRule ^smoke-alarm-service/?$ /smoke-alarm-service-melbourne [R=301,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+RewriteRule . /api-backend/render.php [L]
