@@ -1,11 +1,30 @@
-# Single-page app fallback: send any path that isn't a real file/folder to index.html
-# so React Router can handle client-side routes (e.g. /about-us, /blog/my-post).
 RewriteEngine On
 RewriteBase /
+
+# Force the canonical domain: www.powerq.com.au. Anything hitting the bare
+# domain gets 301-redirected to the same path under www, before any other
+# rule below runs.
+RewriteCond %{HTTP_HOST} ^powerq\.com\.au$ [NC]
+RewriteRule ^(.*)$ https://www.powerq.com.au/$1 [R=301,L]
+
+# Single-page app fallback: send any path that isn't a real file/folder to index.html
+# so React Router can handle client-side routes (e.g. /about-us, /blog/my-post).
 RewriteRule ^index\.html$ - [L]
 
 # Serve /sitemap.xml from the PHP backend so it always includes current blog posts.
 RewriteRule ^sitemap\.xml$ /api-backend/sitemap.php [L]
+
+# Legacy WordPress URLs for the 7 core service pages (old short slugs, e.g.
+# /electrical-test-tag/) 301-redirected to their real new URLs, so any old
+# indexed links/backlinks land on the correct live page instead of a
+# client-side JS redirect to the homepage.
+RewriteRule ^electrical-test-tag/?$ /electrical-test-and-tag-in-melbourne [R=301,L]
+RewriteRule ^fire-extinguisher-testing/?$ /fire-extinguisher-melbourne [R=301,L]
+RewriteRule ^rcd-safety-switches/?$ /rcd-safety-switches-in-melbourne [R=301,L]
+RewriteRule ^three-phase-testing/?$ /three-phase-testing-melbourne [R=301,L]
+RewriteRule ^microwave-testing/?$ /microwave-testing-in-melbourne [R=301,L]
+RewriteRule ^emergency-exit-light-testing/?$ /emergency-exit-light-testing-in-melbourne [R=301,L]
+RewriteRule ^smoke-alarm-service/?$ /smoke-alarm-service-melbourne [R=301,L]
 
 # Legacy WordPress local-SEO URLs (test-and-tag-<suburb>, cheap-test-and-tag-in-<suburb>,
 # etc.) 301-redirected to the one real suburb page at /test-and-tag-in-<suburb>

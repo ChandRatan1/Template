@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api-backend/
 Disallow: /search
 
-Sitemap: https://powerq.com.au/sitemap.xml
+Sitemap: https://www.powerq.com.au/sitemap.xml

@@ -5,7 +5,7 @@ import { useCatalog } from '../context/CatalogContext'
 // Canonical/OG URLs always point at the real production domain, regardless
 // of what host the page is actually being viewed from (localhost, etc.) —
 // that's standard practice for canonical tags.
-const SITE_ORIGIN = 'https://powerq.com.au'
+const SITE_ORIGIN = 'https://www.powerq.com.au'
 
 const DEFAULT_TITLE = 'PowerQ - Professional Test and Tag Services in Melbourne'
 const DEFAULT_DESCRIPTION =

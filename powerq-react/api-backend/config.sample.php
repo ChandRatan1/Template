@@ -12,10 +12,10 @@ return [
     // robots.txt via admin.php.
     'ADMIN_PASSWORD' => 'change-me',
 
-    // Public site URL, used to build sitemap.xml links. Use whichever of
-    // powerq.com.au / www.powerq.com.au is your actual canonical domain —
-    // powerq.com.au (no "www") is what's been used throughout local testing.
-    'SITE_URL' => 'https://powerq.com.au',
+    // Public site URL, used to build sitemap.xml links. www.powerq.com.au
+    // is the canonical domain — the bare domain 301-redirects to it (see
+    // public/.htaccess).
+    'SITE_URL' => 'https://www.powerq.com.au',
 
     // Where quote-form submissions get emailed.
     'QUOTE_EMAIL_TO' => 'info@powerq.com.au',
